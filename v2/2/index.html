@@ -116,6 +116,7 @@ a{color:inherit;text-decoration:none}
 .door .more p{font-size:16px;color:var(--mu2);margin-top:14px;max-width:480px}
 .door .more .ln{margin-top:18px;color:var(--cr)}
 @media(max-width:900px){.doors{flex-direction:column;height:auto}.door{height:220px;flex:none!important}.door.on{height:380px}}
+.door::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,16,.15) 0%,rgba(20,18,16,.55) 45%,rgba(20,18,16,.9) 100%);pointer-events:none}.door .n,.door .t{z-index:1}.door h3,.door .more p{text-shadow:0 2px 14px rgba(0,0,0,.6)}
 
 /* חטיבה */
 .div{padding:160px 0}
