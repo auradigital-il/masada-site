@@ -1,0 +1,86 @@
+/* תוספות לשלוש הסקיצות: חתימה, תפריט בטלפון, מסכים נעולים בגלילה */
+
+/* בטלפון: שום דבר לא גולש לרוחב (בלי זה הדף נפתח רחב יותר מהמסך ונחתך בצד) */
+html{overflow-x:hidden}
+/* חתימה: מקום לאותיות הגבוהות כדי שלא ייחתכו */
+.sig{line-height:1.35!important;padding:.32em .3em .18em;margin-inline:-.3em;overflow:visible}
+
+/* תפריט בטלפון: כפתור מימין למעלה */
+.mnav-btn{display:none}
+@media(max-width:1000px){
+  .mnav-btn{display:grid;place-items:center;position:fixed;top:12px;right:12px;z-index:96;width:46px;height:46px;border-radius:50%;border:1px solid var(--w-line);background:var(--w-bg);color:var(--w-fg);cursor:pointer;padding:0}
+  .mnav-btn i,.mnav-btn i::before,.mnav-btn i::after{display:block;width:18px;height:1.5px;background:currentColor;position:relative;transition:transform .35s,background .35s}
+  .mnav-btn i::before,.mnav-btn i::after{content:"";position:absolute;right:0}
+  .mnav-btn i::before{top:-6px}.mnav-btn i::after{top:6px}
+  .mnav-btn[aria-expanded=true] i{background:transparent}
+  .mnav-btn[aria-expanded=true] i::before{transform:translateY(6px) rotate(45deg)}
+  .mnav-btn[aria-expanded=true] i::after{transform:translateY(-6px) rotate(-45deg)}
+  .nav{padding-right:70px!important}
+}
+.mnav{position:fixed;inset:0;z-index:95;background:var(--w-bg);color:var(--w-fg);display:flex;flex-direction:column;justify-content:center;padding:90px 32px 120px;clip-path:circle(0 at calc(100% - 35px) 35px);transition:clip-path .7s cubic-bezier(.7,0,.2,1),visibility 0s .7s;visibility:hidden}
+.mnav.on{clip-path:circle(150% at calc(100% - 35px) 35px);visibility:visible;transition:clip-path .7s cubic-bezier(.7,0,.2,1)}
+.mnav .who{font-size:13px;opacity:.6;margin-bottom:18px;letter-spacing:.06em}
+.mnav a.it{font-family:var(--w-display,inherit);font-size:clamp(30px,8vw,44px);line-height:1.25;padding:12px 0;border-bottom:1px solid var(--w-line);display:flex;justify-content:space-between;align-items:center;color:inherit;text-decoration:none;opacity:0;transform:translateX(40px);transition:opacity .5s,transform .5s}
+.mnav a.it span{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.3em;opacity:.5}
+.mnav.on a.it{opacity:1;transform:none}
+.mnav .wa{margin-top:30px;display:flex;justify-content:center;align-items:center;gap:10px;background:#25D366;color:#fff;border-radius:999px;padding:16px;font-weight:600;text-decoration:none}
+.mnav .wa svg{width:22px;height:22px}
+
+/* מסך "נעים להכיר" נעול: התמונה נחשפת והשורות נכנסות */
+[data-wow=meet] .wl{will-change:transform,opacity}
+@media(min-width:901px){
+  [data-wow=meet]>.wrap{padding:90px 0 40px!important}
+  [data-wow=meet] h2{font-size:min(5.6vw,8.4vh)!important;line-height:1.08}
+  [data-wow=meet] p{font-size:min(1.7vw,2.9vh)!important;margin-top:min(20px,2.2vh)!important}
+  [data-wow=meet] .sig{font-size:min(6vw,9vh)!important;margin-top:4px!important}
+  [data-wow=meet] [data-wp]{max-height:72vh;max-width:72vh;justify-self:center;width:100%}
+}
+/* כותרת ענקית שמתכווצת למקום */
+.wow-shrink{position:relative;height:100vh;height:100svh;overflow:hidden;display:grid;place-items:center;text-align:center}
+.wow-shrink .wbg{position:absolute;inset:0}
+.wow-shrink .wbg img{width:100%;height:100%;object-fit:cover}
+.wow-shrink .wsh{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.35),rgba(0,0,0,.8))}
+.wow-shrink .wt{position:relative;z-index:1;padding:0 20px;will-change:transform}
+/* חשיפה בעיגול */
+.wow-circle{position:relative;height:100vh;height:100svh;overflow:hidden}
+.wow-circle .wc{position:absolute;inset:0;clip-path:circle(12% at 50% 50%)}
+.wow-circle .wc img{width:100%;height:100%;object-fit:cover}
+.wow-circle .wcs{position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(0,0,0,.8));opacity:0}
+.wow-circle .wct{position:absolute;inset:auto 0 12vh;text-align:center;padding:0 20px;opacity:0;color:#F3ECE0}
+
+/* טופס פנייה */
+.cform{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:center;width:min(1180px,100% - 48px);margin:0 auto;padding:clamp(80px,12vh,140px) 0;color:var(--w-fg)}
+.cform .cf-k{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.45em;color:var(--w-acc)}
+.cform h2{font-family:var(--w-display,inherit);font-weight:300;font-size:clamp(36px,4.4vw,68px);line-height:1.1;margin-top:14px}
+.cform h2 b{font-weight:700;color:var(--cf-acc,var(--w-acc))}
+.cform .cf-head p{opacity:.65;margin-top:14px;font-size:18px}
+.cform form{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:clamp(22px,3vw,36px);border:1px solid var(--w-line);border-radius:18px;background:color-mix(in srgb,var(--w-bg) 80%,transparent);backdrop-filter:blur(10px)}
+.cform label{display:flex;flex-direction:column;gap:6px;font-size:14px;opacity:.9}
+.cform .full,.cform .cf-topics,.cform .cf-send{grid-column:1/-1}
+.cform input:not([type=radio]):not([type=checkbox]),.cform textarea{font:inherit;font-size:16px;color:inherit;background:transparent;border:1px solid var(--w-line);border-radius:10px;padding:13px 14px;outline:none;transition:border-color .2s}
+.cform input:focus,.cform textarea:focus{border-color:var(--w-acc)}
+.cform .cf-topics{display:flex;flex-wrap:wrap;gap:8px}
+.cform .cf-topics label{flex-direction:row;cursor:pointer}
+.cform .cf-topics input{position:absolute;opacity:0;pointer-events:none}
+.cform .cf-topics span{padding:9px 15px;border:1px solid var(--w-line);border-radius:999px;font-size:14px;transition:.25s}
+.cform .cf-topics input:checked+span{background:var(--w-acc);color:var(--w-acc-fg);border-color:var(--w-acc)}
+.cform .cf-topics input:focus-visible+span{outline:2px solid var(--w-acc);outline-offset:2px}
+.cform .cf-ok{flex-direction:row;align-items:center;gap:10px;font-size:13px}
+.cform .cf-ok input{width:18px;height:18px;accent-color:var(--w-acc)}
+.cform .cf-send{font:inherit;font-weight:700;font-size:17px;padding:16px;border:0;border-radius:999px;background:var(--w-acc);color:var(--w-acc-fg);cursor:pointer;transition:transform .2s}
+.cform .cf-send:hover{transform:translateY(-2px)}
+.cform .cf-err{color:#e2736a;font-size:14px}
+.cform.sent form::after{content:"תודה! הפנייה נפתחה בוואטסאפ של רועי";grid-column:1/-1;text-align:center;font-size:18px;color:var(--w-acc)}
+@media(max-width:900px){.cform{grid-template-columns:1fr;width:calc(100% - 32px)}.cform form{grid-template-columns:1fr}}
+
+/* בטלפון: ההנפשה של ההתחדשות גדולה יותר */
+@media(max-width:700px){
+  .ra-svg svg{max-height:none;width:118%;margin-inline:-9%}
+  .renew{height:440vh}
+}
+
+/* סרטון ההתחדשות העירונית עם כפתור סאונד */
+.vid{position:relative;overflow:hidden;border-radius:inherit}
+.vid video{width:100%;height:100%;object-fit:cover;display:block}
+.vid .snd{position:absolute;bottom:14px;right:14px;font:600 14px/1 'Heebo',sans-serif;padding:10px 16px;border-radius:999px;border:0;background:rgba(0,0,0,.65);color:#fff;cursor:pointer;backdrop-filter:blur(6px)}
+.chapter .media.vid{aspect-ratio:4/5}.chapter .media.vid video{object-position:30% 50%}

@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@200;300;400&family=Heebo:wght@200;300;400;500&family=Montserrat:wght@200;300;400&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../common.css">
+<link rel="stylesheet" href="../../wow.css">
 <style>
 :root{
   --ch:#151413;--ch2:#1E1C1A;--cr:#EFE8DC;--cr2:#E6DDCE;--ink:#1B1917;--mu:#6E665C;--mu2:rgba(239,232,220,.6);--g:#B8925A;--g2:#D8BC8C;--ln:rgba(27,25,23,.14);--ln2:rgba(239,232,220,.14);
@@ -76,7 +77,9 @@ a{color:inherit;text-decoration:none}
 #hero .hp .sig{font-size:clamp(30px,2.6vw,42px);margin-top:6px;color:var(--g2)}
 @media(max-width:900px){#hero .hp{display:none}}
 /* נעים להכיר */
-#meet{padding:170px 0 40px}
+#meet{padding:0;min-height:100vh;display:flex;align-items:center}
+#meet>.wrap{padding:110px 0 60px}
+#meet .ph{overflow:hidden}#meet .ph img{width:100%;height:100%;object-fit:cover}
 #meet .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px;align-items:center}
 #meet .ph{aspect-ratio:4/5}
 #meet h2{font-size:clamp(52px,6.4vw,110px)}
@@ -148,7 +151,8 @@ a{color:inherit;text-decoration:none}
 @media(max-width:900px){.steps{grid-template-columns:1fr;gap:30px}.steps .side{position:relative;top:0}}
 
 /* מספרים */
-#nums{padding:150px 0 120px;text-align:center}
+#nums{padding:0;min-height:100vh;display:flex;align-items:center;text-align:center}
+#nums>.wrap{padding:100px 0}
 .nums{display:grid;grid-template-columns:repeat(3,1fr)}
 .nums>div{padding:10px 30px;border-inline-start:1px solid var(--ln2)}
 .nums>div:first-child{border:0}
@@ -213,7 +217,7 @@ footer{background:var(--ch);color:var(--mu2);font-size:13px;letter-spacing:.03em
 <div id="veil" aria-hidden="true"><div class="vn" style="color:var(--cr);transform:scale(1.6)"><span class="me"><span class="dm"></span><span><b>רועי יהודה</b><small>REAL ESTATE · SINCE 2008</small></span></span></div><div class="bar"><i></i></div></div>
 
 <header class="nav" id="nav">
-  <nav class="l" aria-label="ניווט ראשי"><a href="#meet">נעים להכיר</a><a href="#group">מה אני עושה</a><a href="#story">הסיפור שלי</a><a href="#guides">מדריכים</a><a href="https://m26.co.il" target="_blank" rel="noopener">M26</a></nav>
+  <nav class="l" aria-label="ניווט ראשי"><a href="#meet">נעים להכיר</a><a href="#group">מה אני עושה</a><a href="#story">הסיפור שלי</a><a href="#guides">מדריכים</a><a href="#contact">צור קשר</a><a href="https://m26.co.il" target="_blank" rel="noopener">M26</a></nav>
   <a href="#hero" class="me" aria-label="רועי יהודה, תיווך נדל״ן"><span class="dm"></span><span><b>רועי יהודה</b><small>REAL ESTATE · SINCE 2008</small></span></a>
   <div class="r"><a data-wa href="#">פנייה אישית לרועי</a></div>
 </header>
@@ -232,24 +236,27 @@ footer{background:var(--ch);color:var(--mu2);font-size:13px;letter-spacing:.03em
   </div>
 </section>
 
-<section id="meet">
+<section id="meet" data-wow="meet">
   <div class="wrap grid">
-    <div class="ph reveal"><img src="../../media/roei-face.jpg" alt="רועי יהודה"></div>
+    <div class="ph" data-wp><img src="../../media/roei-face.jpg" alt="רועי יהודה"></div>
     <div>
-      <span class="cap fx">NICE TO MEET YOU</span>
-      <h2 class="serif fx" style="margin-top:18px">נעים להכיר<br><em>אני רועי יהודה</em></h2>
-      <p class="fx">למעלה מ־20 שנה אני מתווך נדל״ן פרטי ומסחרי, בארץ ובעולם<br>מחבר בין אנשים, עסקים ונכסים, בדיסקרטיות מוחלטת</p>
-      <p class="fx">מגשים חלומות, מקרב לבבות<br><em>וסוגר את העסקאות בשקט, כי עסקה טובה לא זקוקה לרעש</em></p>
-      <div class="sig fx">Roei Yehuda</div>
-      <div class="acts fx"><a class="pill" data-wa href="#">פנייה אישית לרועי</a><a class="ln" href="#story">הסיפור שלי ←</a></div>
+      <span class="cap" data-wl>NICE TO MEET YOU</span>
+      <h2 class="serif" data-wl style="margin-top:18px">נעים להכיר<br><em>אני רועי יהודה</em></h2>
+      <p data-wl>למעלה מ־20 שנה אני מתווך נדל״ן פרטי ומסחרי, בארץ ובעולם<br>מחבר בין אנשים, עסקים ונכסים, בדיסקרטיות מוחלטת</p>
+      <p data-wl>מגשים חלומות, מקרב לבבות<br><em>וסוגר את העסקאות בשקט, כי עסקה טובה לא זקוקה לרעש</em></p>
+      <div class="sig" data-wl>Roei Yehuda</div>
+      <div class="acts" data-wl><a class="pill" data-wa href="#">פנייה אישית לרועי</a><a class="ln" href="#story">הסיפור שלי ←</a></div>
     </div>
   </div>
 </section>
 
-<section class="intro" id="group" data-pop>
+<section class="wow-shrink" data-wow="shrink" aria-label="20 שנות פעילות">
+  <div class="wbg"><img src="../../media/tlv-night.jpg" alt=""></div><div class="wsh"></div>
+  <div class="wt" style="color:var(--cr)"><span class="cap">WHAT I DO</span><p class="serif" style="font-size:clamp(44px,6.6vw,120px);line-height:1.08;margin-top:20px">20 שנות פעילות<br>בלב הנדל״ן הישראלי<br><em style="font-style:normal;color:var(--g2)">ב־3 תחומים</em></p></div>
+</section>
+
+<section class="intro" id="group" data-pop style="padding-top:90px">
   <div class="wrap">
-    <span class="cap fx">WHAT I DO</span>
-    <p class="big fx">20 שנות פעילות<br>בלב הנדל״ן הישראלי<br><em>ב־3 תחומים</em></p>
     <p class="byline fx" style="justify-content:center;display:flex;margin-top:22px">את הפעילות אני מוביל דרך קבוצת מצדה, שהקמתי ב־2008 <img src="../../media/logo-ink.svg" alt="קבוצת מצדה"></p>
     <div class="doors" id="doors">
       <button class="door on" data-go="#d1"><img src="../../media/tlv-night.jpg" alt=""><span class="n">01</span><span class="t"><span class="lead-tag">MAIN ACTIVITY · הפעילות המרכזית</span><h3>תיווך ושיווק נכסים פרטיים ומסחריים בארץ ובעולם</h3><span class="more"><p>למעלה מ־20 שנות ניסיון<br>חיבורים עסקיים בין בכירים, בדיסקרטיות מוחלטת</p><span class="ln">לחטיבה ←</span></span></span></button>
@@ -295,7 +302,7 @@ footer{background:var(--ch);color:var(--mu2);font-size:13px;letter-spacing:.03em
         <p class="fx">כדי לצלוח דרך זו בצורה הטובה ביותר יש צורך בגורם חיצוני מנהל מטעם בעלי הדירות<br>אשר ינצח על תזמורת בעלי האינטרסים שבפרויקט, ובראשם בעלי הדירות והיזם</p>
         <p class="fx"><b>וזהו תפקידנו</b><br><b>ואת השכר שלנו ישלם רק בסוף היזם שייבחר</b></p>
       </div>
-      <div class="ph reveal"><img src="../../media/terraces.jpg" alt=""><span class="tag">כאן ירוץ סרטון מהכנסים ומהפרויקטים</span></div>
+      <div class="ph vid" style="aspect-ratio:16/10;position:sticky;top:120px;overflow:hidden"><video src="../../media/renewal-film.mp4" poster="../../media/renewal-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="סרטון מפרויקט התחדשות עירונית של רועי"></video><button class="snd" data-snd type="button">🔈 להפעלה עם סאונד</button></div>
     </div>
 
     <section class="renew" data-renew aria-label="החזון: מהבניין הישן אל הדירה החדשה" style="margin-top:80px"></section>
@@ -350,18 +357,23 @@ footer{background:var(--ch);color:var(--mu2);font-size:13px;letter-spacing:.03em
 </section>
 
 <div class="dark">
-<section id="nums">
+<section id="nums" data-wow="stats">
   <div class="wrap">
     <span class="cap">IN NUMBERS</span>
     <div class="nums" style="margin-top:60px">
-      <div class="fx"><div class="n"><span data-count="20">0</span><sup>+</sup></div><p>שנות ניסיון<br>אלפי עסקאות נדל״ן</p></div>
-      <div class="fx"><div class="n"><span data-count="16">0</span></div><p>פרויקטים של התחדשות עירונית<br>בליווי שלנו</p></div>
-      <div class="fx"><div class="n"><span data-count="8">0</span></div><p>מדינות<br>עם הזדמנויות נדל״ן</p></div>
+      <div data-wi><div class="n"><span data-count="20">0</span><sup>+</sup></div><p>שנות ניסיון<br>אלפי עסקאות נדל״ן</p></div>
+      <div data-wi><div class="n"><span data-count="16">0</span></div><p>פרויקטים של התחדשות עירונית<br>בליווי שלנו</p></div>
+      <div data-wi><div class="n"><span data-count="8">0</span></div><p>מדינות<br>עם הזדמנויות נדל״ן</p></div>
     </div>
     <div data-flags-run></div>
   </div>
 </section>
 </div>
+
+<section class="wow-circle" data-wow="circle" aria-label="הסיפור שלי">
+  <div class="wc"><img src="../../media/roei.jpg" alt="" style="object-position:60% 22%"></div><div class="wcs"></div>
+  <div class="wct"><span class="cap" style="color:var(--g2)">MY STORY</span><p class="serif" style="font-size:clamp(36px,5.4vw,90px);margin-top:16px">הסיפור שלי לא התחיל מנדל״ן<br><em style="font-style:normal;color:var(--g2)">הוא התחיל מאנשים</em></p></div>
+</section>
 
 <section id="story">
   <div class="wrap">
@@ -405,6 +417,8 @@ footer{background:var(--ch);color:var(--mu2);font-size:13px;letter-spacing:.03em
   </div>
 </section>
 
+<section data-form id="contact" style="--w-bg:#151413;--w-fg:#EFE8DC;--w-line:rgba(239,232,220,.2);--w-acc:#D8BC8C;--w-acc-fg:#1B1917;--w-display:'Noto Serif Hebrew'"></section>
+
 <section id="end">
   <div class="wrap">
     <div class="sig fx" style="font-size:clamp(64px,7vw,110px);color:var(--g2)">Roei Yehuda</div>
@@ -424,12 +438,13 @@ footer{background:var(--ch);color:var(--mu2);font-size:13px;letter-spacing:.03em
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="../../common.js"></script>
 <script src="../../renew.js"></script>
+<script src="../../wow.js"></script>
 <script>
 (() => {
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 gsap.registerPlugin(ScrollTrigger);
 let lenis;
-if (!reduce && window.Lenis){ lenis = new Lenis({lerp:.07}); lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0); }
+if (!reduce && window.Lenis){ lenis = window.__lenis = new Lenis({lerp:.07}); lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0); }
 const go = sel => { const t = document.querySelector(sel); if (!t) return; lenis ? lenis.scrollTo(t, {offset:-40, duration:1.8}) : t.scrollIntoView({behavior:'smooth'}); };
 document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { if (document.querySelector(a.getAttribute('href'))){ e.preventDefault(); go(a.getAttribute('href')); } }));
 

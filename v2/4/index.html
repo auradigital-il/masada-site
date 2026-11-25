@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>רועי יהודה · תיווך נדל״ן · סקיצה 4 · סרט אחד</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&family=Montserrat:wght@200;300&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../common.css">
+<link rel="stylesheet" href="../../wow.css">
+<style>
+:root{
+  --ink:#08100d;--ink-2:#0e1813;--ink-3:#15221b;--line:rgba(212,176,106,.22);
+  --gold:#d4b06a;--gold-2:#f0dca6;--gold-3:#a8823f;--cream:#efe9dc;--muted:rgba(239,233,220,.68);
+  --serif:'Frank Ruhl Libre',Georgia,serif;--sans:'Heebo',system-ui,sans-serif;--gutter:clamp(16px,5vw,72px);
+  --w-bg:#0e1813;--w-fg:#efe9dc;--w-acc:#d4b06a;--w-acc-fg:#1a1306;--w-line:rgba(212,176,106,.3);--w-font:'Heebo';--w-display:'Frank Ruhl Libre'
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--cream);font-family:var(--sans);line-height:1.7;overflow-x:clip}
+img,video,canvas{display:block}
+a{color:inherit;text-decoration:none}
+.gold{background:linear-gradient(180deg,var(--gold-2) 0%,var(--gold) 55%,var(--gold-3) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eb{font:500 12px/1.4 'Montserrat',sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);direction:ltr;unicode-bidi:isolate}
+.txt .eb,.deals-head .eb,section.block>.eb,.detail .eb,.story .eb{text-align:right}
+.h-xl{font-family:var(--serif);font-weight:900;line-height:1;font-size:clamp(46px,8.4vw,132px)}
+.h-l{font-family:var(--serif);font-weight:900;line-height:1.05;font-size:clamp(36px,5.8vw,90px)}
+.lead{font-size:clamp(17px,1.6vw,22px);font-weight:300;color:var(--muted);max-width:38ch}
+.line{display:block;will-change:transform,opacity}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 15px/1 var(--sans);border:0;border-radius:999px;padding:15px 26px;color:#1a1306;background:linear-gradient(180deg,var(--gold-2),var(--gold) 60%,#c29a52);cursor:pointer}
+.btn.gh{background:transparent;color:var(--cream);border:1px solid var(--line)}
+
+/* ניווט */
+.nav{position:fixed;inset:max(14px,env(safe-area-inset-top)) var(--gutter) auto max(var(--gutter),76px);z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:9px 12px 9px 18px;border:1px solid var(--line);border-radius:999px;background:rgba(8,16,13,.55);backdrop-filter:blur(14px);transition:opacity .4s,transform .4s}
+.nav.hide{opacity:0;transform:translateY(-12px);pointer-events:none}
+.nav ul{display:flex;gap:24px;list-style:none;font-size:15px}
+.nav ul a{color:var(--muted)}.nav ul a:hover{color:var(--gold-2)}
+.nav .btn{padding:11px 20px;font-size:14px}
+@media(max-width:1000px){.nav ul,.nav .btn{display:none}.nav{inset:12px 66px auto 64px;padding:8px 14px!important;justify-content:center}}
+.progress{position:fixed;left:max(14px,calc(var(--gutter) - 30px));top:50%;z-index:40;width:3px;height:150px;margin-top:-75px;border-radius:3px;background:rgba(239,233,220,.12);overflow:hidden}
+.progress i{position:absolute;inset:0;transform-origin:top;transform:scaleY(0);background:linear-gradient(var(--gold-2),var(--gold))}
+@media(max-width:700px){.progress{display:none}}
+
+/* הסרט */
+#film{position:relative;height:1500vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--ink)}
+.layer{position:absolute;inset:0;will-change:opacity}
+.cover{width:100%;height:100%;object-fit:cover}
+.shade{position:absolute;inset:0;pointer-events:none}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%}
+.st{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 var(--gutter);gap:18px}
+.intro{align-items:center;text-align:center;justify-content:flex-end;padding-bottom:max(36px,7vh);gap:12px}
+.intro .small{font-size:14px;color:var(--muted)}
+.hint{display:inline-flex;align-items:center;gap:10px;margin-top:8px;font-size:13px;color:var(--muted)}
+.hint span{width:22px;height:36px;border:1px solid var(--line);border-radius:12px;position:relative}
+.hint span::after{content:"";position:absolute;left:50%;top:8px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--gold);animation:wh 1.8s infinite}
+@keyframes wh{0%{opacity:0;transform:translateY(-3px)}30%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+.two{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:clamp(24px,5vw,90px);padding:80px var(--gutter) 40px}
+.two .txt{display:flex;flex-direction:column;gap:16px}
+.two .h-xl{font-size:min(6.6vw,10vh)}
+.tw2{grid-template-columns:.85fr 1.15fr}
+@media(max-width:900px){.tw2{grid-template-columns:1fr}.nav .me small{display:none}.zero{padding:12px 14px}.zero strong{font-size:40px}}
+.two .h-l,.deals-head .h-l{font-size:min(5vw,8vh)}
+@media(max-width:900px){.two .h-l,.deals-head .h-l{font-size:min(10vw,6vh)}.two .h-xl{font-size:min(11vw,7vh)}}
+.portrait{justify-self:start;height:min(70svh,600px);aspect-ratio:4/5;max-width:100%;border-radius:6px;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.55);position:relative}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.portrait::after{content:"";position:absolute;inset:0;border:1px solid var(--line);border-radius:6px}
+.sigs{font-family:'Mrs Saint Delafield',cursive;font-size:clamp(48px,5vw,84px);direction:ltr;text-align:right}
+.checks{list-style:none;display:flex;flex-direction:column;gap:clamp(8px,1.5vh,16px)}
+.checks li{display:flex;align-items:center;gap:16px;font-family:var(--serif);font-weight:700;font-size:clamp(26px,3.2vw,48px);line-height:1.1}
+.checks li b{flex:none;display:grid;place-items:center;width:clamp(32px,3vw,44px);height:clamp(32px,3vw,44px);border:1px solid var(--gold);border-radius:50%;font:600 16px/1 var(--sans);color:var(--gold)}
+.frame{justify-self:end;position:relative;height:min(66svh,620px);aspect-ratio:3/4;border-radius:6px;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.6)}
+.frame video{width:100%;height:100%;object-fit:cover}
+.frame::after{content:"";position:absolute;inset:0;border:1px solid var(--line);border-radius:6px;pointer-events:none}
+.wide{justify-self:end;width:min(52vw,820px);aspect-ratio:16/9;border-radius:6px;overflow:hidden;position:relative;box-shadow:0 40px 120px rgba(0,0,0,.6)}
+.wide video{width:100%;height:100%;object-fit:cover}
+.wide .snd{position:absolute;bottom:12px;right:12px;font:600 13px/1 var(--sans);padding:9px 14px;border-radius:999px;border:0;background:rgba(0,0,0,.65);color:#fff;cursor:pointer;pointer-events:auto}
+.zero{display:flex;align-items:center;gap:18px;border:1px solid var(--gold);border-radius:6px;padding:16px 20px;background:rgba(212,176,106,.08)}
+.zero strong{font-family:var(--serif);font-weight:900;font-size:clamp(44px,5vw,70px);line-height:1}
+.nums{align-items:center;text-align:center;gap:clamp(18px,4vh,40px)}
+.nums .row{display:flex;justify-content:center;gap:clamp(24px,7vw,120px);flex-wrap:wrap}
+.num{display:flex;flex-direction:column;align-items:center;gap:6px}
+.num strong{font-family:var(--serif);font-weight:900;font-size:clamp(64px,10vw,150px);line-height:.9;direction:ltr}
+.num span{font-size:clamp(14px,1.3vw,18px)}
+.nums .flags span{background:rgba(8,16,13,.5)}
+.deals-head{position:absolute;top:clamp(90px,15vh,150px);inset-inline:var(--gutter);display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.track{position:absolute;bottom:clamp(36px,8vh,80px);right:0;display:flex;gap:clamp(14px,2vw,28px);padding-inline:var(--gutter);will-change:transform}
+.card{flex:none;position:relative;height:min(44svh,460px);aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--ink-3)}
+.card img{width:100%;height:100%;object-fit:cover}
+.card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(8,16,13,.92));z-index:1}
+.card .info{position:absolute;inset:auto 0 0;z-index:2;padding:22px;display:flex;flex-direction:column;gap:6px}
+.card .co{font-size:12px;letter-spacing:.24em;color:var(--gold)}
+.card h3{font-family:var(--serif);font-weight:700;font-size:clamp(22px,2.1vw,30px);line-height:1.1}
+.card .lock{position:absolute;top:14px;left:14px;z-index:2;font-size:12px;padding:7px 12px;border-radius:999px;background:rgba(8,16,13,.6);border:1px solid var(--line)}
+@media(max-width:900px){
+  .two{grid-template-columns:1fr;align-content:center;gap:22px;padding:84px 18px 30px}
+  .portrait{height:38svh;justify-self:center}
+  .frame{height:34svh;justify-self:center;order:-1}
+  .wide{width:100%;order:-1}
+  .checks li{font-size:24px}
+  .two .txt{gap:10px}
+  .two .lead{font-size:16px}
+}
+
+/* אחרי הסרט */
+section.block{position:relative;padding:clamp(80px,13vh,150px) var(--gutter)}
+.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px}
+.fd{position:relative;height:min(58vh,520px);border-radius:6px;overflow:hidden;display:block}
+.fd img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55);transition:transform 1.2s,filter .6s}
+.fd:hover img{transform:scale(1.05);filter:brightness(.7)}
+.fd::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(8,16,13,.94))}
+.fd .t{position:absolute;inset:auto 24px 26px;z-index:1}
+.fd .n{font-family:var(--serif);font-weight:900;font-size:56px;line-height:1}
+.fd h3{font-family:var(--serif);font-weight:700;font-size:clamp(22px,2vw,30px);line-height:1.2;margin-top:8px}
+.fd .go{display:inline-block;margin-top:14px;color:var(--gold-2);font-size:15px;border-bottom:1px solid var(--line)}
+.fd.main{outline:1px solid var(--gold);outline-offset:-1px}
+@media(max-width:900px){.fields{grid-template-columns:1fr}.fd{height:300px}}
+.detail{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,90px);align-items:start;border-top:1px solid var(--line)}
+.detail p{color:var(--muted);margin-top:16px;font-size:19px}
+.detail p b{color:var(--cream)}
+.detail .lead2{font-family:var(--serif);font-weight:700;font-size:clamp(22px,2.2vw,32px);line-height:1.35;color:var(--cream)}
+.detail h4{font-family:var(--serif);font-weight:700;font-size:28px;color:var(--gold-2);margin-top:44px}
+.stp{list-style:none;counter-reset:s;margin-top:18px}
+.stp li{counter-increment:s;display:grid;grid-template-columns:56px 1fr;padding:14px 0;border-top:1px solid var(--line);color:var(--cream)}
+.stp li::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);font-weight:900;font-size:26px;color:var(--gold)}
+.sticky{position:sticky;top:110px}
+.sticky img,.sticky video{width:100%;border-radius:6px}
+@media(max-width:900px){.detail{grid-template-columns:1fr}.sticky{position:relative;top:0}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.story{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,90px);align-items:start;background:var(--ink-2);border-top:1px solid var(--line)}
+.story .ph{position:sticky;top:100px;border-radius:6px;overflow:hidden;aspect-ratio:4/5}
+.story .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.story p{color:var(--muted);margin-top:16px;font-size:19px}
+.story h3{font-family:var(--serif);font-weight:700;font-size:28px;color:var(--gold-2);margin-top:44px}
+.story .q{margin-top:50px;font-family:var(--serif);font-weight:900;font-size:clamp(30px,3.4vw,52px);line-height:1.15}
+@media(max-width:900px){.story{grid-template-columns:1fr}.story .ph{position:relative;top:0}}
+.gcards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.gc{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--ink-2);display:flex;flex-direction:column}
+.gc img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.gc .b{padding:22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.gc .k{font-size:13px;color:var(--gold)}
+.gc h3{font-family:var(--serif);font-weight:700;font-size:23px;line-height:1.3}
+.gc p{color:var(--muted);font-size:15px;flex:1}
+@media(max-width:900px){.gcards{grid-template-columns:1fr}}
+footer{padding:40px var(--gutter) 120px;border-top:1px solid var(--line);text-align:center;font-size:14px;color:var(--muted)}
+.cform{--cf-acc:var(--gold-2)}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a href="#top" class="me" aria-label="רועי יהודה, תיווך נדל״ן"><span class="dm"></span><span><b>רועי יהודה</b><small>REAL ESTATE · SINCE 2008</small></span></a>
+  <nav aria-label="ניווט ראשי"><ul><li><a href="#film">הסיפור</a></li><li><a href="#fields">מה אני עושה</a></li><li><a href="#story">הסיפור שלי</a></li><li><a href="#guides">מדריכים</a></li><li><a href="#contact">צור קשר</a></li></ul></nav>
+  <a class="btn" data-wa href="#">פנייה אישית לרועי</a>
+</header>
+<div class="progress" id="progress" aria-hidden="true"><i></i></div>
+
+<main id="top">
+<section id="film" aria-label="הסיפור של רועי בגלילה">
+  <div class="stage">
+
+    <!-- 1 · השם של רועי הוא חלון לתמונה, ובגלילה נפתח למסך מלא -->
+    <div class="layer" id="sIntro">
+      <canvas id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="st intro" id="introText">
+        <span class="eb">ROEI YEHUDA · REAL ESTATE</span>
+        <h1 class="h-l">הצל <span class="gold">שמאחורי העסקאות</span></h1>
+        <p class="lead">עסקאות גדולות נסגרות בלחישה</p>
+        <p class="small">תיווך נדל״ן פרטי ומסחרי בארץ ובעולם · מאז 2008 בלב הנדל״ן הישראלי · מייסד קבוצת מצדה</p>
+        <div class="hint"><span></span>גללו, הסיפור מתחיל</div>
+      </div>
+    </div>
+
+    <!-- 2 · מי שמכיר את כל השחקנים -->
+    <div class="layer" id="sWho" style="opacity:0">
+      <img class="cover" id="whoImg" src="../../media/tower-dusk.jpg" alt="">
+      <div class="shade" style="background:linear-gradient(270deg,rgba(8,16,13,.88),rgba(8,16,13,.35) 60%,rgba(8,16,13,.15))"></div>
+      <div class="st">
+        <span class="eb line">THE RULES OF THE GAME</span>
+        <h2 class="h-xl"><span class="line">מי שמכיר</span><span class="line">את כל השחקנים</span><span class="line gold">קובע את כללי המשחק</span></h2>
+      </div>
+    </div>
+
+    <!-- 3 · נעים להכיר -->
+    <div class="layer" id="sMeet" style="opacity:0">
+      <div class="shade" style="background:radial-gradient(900px 600px at 25% 50%,rgba(212,176,106,.12),transparent 70%),var(--ink)"></div>
+      <div class="two" style="position:absolute;inset:0">
+        <div class="txt">
+          <span class="eb line">NICE TO MEET YOU</span>
+          <h2 class="h-xl"><span class="line">נעים להכיר</span><span class="line gold">אני רועי יהודה</span></h2>
+          <p class="lead line">למעלה מ־20 שנה אני מתווך נדל״ן פרטי ומסחרי, בארץ ובעולם<br>מחבר בין אנשים, עסקים ונכסים, בדיסקרטיות מוחלטת</p>
+          <div class="sigs gold line sig">Roei Yehuda</div>
+        </div>
+        <div class="portrait" id="portrait"><img id="roeiImg" src="../../media/roei.jpg" alt="רועי יהודה"></div>
+      </div>
+    </div>
+
+    <!-- 4 · תיווך: סרטון שמתקדם עם הגלילה -->
+    <div class="layer" id="sBroker" style="opacity:0">
+      <video aria-hidden="true" class="cover" id="bBg" src="../../media/facade-scrub.mp4" muted playsinline preload="auto" style="filter:blur(28px) brightness(.32);transform:scale(1.2)"></video>
+      <div class="two" style="position:absolute;inset:0">
+        <div class="txt">
+          <span class="eb">01 · BROKERAGE · הפעילות המרכזית</span>
+          <h2 class="h-l">תיווך ושיווק נכסים<br><span class="gold">בארץ ובעולם</span></h2>
+          <ul class="checks" id="bList"><li><b>✓</b>נכסים פרטיים</li><li><b>✓</b>נכסים מסחריים</li><li><b>✓</b>8 מדינות</li><li><b>✓</b>חיבורים בין בכירים</li></ul>
+        </div>
+        <div class="frame" aria-hidden="true"><video id="bVid" src="../../media/facade-scrub.mp4" muted playsinline preload="auto"></video></div>
+      </div>
+    </div>
+
+    <!-- 5 · התחדשות עירונית: הסרטון האמיתי מהפרויקטים -->
+    <div class="layer" id="sRenew" style="opacity:0">
+      <div class="shade" style="background:radial-gradient(1000px 600px at 70% 40%,rgba(212,176,106,.1),transparent 70%),var(--ink)"></div>
+      <div class="two tw2" style="position:absolute;inset:0">
+        <div class="txt">
+          <span class="eb line">02 · URBAN RENEWAL · MASADA GROUP</span>
+          <h2 class="h-l"><span class="line">התחדשות עירונית</span><span class="line gold">עושים רק איתנו</span></h2>
+          <p class="lead line">16 פרויקטים בתהליך, 2 כבר אוכלסו<br>מגיבוש הדיירים ועד לבחירת היזם</p>
+          <div class="zero line"><strong class="gold">0 ₪</strong><span>אתם לא משלמים על השירות שלנו<br>את השכר משלם בסוף היזם שייבחר</span></div>
+        </div>
+        <div class="wide"><video id="rVid" src="../../media/renewal-film.mp4" poster="../../media/renewal-poster.jpg" muted loop playsinline preload="metadata"></video><button class="snd" data-snd type="button">🔈 להפעלה עם סאונד</button></div>
+      </div>
+    </div>
+
+    <!-- 6 · מספרים ו-8 מדינות -->
+    <div class="layer" id="sNums" style="opacity:0">
+      <img class="cover" id="numsImg" src="../../media/tlv-night.jpg" alt="">
+      <div class="shade" style="background:rgba(8,16,13,.74)"></div>
+      <div class="st nums">
+        <span class="eb line">IN NUMBERS</span>
+        <div class="row">
+          <div class="num"><strong class="gold" data-to="20" data-suffix="+">0</strong><span>שנות ניסיון<br>אלפי עסקאות נדל״ן</span></div>
+          <div class="num"><strong class="gold" data-to="16">0</strong><span>פרויקטים של<br>התחדשות עירונית</span></div>
+          <div class="num"><strong class="gold" data-to="8">0</strong><span>מדינות עם<br>הזדמנויות נדל״ן</span></div>
+        </div>
+        <div class="line" data-flags></div>
+      </div>
+    </div>
+
+    <!-- 7 · M26: עסקאות שנעות לרוחב -->
+    <div class="layer" id="sDeals" style="opacity:0">
+      <div class="shade" style="background:radial-gradient(1000px 600px at 70% 10%,rgba(18,60,42,.5),transparent 70%),var(--ink)"></div>
+      <div class="deals-head">
+        <div><span class="eb">03 · M26 · FRIENDS &amp; FAMILY ONLY</span><h2 class="h-l" style="margin-top:10px">עסקאות שלא יפורסמו<br><span class="gold">בשום מקום אחר</span></h2></div>
+        <a class="btn" href="https://m26.co.il" target="_blank" rel="noopener" style="pointer-events:auto">כניסה לאתר M26</a>
+      </div>
+      <div class="track" id="track"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- שלושת התחומים (3 כפתורים לפי האפיון) -->
+<section class="block" id="fields" data-pop>
+  <span class="eb reveal">WHAT I DO</span>
+  <h2 class="h-l reveal" style="margin-top:12px">20 שנות פעילות בלב הנדל״ן הישראלי<br><span class="gold">ב־3 תחומים</span></h2>
+  <p class="byline reveal" style="margin-top:16px">את הפעילות אני מוביל דרך קבוצת מצדה, שהקמתי ב־2008 <img src="../../media/logo-light.svg" alt="קבוצת מצדה"></p>
+  <div class="fields">
+    <a class="fd main reveal" href="#d1"><img src="../../media/tlv-night.jpg" alt=""><span class="t"><span class="n gold">01</span><span class="eb" style="display:block;margin-top:6px">הפעילות המרכזית</span><h3>תיווך ושיווק נכסים פרטיים ומסחריים בארץ ובעולם</h3><span class="go">לפרטים ←</span></span></a>
+    <a class="fd reveal" href="#d2"><img src="../../media/renewal-poster.jpg" alt=""><span class="t"><span class="n gold">02</span><h3>ארגון פרויקטים בהתחדשות עירונית<br>מגיבוש הדיירים ועד לבחירת היזם</h3><span class="go">לפרטים ←</span></span></a>
+    <a class="fd reveal" href="#d3"><img src="../../media/rooftop-moon.jpg" alt=""><span class="t"><span class="n gold">03</span><h3>הפעלת M26<br>אתר המכרזים והזדמנויות הנדל״ן</h3><span class="go">לפרטים ←</span></span></a>
+  </div>
+</section>
+
+<section class="block detail" id="d1">
+  <div>
+    <span class="eb reveal">01 · BROKERAGE</span>
+    <h2 class="h-l reveal" style="margin-top:12px">תיווך ושיווק נכסים<br><span class="gold">פרטיים ומסחריים בארץ ובעולם</span></h2>
+    <p class="lead2 reveal" style="margin-top:26px">רועי מביא עמו למעלה מ־20 שנות ניסיון בתיווך נדל״ן פרטי ומסחרי</p>
+    <p class="reveal">לצד חיבורים עסקיים בין בכירים מהמשק הישראלי<br>באמצעות רשת קשרים חובקת עולם<br><b>ובדיסקרטיות מוחלטת</b></p>
+    <div class="reveal" style="margin-top:28px"><a class="btn" data-wa href="#">לשיחה דיסקרטית</a></div>
+    <div data-pstats></div>
+  </div>
+  <div class="sticky reveal"><img src="../../media/roei-hands.jpg" alt="רועי יהודה"></div>
+</section>
+
+<section class="block detail" id="d2">
+  <div>
+    <span class="eb reveal">02 · URBAN RENEWAL</span>
+    <h2 class="h-l reveal" style="margin-top:12px">התחדשות עירונית<br><span class="gold">עושים רק איתנו</span></h2>
+    <p class="lead2 reveal" style="margin-top:26px">מחלקת ההתחדשות העירונית שלנו מהמובילות בישראל בתחום<br>עם 16 פרויקטים הנמצאים בתהליך, מהם 2 שכבר אוכלסו</p>
+    <p class="reveal">אנו מלווים את התהליך כולו משלב בחינת כדאיות הפרויקט<br>דרך הקמת נציגות הדיירים ועד לבחירת היזם המבצע</p>
+    <p class="reveal">תהליך התחדשות עירונית הינו תהליך מורכב הדורש ידע וניסיון<br>כדי להביא להצלחה ולקידום מוצלח של פרויקטים מסוג זה יש להיעזר בשירותיה של חברה מארגנת</p>
+    <p class="reveal">קבוצת מצדה מתמחה בניהול, גיבוש והובלת פרויקטים של התחדשות עירונית ופינוי בינוי<br>ומייצגת את בעלי הדירות החל משלב הרעיון ועד למסירת הדירות החדשות</p>
+    <p class="reveal">פרויקטים של התחדשות עירונית מורכבים ברובם ודורשים התארגנות וקבלת החלטות משותפות של בעלי הנכסים<br>חברתנו פועלת מטעם ולמען הדיירים כדי למקסם את התמורה שתינתן לבעלי הנכסים ולגרום לפרויקט לרקום עור וגידים</p>
+    <p class="reveal"><b>אנו מחויבים לכם בעלי הנכסים</b><br>עובדים מטעמכם ולמענכם לאורך כל התהליך, בשקיפות מלאה ובמקצועיות של מעל 20 שנות ניסיון<br>ולבסוף משיגים עבורכם את התמורה הטובה ביותר מהיזם, <b>מבלי שאתם משלמים על השירות שלנו</b></p>
+    <p class="reveal" style="color:var(--cream);font-size:22px">הזמן של כל אחד מכם יקר<br><span class="gold">אנחנו רצים עבורכם ומקרבים אתכם אל עבר הדירה החדשה</span></p>
+    <h4 class="reveal">תפקידה של החברה המנהלת</h4>
+    <p class="reveal">הדרך אל עבר הגשמת החלום מצריכה זמן רב והמון בירוקרטיה<br>מאות שעות עבודה מול דיירים, עורכי דין ויזמים</p>
+    <p class="reveal">כדי לצלוח דרך זו בצורה הטובה ביותר יש צורך בגורם חיצוני מנהל מטעם בעלי הדירות<br>אשר ינצח על תזמורת בעלי האינטרסים שבפרויקט, ובראשם בעלי הדירות והיזם</p>
+    <p class="reveal"><b>וזהו תפקידנו</b><br><b>ואת השכר שלנו ישלם רק בסוף היזם שייבחר</b></p>
+    <h4 class="reveal">לפניכם השלבים לפרויקט מוצלח</h4>
+    <ol class="stp reveal">
+      <li>פגישת היכרות ראשונית עם דיירי הבניין, בדיקת נכונות של בעלי הדירות לקידום הפרויקט ומתן הסבר על התהליך</li>
+      <li>בחינת היתכנות ראשונית לביצוע פרויקט התחדשות עירונית ברמה התכנונית וברמה הכלכלית</li>
+      <li>מינוי של נציגות דיירים ומינוי החברה המארגנת</li>
+      <li>בדיקת זכויות הבנייה בפן המשפטי והכלכלי</li>
+      <li>מינוי עורך דין מייצג דיירים, מינוי מפקח בנייה ומינוי בעלי מקצוע נוספים על פי הצורך</li>
+      <li>כתיבת מכרז יזמים הכולל את הדרישות של בעלי הדירות ברמת מפרט הבנייה, הגנות משפטיות, תמורות לדייר ועוד</li>
+      <li>יציאה למכרז באישור נציגות הדיירים, ופנייה ליזמים רלוונטיים לפי גודל הפרויקט ומיקומו</li>
+      <li>קבלת ההצעות, דירוג ההצעות ובקשת שיפורים מיזמים רלוונטיים</li>
+      <li>חתימת הסכם מפורט עם היזם שנבחר על ידי נציגות הדיירים, אשר הצעתו הטובה ביותר לכלל הדיירים, בשקיפות מלאה</li>
+      <li>פיקוח מטעם הדיירים על התקדמות התכנון, הבנייה בפועל, מסירת הדירות ושנת הבדק</li>
+    </ol>
+    <h4 class="reveal">דואגים לאינטרס של בעלי הדירות</h4>
+    <p class="reveal">אנו כאן כדי להשיג עבורכם את המיטב<br>ולהביא לפרויקט מוצלח עם ערך מקסימלי לכל נכס ולפרויקט בכללותו</p>
+    <p class="reveal">אנו מתגאים בניהול מכרז יזמים וקבלנים אשר מעבירים את הכוח אליכם בעלי הנכסים<br>ומאפשרים לכם להיות אלה שבוחרים בין מספר תוכניות שונות, מספר יזמים וקבלנים<br>ולהביא לבחירה המוצלחת ביותר עם הערך המקסימלי והביצוע האיכותי והטוב ביותר לפרויקט שלכם</p>
+    <div class="reveal" style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn" data-wa href="#">בדיקה לבניין שלכם</a><a class="btn gh" href="../../guides/1.html?t=a">מדריך: חברה מארגנת</a></div>
+    <div data-pstats></div>
+  </div>
+  <div class="sticky vid reveal" style="aspect-ratio:16/10;border-radius:6px"><video src="../../media/renewal-film.mp4" poster="../../media/renewal-poster.jpg" autoplay muted loop playsinline preload="none"></video><button class="snd" data-snd type="button">🔈 להפעלה עם סאונד</button></div>
+</section>
+
+<section class="renew" data-renew aria-label="החזון: מהבניין הישן אל הדירה החדשה" style="--ra-bg:#08100d"></section>
+
+<section class="block detail" id="d3">
+  <div>
+    <span class="eb reveal">03 · M26</span>
+    <h2 class="h-l reveal" style="margin-top:12px">הפעלת M26<br><span class="gold">אתר המכרזים והזדמנויות הנדל״ן</span></h2>
+    <p class="lead2 reveal" style="margin-top:26px">קבוצת מצדה מפעילה את האתר פורץ הדרך M26<br>המיועד לקהילה סגורה של משקיעים</p>
+    <p class="reveal">להזדמנויות נדל״ן אמיתיות שלא מפורסמות<br><b>ולא יפורסמו בשום מקום אחר</b></p>
+    <p class="reveal">באתר שלנו תוכלו למצוא עסקאות PRESALE, עסקאות OFF MARKET ועסקאות בין חברים שלא מפורסמות בשום מקור אחר</p>
+    <p class="reveal">כל עסקה שתעלה לאתר היא עסקה חד פעמית במלאי מוגבל<br>ורק עבור חברי הקבוצה הסגורה שיקבלו סיסמה לאתר</p>
+    <div class="reveal" style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="https://m26.co.il" target="_blank" rel="noopener">כניסה לאתר M26</a><a class="btn gh" data-wa href="#">בקשת סיסמה</a></div>
+    <div data-pstats></div>
+  </div>
+  <div class="sticky reveal"><img src="../../media/m26-logo.jpg" alt="M26 Off-Market Pre-Sale"></div>
+</section>
+
+<section class="block story" id="story">
+  <div class="ph reveal"><img src="../../media/roei.jpg" alt="רועי יהודה"></div>
+  <div>
+    <span class="eb reveal">MY STORY</span>
+    <h2 class="h-xl reveal" style="margin-top:12px">הסיפור <span class="gold">שלי</span></h2>
+    <p class="reveal" style="font-family:var(--serif);font-weight:700;font-size:clamp(24px,2.4vw,34px);color:var(--cream);line-height:1.35">הסיפור שלי לא התחיל מנדל״ן<br><span class="gold">הוא התחיל מאנשים</span></p>
+    <p class="reveal">אומרים שזיווגים נעשים בשמיים, אבל מישהו צריך לעזור להם להיפגש<br>כך שידכתי וחיתנתי זוגות, גישרתי בין קבוצות, וחיברתי בין אנשים שלא ידעו שהם צריכים זה את זה, עד שהפגשתי ביניהם</p>
+    <p class="reveal">הבנתי מהר שזה הערך המוסף שלי בעולם: לקרב לבבות ולחבר קצוות<br>קצוות של אנשים, של עסקים ושל נכסים<br>את זה מרגישים בבטן, באינטואיציה ובלב, ואז מצליבים מידע עד שהחיבור שלם</p>
+    <p class="reveal">תוך כדי תנועה כתבתי והוצאתי לאור את הספר ״כוח הבחירה״<br>ספר פילוסופי על בני אדם הדוהרים קדימה בחיים סוערים, בלי לזכור מה המהות והתפקיד האמיתי שלנו בעולם</p>
+    <h3 class="reveal">ניצחון הרוח על הגוף</h3>
+    <p class="reveal">בעבר שיחקתי כדורגל בכמה קבוצות בליגות הבכירות בישראל, ובהן קבוצת הבית שלי, מכבי נתניה<br>שם למדתי חריצות, התמדה, והיכולת לקום על הרגליים ולרוץ קדימה בכל הכוח גם בזמן משבר<br>הספורט לימד אותי את המושג שמלווה אותי עד היום: ניצחון הרוח על הגוף</p>
+    <h3 class="reveal">האיש שמאחורי העסקאות</h3>
+    <p class="reveal">אני נשוי פלוס ארבע, גר בעיר ימים בנתניה, פעיל חברתי, יזם בנפשי, חובב פילוסופיה, ריצה ושחייה<br>בשעות הפנאי אני עובד אדמה ומטפח צמחים ועצים<br>מגשים חלומות, מקרב לבבות, וסוגר את העסקאות בשקט כי עסקה טובה לא זקוקה לרעש</p>
+    <p class="reveal">האנשים הפועלים סביב קבוצת מצדה נבחרו בקפידה רבה וצועדים לצידי שנים רבות</p>
+    <h3 class="reveal">ומה זה אומר עבורכם?</h3>
+    <p class="reveal">כשאתם פונים אליי אתם מקבלים כמעט שני עשורים של ניסיון<br>ראייה רחבה על החיים שחורגת מעבר לעסקה<br>ואדם שמאמין שכל חיבור נכון נולד מהבנה עמוקה של אנשים</p>
+    <p class="q reveal">אתם לא מקבלים שירות<br><span class="gold">אתם מקבלים אותי</span><br>באופן אישי, עד שתצאו מרוצים</p>
+  </div>
+</section>
+
+<section class="block" id="guides">
+  <span class="eb reveal">GUIDES</span>
+  <h2 class="h-l reveal" style="margin-top:12px"><span class="gold">מדריכים</span></h2>
+  <p class="lead reveal" style="margin-top:10px">מה שחשוב לדעת לפני שחותמים<br>התחדשות עירונית, מכרזי יזמים והשקעות שלא מתפרסמות</p>
+  <div class="gcards">
+    <a class="gc reveal" href="../../guides/1.html?t=a"><img src="../../media/terraces.jpg" alt=""><div class="b"><span class="k">התחדשות עירונית · 6 דק׳</span><h3>חברה מארגנת<br>למה היא לא עולה לכם שקל</h3><p>מה תפקידה, מי משלם לה<br>ו־6 שאלות לפני שחותמים</p></div></a>
+    <a class="gc reveal" href="../../guides/2.html?t=a"><img src="../../media/tower-dusk.jpg" alt=""><div class="b"><span class="k">פינוי בינוי · 7 דק׳</span><h3>מכרז יזמים<br>8 סעיפים שחייבים להופיע</h3><p>ערבויות, דיור חלופי<br>מפרט ולוחות זמנים</p></div></a>
+    <a class="gc reveal" href="../../guides/3.html?t=a"><img src="../../media/p-limassol.jpg" alt=""><div class="b"><span class="k">השקעות · 5 דק׳</span><h3>Off-Market ו־Presale<br>איך נכנסים לפני כולם</h3><p>מה ההבדל, איפה היתרון<br>ומה חובה לבדוק</p></div></a>
+  </div>
+</section>
+
+<section data-form id="contact" style="border-top:1px solid var(--line)"></section>
+</main>
+
+<footer>
+  <div class="sigs gold sig" style="text-align:center;font-size:clamp(50px,6vw,90px)">Roei Yehuda</div>
+  <div class="socials" data-socials style="margin:16px 0 24px"></div>
+  <p class="byline" style="justify-content:center;display:flex;margin-bottom:10px"><img src="../../media/logo-light.svg" alt="">רועי יהודה · מייסד קבוצת מצדה</p>
+  י.ר מצדה בע״מ · <a href="https://m26.co.il" target="_blank" rel="noopener">M26</a> · הצהרת נגישות ומדיניות פרטיות יתווספו בהקמה
+  <p class="credit">הוכן ע״י <a href="https://aura-digital.co.il" target="_blank" rel="noopener">אורה דיגיטל</a></p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../../common.js"></script>
+<script src="../../renew.js"></script>
+<script src="../../wow.js"></script>
+<script>
+(() => {
+const DEALS = [
+  {name:'שדה דב', co:'ישראל · תל אביב', img:'../../media/p-downtown.jpg'},
+  {name:'Limassol Seafront', co:'קפריסין', img:'../../media/p-limassol.jpg'},
+  {name:'Samana', co:'איחוד האמירויות', img:'../../media/p-samana.jpg'},
+  {name:'Boaron Breeze', co:'ישראל', img:'../../media/p-boaron.jpg'},
+  {name:'כפר יונה מערב', co:'ישראל', img:'../../media/p-kfaryona.jpg'}
+];
+const track = document.getElementById('track');
+track.innerHTML = DEALS.map(d => `<article class="card"><img src="${d.img}" alt="" loading="lazy"><span class="lock">🔒 לחברי הקבוצה</span><div class="info"><span class="co">${d.co}</span><h3>${d.name}</h3></div></article>`).join('');
+
+const $ = id => document.getElementById(id);
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const seg = (p, a, b) => clamp((p - a)/(b - a));
+const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
+const vis = (p, a, b, f = .02) => Math.min(seg(p, a, a + f), 1 - seg(p, b - f, b));
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const film = $('film');
+let target = 0, cur = 0;
+const readScroll = () => { const r = film.getBoundingClientRect(); target = clamp(-r.top / (film.offsetHeight - innerHeight)); };
+addEventListener('scroll', readScroll, {passive:true});
+addEventListener('resize', () => { sizeCanvas(); readScroll(); });
+
+// 1 · השם "רועי" כחלון לתמונה
+const cv = $('heroCanvas'), ctx = cv.getContext('2d'), heroImg = new Image(); heroImg.src = '../../media/rooftop-moon.jpg';
+let DPR = 1;
+function sizeCanvas(){ DPR = Math.min(2, devicePixelRatio || 1); cv.width = innerWidth*DPR; cv.height = innerHeight*DPR; }
+sizeCanvas();
+function drawCover(img, w, h, zoom = 1){ const ir = img.naturalWidth/img.naturalHeight, r = w/h; let dw = w*zoom, dh = h*zoom; if (ir > r) dw = dh*ir; else dh = dw/ir; ctx.drawImage(img, (w-dw)/2, (h-dh)/2, dw, dh); }
+const WORD = 'רועי';
+// נקודה בתוך אות עבה, כדי שהזום ייכנס לתוך האות ולא לרווח בין האותיות
+let anchor = null;
+function findAnchor(base){
+  const c = document.createElement('canvas'), W = Math.ceil(base*3), H = Math.ceil(base*1.6); c.width = W; c.height = H; const x = c.getContext('2d');
+  x.font = `900 ${base}px 'Frank Ruhl Libre', Georgia, serif`; x.textAlign = 'center'; x.textBaseline = 'middle'; x.direction = 'rtl'; x.fillText(WORD, W/2, H/2);
+  const d = x.getImageData(0, 0, W, H).data, r = Math.max(3, Math.round(base*.05)); let best = null, bd = 1e9;
+  const filled = (px, py) => px >= 0 && py >= 0 && px < W && py < H && d[(py*W + px)*4 + 3] > 200;
+  for (let py = r; py < H - r; py += 2) for (let px = r; px < W - r; px += 2){
+    if (!filled(px, py) || !filled(px-r, py) || !filled(px+r, py) || !filled(px, py-r) || !filled(px, py+r)) continue;
+    const dd = (px - W/2)**2 + (py - H/2)**2; if (dd < bd){ bd = dd; best = [px - W/2, py - H/2]; } }
+  return best || [0, 0];
+}
+function drawHero(t){
+  const w = cv.width, h = cv.height; ctx.clearRect(0, 0, w, h);
+  if (!heroImg.complete || !heroImg.naturalWidth) return;
+  const e = ease(t), scale = Math.pow(60, e), cy = h > w ? h*.33 : h*.36, base = h > w ? w*.44 : Math.min(w*.3, h*.42);
+  ctx.save();
+  if (scale < 50){
+    drawCover(heroImg, w, h, 1.08 - .08*e);
+    ctx.globalCompositeOperation = 'destination-in';
+    if (!anchor || anchor.b !== base){ anchor = findAnchor(base); anchor.b = base; }
+    ctx.translate(w/2, cy + (h*.5 - cy)*e); ctx.scale(scale, scale); ctx.translate(-anchor[0]*e, -anchor[1]*e);
+    ctx.font = `900 ${base}px 'Frank Ruhl Libre', Georgia, serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.direction = 'rtl';
+    ctx.fillStyle = '#000'; ctx.fillText(WORD, 0, 0);
+  } else drawCover(heroImg, w, h, 1);
+  ctx.restore();
+  if (e < .15){ ctx.save(); ctx.globalAlpha = 1 - e/.15; ctx.translate(w/2, cy); ctx.scale(scale, scale);
+    ctx.font = `900 ${base}px 'Frank Ruhl Libre', Georgia, serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.direction = 'rtl';
+    ctx.lineWidth = 1.2*DPR/scale; ctx.strokeStyle = 'rgba(240,220,166,.75)'; ctx.strokeText(WORD, 0, 0); ctx.restore(); }
+}
+
+// סרטון התיווך מתקדם עם הגלילה
+const vids = [$('bVid'), $('bBg')];
+vids.forEach(v => { v.pause(); v.addEventListener('loadedmetadata', () => { v.currentTime = .01; }); v.load(); });
+let lastVT = -1;
+function scrub(t){ const v = vids[0]; if (!isFinite(v.duration) || !v.duration || !isFinite(t)) return;
+  const time = Math.min(v.duration - .05, t*v.duration); if (Math.abs(time - lastVT) < 1/30) return; lastVT = time;
+  vids.forEach(x => { if (x.readyState >= 1) x.currentTime = time; }); }
+function lines(layer, t){ layer.querySelectorAll('.line').forEach((el, i) => { const k = ease(seg(t, i*.08, i*.08 + .35)); el.style.opacity = k; el.style.transform = `translateY(${(1-k)*40}px)`; }); }
+const nums = [...document.querySelectorAll('[data-to]')];
+function countUp(t){ nums.forEach((el, i) => { const k = ease(seg(t, .15 + i*.08, .55 + i*.08)); el.textContent = Math.round(k * +el.dataset.to) + (k > .98 ? (el.dataset.suffix || '') : ''); }); }
+
+const L = {intro:$('sIntro'), who:$('sWho'), meet:$('sMeet'), broker:$('sBroker'), renew:$('sRenew'), nums:$('sNums'), deals:$('sDeals')};
+const S = {who:[.12,.27], meet:[.25,.42], broker:[.40,.56], renew:[.54,.71], nums:[.69,.83], deals:[.81,1.01]};
+const introText = $('introText'), bar = document.querySelector('#progress i'), nav = $('nav'), rVid = $('rVid'), bItems = [...document.querySelectorAll('#bList li')];
+function frame(){
+  cur += (target - cur)*(reduce ? 1 : .11); if (Math.abs(target - cur) < .00005) cur = target;
+  const p = cur;
+  bar.style.transform = `scaleY(${p})`;
+  const ti = seg(p, 0, .12); drawHero(ti);
+  introText.style.opacity = 1 - seg(ti, 0, .35); introText.style.transform = `translateY(${-seg(ti, 0, .35)*40}px)`;
+  L.intro.style.opacity = 1 - seg(p, .12, .14);
+  nav.classList.toggle('hide', ti > .02 && ti < .9);
+  const tw = seg(p, ...S.who); L.who.style.opacity = p < .125 ? 0 : vis(p, ...S.who); $('whoImg').style.transform = `scale(${1.02 + tw*.16})`; lines(L.who, seg(tw, .05, .7));
+  const tm = seg(p, ...S.meet); L.meet.style.opacity = vis(p, ...S.meet);
+  const rev = ease(seg(tm, .05, .45)); $('portrait').style.clipPath = `inset(${(1-rev)*100}% 0 0 0)`; $('roeiImg').style.transform = `scale(${1.25 - rev*.2 + tm*.05})`; lines(L.meet, seg(tm, .1, .75));
+  const tb = seg(p, ...S.broker); L.broker.style.opacity = vis(p, ...S.broker); scrub(tb);
+  bItems.forEach((li, i) => { const k = ease(seg(tb, .12 + i*.13, .28 + i*.13)); li.style.opacity = .12 + k*.88; li.style.transform = `translateX(${(1-k)*-30}px)`; });
+  const tr = seg(p, ...S.renew); const rv = vis(p, ...S.renew); L.renew.style.opacity = rv; lines(L.renew, seg(tr, .05, .6));
+  if (rv > .5 && rVid.paused) rVid.play().catch(() => {}); if (rv < .2 && !rVid.paused) rVid.pause();
+  const tn = seg(p, ...S.nums); L.nums.style.opacity = vis(p, ...S.nums); $('numsImg').style.transform = `scale(${1.15 - tn*.12})`; lines(L.nums, seg(tn, .02, .5)); countUp(tn);
+  const td = seg(p, ...S.deals); L.deals.style.opacity = vis(p, S.deals[0], 2);
+  const travel = Math.max(0, track.scrollWidth - innerWidth); track.style.transform = `translateX(${ease(seg(td, .12, .95))*travel}px)`;
+  [L.who, L.meet, L.broker, L.renew, L.nums, L.deals].forEach(l => l.style.pointerEvents = +l.style.opacity > .5 ? 'auto' : 'none');
+  requestAnimationFrame(frame);
+}
+document.fonts.ready.then(() => { readScroll(); cur = target; requestAnimationFrame(frame); });
+heroImg.onload = () => drawHero(seg(cur, 0, .12));
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); } }));
+})();
+</script>
+</body>
+</html>

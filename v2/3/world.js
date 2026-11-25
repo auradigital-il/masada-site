@@ -8,7 +8,7 @@ const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAl
 /* ---------- גלילה חלקה וחשיפות ---------- */
 gsap.registerPlugin(ScrollTrigger);
 let lenis;
-if (!reduce && window.Lenis){ lenis = new Lenis({lerp:.08}); lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0); }
+if (!reduce && window.Lenis){ lenis = window.__lenis = new Lenis({lerp:.08}); lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0); }
 $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t = $(a.getAttribute('href')); if (t){ e.preventDefault(); lenis ? lenis.scrollTo(t, {offset:-40, duration:1.8}) : t.scrollIntoView({behavior:'smooth'}); } }));
 $$('.fx').forEach(el => gsap.to(el, {opacity:1, y:0, duration:1.3, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 90%'}}));
 gsap.timeline({scrollTrigger:{trigger:'#s-whisper', start:'top 75%', end:'center 45%', scrub:true}})

@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600&family=Suez+One&family=Montserrat:wght@200;300;400&family=Heebo:wght@300;400&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../common.css">
+<link rel="stylesheet" href="../../wow.css">
 <style>
 :root{
   --k:#0B0A09;--k2:#14120F;--iv:#F3ECE0;--mu:rgba(243,236,224,.62);--fa:rgba(243,236,224,.12);
@@ -77,7 +78,8 @@ a{color:inherit;text-decoration:none}
 #window .q small{display:block;font-size:16px;color:var(--mu);margin-top:14px;letter-spacing:.06em}
 
 /* נעים להכיר */
-#meet{padding:150px 0 40px}
+#meet{padding:0;min-height:100vh;display:flex;align-items:center}
+#meet>.wrap{padding:110px 0 60px}
 #meet .grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}
 #meet .ph{aspect-ratio:1;border-radius:50%;overflow:hidden;border:1px solid var(--w-line);box-shadow:0 0 0 14px rgba(212,175,110,.05),0 0 80px rgba(212,175,110,.12)}
 #meet .ph img{width:100%;height:100%;object-fit:cover}
@@ -149,7 +151,7 @@ a{color:inherit;text-decoration:none}
 .tags span{border:1px solid var(--w-line);border-radius:999px;padding:8px 18px;font-family:var(--lat);font-size:13px;letter-spacing:.18em;color:var(--g1)}
 
 /* מספרים ו-8 מדינות */
-#world{padding:140px 0;text-align:center;position:relative;overflow:hidden}
+#world{padding:0;min-height:100vh;display:flex;align-items:center;text-align:center;position:relative;overflow:hidden}
 #world .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 #world .n{font-family:var(--lat);font-weight:200;font-size:clamp(100px,13vw,210px);line-height:1;direction:ltr}
 #world .n sup{font-size:.35em;vertical-align:top}
@@ -226,7 +228,7 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
 <header class="nav" id="nav">
   <a href="#film" class="me" aria-label="רועי יהודה, תיווך נדל״ן"><span class="dm"></span><span><b>רועי יהודה</b><small>REAL ESTATE · SINCE 2008</small></span></a>
   <nav class="links" aria-label="ניווט ראשי">
-    <a href="#meet">נעים להכיר</a><a href="#group">מה אני עושה</a><a href="#story">הסיפור שלי</a><a href="#guides">מדריכים</a><a href="https://m26.co.il" target="_blank" rel="noopener">M26</a>
+    <a href="#meet">נעים להכיר</a><a href="#group">מה אני עושה</a><a href="#story">הסיפור שלי</a><a href="#guides">מדריכים</a><a href="#contact">צור קשר</a><a href="https://m26.co.il" target="_blank" rel="noopener">M26</a>
     <a class="btn" data-wa href="#">פנייה אישית לרועי</a>
   </nav>
 </header>
@@ -252,17 +254,17 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
   </div>
 </section>
 
-<section id="meet">
+<section id="meet" data-wow="meet">
   <div class="wrap grid">
-    <div class="ph fx"><img src="../../media/roei-face.jpg" alt="רועי יהודה"></div>
+    <div class="ph" data-wp><img src="../../media/roei-face.jpg" alt="רועי יהודה"></div>
     <div>
-      <span class="eb fx">NICE TO MEET YOU</span>
-      <h2 class="disp fx" style="margin-top:14px">נעים להכיר<br><span class="gold">אני רועי יהודה</span></h2>
-      <p class="fx">למעלה מ־20 שנה אני מתווך נדל״ן פרטי ומסחרי, בארץ ובעולם</p>
-      <p class="fx">מחבר בין אנשים, עסקים ונכסים<br>בדיסקרטיות מוחלטת</p>
-      <p class="fx">מגשים חלומות, מקרב לבבות<br><span class="gold">וסוגר את העסקאות בשקט, כי עסקה טובה לא זקוקה לרעש</span></p>
-      <div class="sig gold fx">Roei Yehuda</div>
-      <div class="acts fx"><a class="btn" data-wa href="#">פנייה אישית לרועי</a><a class="btn gh" href="#story">הסיפור שלי</a></div>
+      <span class="eb" data-wl>NICE TO MEET YOU</span>
+      <h2 class="disp" data-wl style="margin-top:14px">נעים להכיר<br><span class="gold">אני רועי יהודה</span></h2>
+      <p data-wl>למעלה מ־20 שנה אני מתווך נדל״ן פרטי ומסחרי, בארץ ובעולם</p>
+      <p data-wl>מחבר בין אנשים, עסקים ונכסים<br>בדיסקרטיות מוחלטת</p>
+      <p data-wl>מגשים חלומות, מקרב לבבות<br><span class="gold">וסוגר את העסקאות בשקט, כי עסקה טובה לא זקוקה לרעש</span></p>
+      <div class="sig gold" data-wl>Roei Yehuda</div>
+      <div class="acts" data-wl><a class="btn" data-wa href="#">פנייה אישית לרועי</a><a class="btn gh" href="#story">הסיפור שלי</a></div>
     </div>
   </div>
 </section>
@@ -315,7 +317,7 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
         <p class="fx">כדי לצלוח דרך זו בצורה הטובה ביותר יש צורך בגורם חיצוני מנהל מטעם בעלי הדירות<br>אשר ינצח על תזמורת בעלי האינטרסים שבפרויקט, ובראשם בעלי הדירות והיזם</p>
         <p class="fx"><b>וזהו תפקידנו</b><br><b>ואת השכר שלנו ישלם רק בסוף היזם שייבחר</b></p>
       </div>
-      <div class="media"><img data-par src="../../media/terraces.jpg" alt=""><span class="tag">כאן ירוץ סרטון מהכנסים ומהפרויקטים</span></div>
+      <div class="media vid"><video src="../../media/renewal-film.mp4" poster="../../media/renewal-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="סרטון מפרויקט התחדשות עירונית של רועי"></video><button class="snd" data-snd type="button">🔈 להפעלה עם סאונד</button></div>
     </div>
   </div>
 </section>
@@ -355,6 +357,11 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
   </div>
 </section>
 
+<section class="wow-circle" data-wow="circle" aria-label="M26">
+  <div class="wc"><img src="../../media/rooftop-moon.jpg" alt=""></div><div class="wcs"></div>
+  <div class="wct"><span class="eb">M26 · OFF MARKET · PRESALE</span><h2 class="disp gold" style="font-size:clamp(40px,6.4vw,104px);margin-top:14px">עסקאות שלא יפורסמו<br>בשום מקום אחר</h2></div>
+</section>
+
 <!-- חטיבה 3 -->
 <section class="chapter" id="ch3">
   <div class="wrap">
@@ -374,13 +381,13 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
   </div>
 </section>
 
-<section id="world" aria-label="במספרים">
+<section id="world" aria-label="במספרים" data-wow="stats">
   <div class="wrap">
     <span class="eb">IN NUMBERS</span>
     <div class="stats" style="margin-top:50px">
-      <div class="fx"><div class="n gold"><span data-count="20">0</span><sup>+</sup></div><p>שנות ניסיון<br>אלפי עסקאות נדל״ן</p></div>
-      <div class="fx"><div class="n gold"><span data-count="16">0</span></div><p>פרויקטים של התחדשות עירונית<br>בליווי שלנו</p></div>
-      <div class="fx"><div class="n gold"><span data-count="8">0</span></div><p>מדינות<br>עם הזדמנויות נדל״ן</p></div>
+      <div data-wi><div class="n gold"><span data-count="20">0</span><sup>+</sup></div><p>שנות ניסיון<br>אלפי עסקאות נדל״ן</p></div>
+      <div data-wi><div class="n gold"><span data-count="16">0</span></div><p>פרויקטים של התחדשות עירונית<br>בליווי שלנו</p></div>
+      <div data-wi><div class="n gold"><span data-count="8">0</span></div><p>מדינות<br>עם הזדמנויות נדל״ן</p></div>
     </div>
     <div data-flags-run></div>
   </div>
@@ -422,6 +429,8 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
   </div>
 </section>
 
+<section data-form id="contact"></section>
+
 <section id="end">
   <div class="wrap">
     <div class="sig gold fx" style="font-size:clamp(60px,7vw,110px)">Roei Yehuda</div>
@@ -441,12 +450,13 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="../../common.js"></script>
 <script src="../../renew.js"></script>
+<script src="../../wow.js"></script>
 <script>
 (() => {
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 gsap.registerPlugin(ScrollTrigger);
 let lenis;
-if (!reduce && window.Lenis){ lenis = new Lenis({lerp:.09}); lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+if (!reduce && window.Lenis){ lenis = window.__lenis = new Lenis({lerp:.09}); lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
   document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t){ e.preventDefault(); lenis.scrollTo(t, {offset:-60, duration:1.6}); } })); }
 
 // פתיחה: ה-M מצטייר
