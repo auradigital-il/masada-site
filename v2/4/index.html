@@ -92,13 +92,13 @@ a{color:inherit;text-decoration:none}
 .nums .flags span{background:rgba(8,16,13,.5)}
 .deals-head{position:absolute;top:clamp(90px,15vh,150px);inset-inline:var(--gutter);display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
 .track{position:absolute;bottom:clamp(36px,8vh,80px);right:0;display:flex;gap:clamp(14px,2vw,28px);padding-inline:var(--gutter);will-change:transform}
-.card{flex:none;position:relative;height:min(44svh,460px);aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--ink-3)}
-.card img{width:100%;height:100%;object-fit:cover}
-.card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(8,16,13,.92));z-index:1}
-.card .info{position:absolute;inset:auto 0 0;z-index:2;padding:22px;display:flex;flex-direction:column;gap:6px}
-.card .co{font-size:12px;letter-spacing:.24em;color:var(--gold)}
-.card h3{font-family:var(--serif);font-weight:700;font-size:clamp(22px,2.1vw,30px);line-height:1.1}
-.card .lock{position:absolute;top:14px;left:14px;z-index:2;font-size:12px;padding:7px 12px;border-radius:999px;background:rgba(8,16,13,.6);border:1px solid var(--line)}
+article.card{flex:none;position:relative;height:min(44svh,460px);aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--ink-3)}
+article.card img{width:100%;height:100%;object-fit:cover}
+article.card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(8,16,13,.92));z-index:1}
+article.card .info{position:absolute;inset:auto 0 0;z-index:2;padding:22px;display:flex;flex-direction:column;gap:6px}
+article.card .co{font-size:12px;letter-spacing:.24em;color:var(--gold)}
+article.card h3{font-family:var(--serif);font-weight:700;font-size:clamp(22px,2.1vw,30px);line-height:1.1}
+article.card .lock{position:absolute;top:14px;left:14px;z-index:2;font-size:12px;padding:7px 12px;border-radius:999px;background:rgba(8,16,13,.6);border:1px solid var(--line)}
 @media(max-width:900px){
   .two{grid-template-columns:1fr;align-content:center;gap:22px;padding:84px 18px 30px}
   .portrait{height:38svh;justify-self:center}
