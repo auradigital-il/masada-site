@@ -480,7 +480,7 @@ function frame(){
   const tb = seg(p, ...S.broker); L.broker.style.opacity = vis(p, ...S.broker); scrub(tb);
   bItems.forEach((li, i) => { const k = ease(seg(tb, .12 + i*.13, .28 + i*.13)); li.style.opacity = .12 + k*.88; li.style.transform = `translateX(${(1-k)*-30}px)`; });
   const tr = seg(p, ...S.renew); const rv = vis(p, ...S.renew); L.renew.style.opacity = rv; lines(L.renew, seg(tr, .05, .6));
-  if (rv > .5 && rVid.paused) rVid.play().catch(() => {}); if (rv < .2 && !rVid.paused) rVid.pause();
+  if (rv > .5 && rVid.paused && !rVid.dataset.userPaused) rVid.play().catch(() => {}); if (rv < .2){ if (!rVid.paused) rVid.pause(); rVid.__muteAway && rVid.__muteAway(); }
   const tn = seg(p, ...S.nums); L.nums.style.opacity = vis(p, ...S.nums); $('numsImg').style.transform = `scale(${1.15 - tn*.12})`; lines(L.nums, seg(tn, .02, .5)); countUp(tn);
   const td = seg(p, ...S.deals); L.deals.style.opacity = vis(p, S.deals[0], 2);
   const travel = Math.max(0, track.scrollWidth - innerWidth); track.style.transform = `translateX(${ease(seg(td, .12, .95))*travel}px)`;

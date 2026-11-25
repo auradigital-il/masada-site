@@ -20,8 +20,24 @@
   }
 
   /* ---------- כפתור סאונד לסרטונים ---------- */
-  $$('[data-snd]').forEach(b => b.addEventListener('click', () => { const v = b.parentElement.querySelector('video'); v.muted = !v.muted; if (!v.muted){ v.currentTime = 0; v.play(); window.__ffoAudio && __ffoAudio.pause(); }
-    b.textContent = v.muted ? '🔈 להפעלה עם סאונד' : '🔊 להשתקה'; }));
+  // סרגל שליטה: אחורה 10 שניות, עצירה/המשך, קדימה 10 שניות, סאונד
+  // כשגוללים הלאה מהסרטון והסאונד פועל – הוא מושתק, וחוזר רק בלחיצה על הכפתור
+  $$('[data-snd]').forEach(b => {
+    const v = b.parentElement.querySelector('video'); if (!v) return;
+    const bar = document.createElement('div'); bar.className = 'vctl'; b.parentElement.appendChild(bar);
+    const mk = (label, txt) => { const x = document.createElement('button'); x.type = 'button'; x.className = 'vc'; x.setAttribute('aria-label', label); x.textContent = txt; bar.appendChild(x); return x; };
+    const back = mk('10 שניות אחורה', '⟲ 10'), pp = mk('עצירה', '❚❚'), fwd = mk('10 שניות קדימה', '10 ⟳');
+    bar.appendChild(b);
+    const sync = () => { b.textContent = v.muted ? '🔈 להפעלה עם סאונד' : '🔊 להשתקה'; const p = v.paused; pp.textContent = p ? '▶' : '❚❚'; pp.setAttribute('aria-label', p ? 'המשך' : 'עצירה'); };
+    const seek = d => { if (isFinite(v.duration)) v.currentTime = Math.max(0, Math.min(v.duration - .1, v.currentTime + d)); };
+    back.onclick = () => seek(-10); fwd.onclick = () => seek(10);
+    pp.onclick = () => { if (v.paused){ v.dataset.userPaused = ''; v.play().catch(() => {}); } else { v.dataset.userPaused = '1'; v.pause(); } sync(); };
+    b.addEventListener('click', () => { v.muted = !v.muted; if (!v.muted){ if (!v.dataset.heard){ v.dataset.heard = 1; v.currentTime = 0; } v.dataset.userPaused = ''; v.play().catch(() => {}); window.__ffoAudio && __ffoAudio.pause(); } sync(); });
+    v.addEventListener('play', sync); v.addEventListener('pause', sync); v.addEventListener('volumechange', sync);
+    v.__muteAway = () => { if (!v.muted){ v.muted = true; sync(); } };
+    new IntersectionObserver(es => es.forEach(e => { if (e.intersectionRatio < .3) v.__muteAway(); }), {threshold:[0,.3]}).observe(v);
+    sync();
+  });
 
   /* ---------- טופס פנייה (בסקיצה הפנייה נפתחת בוואטסאפ של רועי; בהקמה גם למייל ולגיליון) ---------- */
   $$('[data-form]').forEach(box => {
