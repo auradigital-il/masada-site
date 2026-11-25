@@ -75,6 +75,13 @@ a{color:inherit;text-decoration:none}
 .wide{justify-self:end;width:min(52vw,820px);aspect-ratio:16/9;border-radius:6px;overflow:hidden;position:relative;box-shadow:0 40px 120px rgba(0,0,0,.6)}
 .wide video{width:100%;height:100%;object-fit:cover}
 .wide .snd{position:absolute;bottom:12px;right:12px;font:600 13px/1 var(--sans);padding:9px 14px;border-radius:999px;border:0;background:rgba(0,0,0,.65);color:#fff;cursor:pointer;pointer-events:auto}
+.who-t{align-items:flex-start;text-align:right}
+.who-t .h-xl{font-size:min(6vw,9vh)}
+@media(max-width:900px){.who-t{justify-content:flex-end;padding-bottom:110px}.who-t .h-xl{font-size:9.5vw}#whoShade{background:linear-gradient(transparent 40%,rgba(8,16,13,.94) 78%)!important}}
+#whoImg{object-position:35% 25%}
+.ai-note{position:absolute;right:var(--gutter);bottom:clamp(24px,7vh,64px);z-index:2;max-width:320px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:rgba(8,16,13,.6);backdrop-filter:blur(10px);font-size:14px;line-height:1.6;color:var(--muted)}
+.ai-note b{display:block;color:var(--gold-2);font-size:15px;margin-bottom:4px}
+@media(max-width:900px){.ai-note{left:16px;right:16px;max-width:none;top:78px;bottom:auto;font-size:12px;padding:10px 14px}}
 .zero{display:flex;align-items:center;gap:18px;border:1px solid var(--gold);border-radius:6px;padding:16px 20px;background:rgba(212,176,106,.08)}
 .zero strong{font-family:var(--serif);font-weight:900;font-size:clamp(44px,5vw,70px);line-height:1}
 .nums{align-items:center;text-align:center;gap:clamp(18px,4vh,40px)}
@@ -174,9 +181,10 @@ footer{padding:40px var(--gutter) 120px;border-top:1px solid var(--line);text-al
 
     <!-- 2 · מי שמכיר את כל השחקנים -->
     <div class="layer" id="sWho" style="opacity:0">
-      <img class="cover" id="whoImg" src="../../media/tower-dusk.jpg" alt="">
-      <div class="shade" style="background:linear-gradient(270deg,rgba(8,16,13,.88),rgba(8,16,13,.35) 60%,rgba(8,16,13,.15))"></div>
-      <div class="st">
+      <video class="cover" id="whoImg" src="../../media/roei-ai.mp4" poster="../../media/roei-ai-poster.jpg" muted playsinline preload="auto" aria-label="רועי יהודה בפנטהאוז, קטע שנוצר בבינה מלאכותית"></video>
+      <div class="ai-note"><b>✦ טעימה מבינה מלאכותית</b><span>אם תאהב את הכיוון, אפשר להנפיש כך את כל האתר: רועי מלווה את הגולש מסצנה לסצנה</span></div>
+      <div class="shade" id="whoShade" style="background:linear-gradient(270deg,rgba(8,16,13,.9),rgba(8,16,13,.45) 40%,rgba(8,16,13,0) 62%);opacity:0"></div>
+      <div class="st who-t">
         <span class="eb line">THE RULES OF THE GAME</span>
         <h2 class="h-xl"><span class="line">מי שמכיר</span><span class="line">את כל השחקנים</span><span class="line gold">קובע את כללי המשחק</span></h2>
       </div>
@@ -449,8 +457,14 @@ function lines(layer, t){ layer.querySelectorAll('.line').forEach((el, i) => { c
 const nums = [...document.querySelectorAll('[data-to]')];
 function countUp(t){ nums.forEach((el, i) => { const k = ease(seg(t, .15 + i*.08, .55 + i*.08)); el.textContent = Math.round(k * +el.dataset.to) + (k > .98 ? (el.dataset.suffix || '') : ''); }); }
 
+// רועי הולך לכיוון הגולש לפי הגלילה
+const wv = $('whoImg'); let whoT = 0, whoShown = 0; wv.pause(); wv.addEventListener('loadedmetadata', () => { wv.currentTime = .01; });
+gsap.ticker ? 0 : 0;
+const narrow = () => innerWidth/innerHeight < .9;
+const whoTick = () => { whoShown += (whoT - whoShown)*.2; if (narrow()) wv.style.objectPosition = (3 + 33*whoShown).toFixed(1) + '% 30%'; if (isFinite(wv.duration) && wv.duration && wv.readyState >= 1){ const t = Math.min(wv.duration - .05, whoShown*wv.duration); if (Math.abs(wv.currentTime - t) > 1/30) wv.currentTime = t; } requestAnimationFrame(whoTick); };
+requestAnimationFrame(whoTick);
 const L = {intro:$('sIntro'), who:$('sWho'), meet:$('sMeet'), broker:$('sBroker'), renew:$('sRenew'), nums:$('sNums'), deals:$('sDeals')};
-const S = {who:[.12,.27], meet:[.25,.42], broker:[.40,.56], renew:[.54,.71], nums:[.69,.83], deals:[.81,1.01]};
+const S = {who:[.12,.30], meet:[.28,.43], broker:[.40,.56], renew:[.54,.71], nums:[.69,.83], deals:[.81,1.01]};
 const introText = $('introText'), bar = document.querySelector('#progress i'), nav = $('nav'), rVid = $('rVid'), bItems = [...document.querySelectorAll('#bList li')];
 function frame(){
   cur += (target - cur)*(reduce ? 1 : .11); if (Math.abs(target - cur) < .00005) cur = target;
@@ -460,7 +474,7 @@ function frame(){
   introText.style.opacity = 1 - seg(ti, 0, .35); introText.style.transform = `translateY(${-seg(ti, 0, .35)*40}px)`;
   L.intro.style.opacity = 1 - seg(p, .12, .14);
   nav.classList.toggle('hide', ti > .02 && ti < .9);
-  const tw = seg(p, ...S.who); L.who.style.opacity = p < .125 ? 0 : vis(p, ...S.who); $('whoImg').style.transform = `scale(${1.02 + tw*.16})`; lines(L.who, seg(tw, .05, .7));
+  const tw = seg(p, ...S.who); L.who.style.opacity = p < .125 ? 0 : vis(p, ...S.who); whoT = Math.min(1, tw/.8); lines(L.who, seg(tw, .5, .95)); $('whoShade').style.opacity = seg(tw, .4, .7);
   const tm = seg(p, ...S.meet); L.meet.style.opacity = vis(p, ...S.meet);
   const rev = ease(seg(tm, .05, .45)); $('portrait').style.clipPath = `inset(${(1-rev)*100}% 0 0 0)`; $('roeiImg').style.transform = `scale(${1.25 - rev*.2 + tm*.05})`; lines(L.meet, seg(tm, .1, .75));
   const tb = seg(p, ...S.broker); L.broker.style.opacity = vis(p, ...S.broker); scrub(tb);
