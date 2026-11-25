@@ -21,7 +21,7 @@ $$('.gc').forEach(c => { c.addEventListener('pointermove', e => { const r = c.ge
 /* ---------- טעינה ---------- */
 const ld = $('#load'), ldp = $('#ldp'), ldt = $('#ldt');
 let lp = {v:0};
-const loadAnim = gsap.to(lp, {v:100, duration:1.6, ease:'power2.inOut', onUpdate(){ ldp.style.strokeDashoffset = 600 - 6*lp.v; ldt.textContent = Math.round(lp.v) + '%'; }});
+const loadAnim = gsap.to(lp, {v:100, duration:1.6, ease:'power2.inOut', onUpdate(){ ldp.style.strokeDashoffset = 310 - 3.1*lp.v; document.getElementById('ldd').setAttribute('opacity', Math.max(0, (lp.v-70)/30)); ldt.textContent = Math.round(lp.v) + '%'; }});
 const done = () => { loadAnim.then(() => { ld.classList.add('done'); setTimeout(() => ld.remove(), 1100);
   gsap.from('.fx-h', {y:60, opacity:0, duration:1.6, stagger:.15, ease:'power3.out', delay:.3}); }); };
 

@@ -43,7 +43,7 @@ main,footer,.nav{position:relative;z-index:2}
 #load .p{font-family:var(--lat);font-weight:200;font-size:12px;letter-spacing:.5em;color:var(--mu);margin-top:26px;text-align:center}
 #load svg{width:80px;margin:0 auto;display:block}
 #load .st{fill:none;stroke:var(--fa);stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
-#load .st2{fill:none;stroke:var(--g);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:600;stroke-dashoffset:600;transition:stroke-dashoffset .3s}
+#load .st2{fill:none;stroke:var(--g);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:310;stroke-dashoffset:310;transition:stroke-dashoffset .3s}
 #load.done{opacity:0;pointer-events:none}
 
 /* ניווט */
@@ -191,7 +191,7 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
 </style>
 </head>
 <body>
-<div id="load" aria-hidden="true"><div><svg viewBox="0 0 120 132"><path class="st" d="M10 126V12L76 78L60 94L44 78L110 12V126"/><path class="st2" id="ldp" d="M10 126V12L76 78L60 94L44 78L110 12V126"/></svg><div class="p" id="ldt">0%</div></div></div>
+<div id="load" aria-hidden="true"><div><svg viewBox="0 0 120 120"><path class="st" d="M60 6 L114 60 L60 114 L6 60 Z"/><path class="st2" id="ldp" d="M60 6 L114 60 L60 114 L6 60 Z"/><rect id="ldd" x="44" y="44" width="32" height="32" rx="3" transform="rotate(45 60 60)" fill="#D9B577" opacity="0"/></svg><div class="p" style="font-family:Heebo;font-size:22px;letter-spacing:.04em;color:#F1EBE0">רועי <b style="font-weight:900;color:#D9B577">יהודה</b></div><div class="p" id="ldt">0%</div></div></div>
 
 <video id="heroVid" autoplay muted loop playsinline poster="../../media/hero-poster.jpg" aria-hidden="true"><source src="../../media/facade-scrub.mp4" type="video/mp4"></video>
 <canvas id="gl" aria-hidden="true"></canvas>
@@ -386,6 +386,6 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
 <script src="../../renew.js"></script>
 <script src="../../wow.js"></script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
-<script type="module" src="world.js?v=12"></script>
+<script type="module" src="world.js?v=13"></script>
 </body>
 </html>
