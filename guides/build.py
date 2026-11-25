@@ -1,7 +1,7 @@
 # בונה את 3 דפי המדריכים מתבנית אחת. הרצה: python3 guides/build.py
 import os
 D = os.path.dirname(os.path.abspath(__file__))
-FONTS = 'https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;800&family=Assistant:wght@300;400;600&family=Suez+One&family=Frank+Ruhl+Libre:wght@700;900&family=Rubik:wght@300;400;500&family=Montserrat:wght@300&display=swap'
+FONTS = 'https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;800&family=Assistant:wght@300;400;600&family=Suez+One&family=Frank+Ruhl+Libre:wght@700;900&family=Rubik:wght@300;400;500&family=Montserrat:wght@300&family=Noto+Serif+Hebrew:wght@200;300&display=swap'
 
 G = [
  dict(n=1, img='terraces.jpg', cat='התחדשות עירונית', mins=6,
@@ -24,7 +24,7 @@ G = [
 
 <h2 id="s3">מי משלם לה?</h2>
 <p>במודל הנפוץ בשוק, ובמודל שבו עובדת קבוצת מצדה, <b>בעלי הדירות לא משלמים</b>. את שכר החברה המארגנת משלם היזם שנבחר, בסוף התהליך, וזה נקבע מראש בהסכם. כך האינטרס ברור: החברה מצליחה רק כשהפרויקט יוצא לדרך עם יזם שהדיירים בחרו.</p>
-<p>ההסכמים עם חברות מארגנות מוסדרים בחוק התחדשות עירונית (הסכמים לארגון עסקאות), התשע״ז־2017. לכן חשוב לקרוא את ההסכם ולוודא שהוא ברור ושקוף, רצוי יחד עם עורך הדין של הדיירים.</p>
+<p>ההסכמים עם חברות מארגנות מוסדרים בחוק התחדשות עירונית (הסכמים לארגון עסקאות), התשע״ז־2017<br>לכן חשוב לקרוא את ההסכם ולוודא שהוא ברור ושקוף, רצוי יחד עם עורך הדין של הדיירים.</p>
 
 <div class="quote">״אנחנו מנצחים על התזמורת. אתם בוחרים את היזם.״<span>רועי יהודה, קבוצת מצדה</span></div>
 
@@ -55,21 +55,21 @@ G = [
 <p>המפתח הוא מה שכתוב במכרז. אלה 8 הסעיפים שכדאי לוודא שקיימים בו.</p>
 
 <h2 id="s2">8 הסעיפים</h2>
-<h3>1. תמורה לכל דייר</h3>
+<h3>1 · תמורה לכל דייר</h3>
 <p>כמה מטרים מוסיפים לכל דירה, מרפסת, חניה ומחסן. כתוב לפי דירה, לא ״בממוצע״.</p>
-<h3>2. מפרט טכני מחייב</h3>
+<h3>2 · מפרט טכני מחייב</h3>
 <p>חומרים, מטבח, ריצוף, חלונות, מיזוג ומעליות. מפרט כללי מדי הוא פתח לוויכוחים.</p>
-<h3>3. ערבויות</h3>
+<h3>3 · ערבויות</h3>
 <p>אילו ערבויות היזם נותן לבעלי הדירות ומתי, למשל ערבות לפי חוק המכר, ערבות לתשלום שכר דירה וערבויות ביצוע. עורך הדין של הדיירים יקבע מה נדרש.</p>
-<h3>4. דיור חלופי</h3>
+<h3>4 · דיור חלופי</h3>
 <p>גובה שכר הדירה בתקופת הבנייה, למשך כמה זמן, ומה קורה אם יש עיכוב.</p>
-<h3>5. לוחות זמנים ופיצוי על איחור</h3>
+<h3>5 · לוחות זמנים ופיצוי על איחור</h3>
 <p>מתי מגישים תוכניות, מתי מתחילים לבנות ומתי מוסרים. ומה הפיצוי אם לא עומדים בזה.</p>
-<h3>6. איתנות היזם</h3>
+<h3>6 · איתנות היזם</h3>
 <p>ניסיון, פרויקטים שהושלמו, ליווי בנקאי ויכולת כלכלית. יזם חזק על הנייר צריך להיות חזק גם בבנק.</p>
-<h3>7. נציגות ופיקוח מטעם הדיירים</h3>
+<h3>7 · נציגות ופיקוח מטעם הדיירים</h3>
 <p>מפקח בנייה ועורך דין מטעם הדיירים, שהיזם מממן ואתם בוחרים.</p>
-<h3>8. שנת בדק ואחריות</h3>
+<h3>8 · שנת בדק ואחריות</h3>
 <p>מה כולל הבדק אחרי המסירה, מי מתקן, ותוך כמה זמן.</p>
 
 <div class="quote">״אנחנו מתגאים במכרז שמעביר את הכוח אליכם, בעלי הנכסים.״<span>רועי יהודה, קבוצת מצדה</span></div>
@@ -124,7 +124,13 @@ G = [
 '''),
 ]
 
+import re
+def fix(t):
+    t = re.sub(r'\.(\s*</(p|li|summary)>)', r'\1', t)          # נקודה בסוף שורה
+    t = re.sub(r'(?<![0-9])\.\s+(?=[^\s<])', '<br>', t)          # נקודה באמצע: שורה חדשה
+    return t.rstrip('.')
 for g in G:
+    g['body'] = fix(g['body']); g['tldr'] = [fix(x) for x in g['tldr']]; g['desc'] = fix(g['desc'])
     toc = ''.join(f'<li><a href="#s{i+1}">{t}</a></li>' for i, t in enumerate(__import__('re').findall(r'<h2 id="s\d+">(.*?)</h2>', g['body'])))
     more = ''.join(f'<a href="{o["n"]}.html"><span>{o["cat"]}</span>{o["title"]}</a>' for o in G if o['n'] != g['n'])
     html = f'''<!doctype html>
@@ -139,7 +145,7 @@ for g in G:
 <link href="{FONTS}" rel="stylesheet">
 <link rel="stylesheet" href="../common.css">
 <link rel="stylesheet" href="guide.css">
-<script>document.documentElement.dataset.t=(new URLSearchParams(location.search).get('t')||'b').replace(/[^abc]/g,'')||'b'</script>
+<script>document.documentElement.dataset.t=(new URLSearchParams(location.search).get('t')||'b').replace(/[^ablw]/g,'')||'l'</script>
 </head>
 <body>
 <script>document.body.className='t-'+document.documentElement.dataset.t</script>
@@ -157,16 +163,16 @@ for g in G:
   <div class="tldr"><b>בקצרה</b><ul>{''.join(f'<li>{t}</li>' for t in g['tldr'])}</ul></div>
   <nav class="toc" aria-label="תוכן המדריך"><b>במדריך הזה</b><ol>{toc}</ol></nav>
   <article>{g['body']}</article>
-  <div class="cta"><h2>רוצים לדבר על זה עם רועי?</h2><p>שיחה אחת, בשקט, ונבין מה נכון לכם.</p><a class="btn" data-wa href="#">פנייה אישית לרועי</a></div>
-  <p class="note">המידע במדריך כללי ואינו מהווה ייעוץ משפטי, מיסויי או ייעוץ השקעות. לפני כל החלטה מומלץ להתייעץ עם עורך דין ואנשי מקצוע.</p>
+  <div class="cta"><h2>רוצים לדבר על זה עם רועי?</h2><p>שיחה אחת, בשקט<br>ונבין יחד מה נכון לכם</p><a class="btn" data-wa href="#">פנייה אישית לרועי</a></div>
+  <p class="note">המידע במדריך כללי ואינו מהווה ייעוץ משפטי, מיסויי או ייעוץ השקעות<br>לפני כל החלטה מומלץ להתייעץ עם עורך דין ואנשי מקצוע</p>
   <section class="more"><h2>מדריכים נוספים</h2><div class="g">{more}</div></section>
 </main>
 <footer>קבוצת מצדה · י.ר מצדה בע״מ<p class="credit">הוכן ע״י <a href="https://aura-digital.co.il" target="_blank" rel="noopener">אורה דיגיטל</a></p></footer>
 <script src="../common.js"></script>
 <script>
 (() => {{ const t = document.documentElement.dataset.t;
-  document.querySelector('[data-back]').href = '../' + t + '/#guides';
-  document.querySelector('[data-logo]').src = '../media/logo-' + ({{a:'light',b:'dark',c:'ink'}})[t] + '.svg';
+  document.querySelector('[data-back]').href = ({{a:'../v2/1/',l:'../v2/2/',w:'../v2/3/'}})[t] ? ({{a:'../v2/1/',l:'../v2/2/',w:'../v2/3/'}})[t] + '#guides' : '../' + t + '/#guides';
+  document.querySelector('[data-logo]').src = '../media/logo-' + ({{a:'light',b:'dark',c:'ink',l:'ink',w:'light'}})[t] + '.svg';
   document.querySelectorAll('.more a').forEach(a => a.href += '?t=' + t);
   const tag = document.querySelector('.sketch-tag'); if (tag) tag.href = '../';
 }})();

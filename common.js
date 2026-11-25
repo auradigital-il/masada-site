@@ -88,5 +88,5 @@
   try { apply(JSON.parse(localStorage.getItem('roei-a11y') || '[]')); } catch (_) {}
 
   // תווית סקיצה
-  add(`<a class="sketch-tag" href="../">← כל הסקיצות</a>`);
+  add(`<a class="sketch-tag" href="${location.pathname.includes('/v2/') ? '../../' : '../'}">← כל הסקיצות</a>`);
 })();
