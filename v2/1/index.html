@@ -70,7 +70,7 @@ a{color:inherit;text-decoration:none}
 #window{height:260vh;position:relative}
 #window .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;place-items:center}
 #window .pic{position:absolute;inset:0;clip-path:url(#mclip);-webkit-clip-path:url(#mclip)}
-#window .pic img{width:100%;height:100%;object-fit:cover;object-position:60% 22%;transform-origin:62% 28%}
+#window .pic img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform-origin:50% 40%}
 #window .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(11,10,9,.85))}
 #window .frame{position:absolute;left:50%;top:50%;width:var(--fw,30vh);height:var(--fw,30vh);transform:translate(-50%,-50%) rotate(45deg);border:1px solid var(--g);pointer-events:none}
 #window .q{position:absolute;bottom:12vh;left:0;right:0;text-align:center;padding:0 24px;opacity:0}
@@ -163,7 +163,7 @@ a{color:inherit;text-decoration:none}
 #story{position:relative;padding:150px 0 120px;background:linear-gradient(var(--k),var(--k2))}
 #story .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px;align-items:start}
 #story .ph{position:sticky;top:100px;aspect-ratio:4/5;overflow:hidden;border-radius:6px}
-#story .ph img{width:100%;height:110%;object-fit:cover;object-position:60% 18%}
+#story .ph img{width:100%;height:110%;object-fit:cover;object-position:50% 12%}
 #story .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(11,10,9,.85))}
 #story .ph .sig{position:absolute;bottom:26px;right:28px;z-index:1;font-family:var(--disp);font-size:34px}
 #story h2{font-size:clamp(54px,7vw,120px)}
@@ -249,7 +249,7 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
 
 <section id="window" aria-label="מי שמכיר את כל השחקנים">
   <div class="stage">
-    <div class="pic"><img src="../../media/roei.jpg" alt="רועי יהודה"></div><div class="frame" id="dframe"></div>
+    <div class="pic"><img src="../../media/roei-face.jpg" alt="רועי יהודה"></div><div class="frame" id="dframe"></div>
     <div class="q" id="wq"><p>מי שמכיר את כל השחקנים<br><span class="gold">קובע את כללי המשחק</span></p><small>רועי יהודה · מייסד קבוצת מצדה</small></div>
   </div>
 </section>
@@ -293,7 +293,7 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
         <div class="pillars fx"><div><b>נכסים פרטיים</b></div><div><b>נכסים מסחריים</b></div><div><b>בארץ ובעולם</b><span>8 מדינות</span></div><div><b>חיבורים בין בכירים</b><span>רשת קשרים חובקת עולם</span></div></div>
         <div class="acts fx"><a class="btn" data-wa href="#">לשיחה דיסקרטית</a></div>
       </div>
-      <div class="media"><img data-par src="../../media/roei-hands.jpg" alt="רועי יהודה סוגר עסקה" style="object-position:40% 50%"><span class="tag">כאן ירוץ סרטון התדמית מהתמונות של רועי</span></div>
+      <div class="media"><img data-par src="../../media/roei-hands.jpg" alt="רועי יהודה" style="object-position:50% 20%"><span class="tag">כאן ירוץ סרטון התדמית מהתמונות של רועי</span></div>
     </div>
     <div data-pstats></div>
   </div>
@@ -516,7 +516,7 @@ const setM = () => { mpath.setAttribute('d', wst.s > 3.2 ? 'M0,0 H1 V1 H0 Z' : M
 setM();
 gsap.timeline({scrollTrigger:{trigger:'#window', start:'top top', end:'bottom bottom', scrub:.8}})
   .to(wst, {s:3.4, ease:'power2.in', duration:1, onUpdate:setM})
-  .fromTo('#window .pic img', {scale:1.35}, {scale:1, duration:1}, 0)
+  .fromTo('#window .pic img', {scale:.36, xPercent:9, yPercent:4}, {scale:1, xPercent:0, yPercent:0, duration:1, ease:'power2.in'}, 0)
   .to('#wq', {opacity:1, y:0, duration:.35}, .7)
   .from('#wq', {y:40, duration:.35}, .7);
 
