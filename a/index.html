@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>רועי יהודה · סקיצה א׳ · קולנועי</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&family=Montserrat:wght@300&family=Marcellus&family=Suez+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../common.css">
+<style>
+:root{
+  --black:#0A0806;--black-2:#14100C;--ivory:#F4EDE2;--muted:rgba(244,237,226,.64);--faint:rgba(244,237,226,.14);
+  --gold-1:#F7E5B8;--gold-2:#DDBB7D;--gold-3:#A97E3E;--gold:#D4AF6E;
+  --display:'Suez One',serif;--latin:'Marcellus',serif;--sans:'Assistant',system-ui,sans-serif;
+  --w-bg:#14100C;--w-fg:#F4EDE2;--w-acc:#D4AF6E;--w-acc-fg:#1a1206;--w-line:rgba(212,175,110,.45);--w-font:'Assistant';--w-display:'Suez One'
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--black);scroll-behavior:smooth}
+body{font-family:var(--sans);font-weight:300;color:var(--ivory);background:var(--black);line-height:1.75;font-size:18px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1240px,100% - 48px);margin-inline:auto}
+@media(max-width:600px){.wrap{width:calc(100% - 32px)}}
+.metal{background:linear-gradient(175deg,var(--gold-1) 0%,var(--gold-2) 38%,var(--gold-3) 62%,var(--gold-1) 88%,var(--gold-2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 30px rgba(212,175,110,.25))}
+.display{font-family:var(--display);font-weight:400;line-height:1.05}
+.eyebrow{font-family:var(--latin);font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold)}
+.lead{font-size:clamp(18px,1.6vw,22px);color:var(--muted)}
+.btn{display:inline-block;background:linear-gradient(180deg,var(--gold-1),var(--gold-2) 55%,var(--gold-3));color:#1a1206;font-weight:600;padding:15px 30px;border-radius:999px}
+.btn.ghost{background:none;color:var(--gold-1);border:1px solid var(--w-line)}
+section{position:relative}
+
+/* ניווט */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:4px;padding:7px 7px 7px 10px;border-radius:999px;background:rgba(14,11,8,.55);backdrop-filter:blur(16px);border:1px solid var(--faint);white-space:nowrap}
+.nav .logo{padding:0 12px 0 8px}
+.nav a.l{font-size:14px;padding:8px 13px;border-radius:999px;color:var(--muted)}
+.nav a.l:hover{color:var(--ivory);background:rgba(244,237,226,.08)}
+@media(max-width:900px){.nav a.l{display:none}.nav{left:auto;right:14px;transform:none}}
+
+/* פתיחה עם סרטון */
+#hero{height:100vh;height:100svh;overflow:hidden;display:grid;place-items:center;text-align:center}
+#hero video,#hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:drift 22s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.0) translateY(-2%)}}
+#hero .veil{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(10,8,6,.25),rgba(10,8,6,.88) 75%),linear-gradient(transparent 60%,var(--black))}
+#hero .in{position:relative;padding:0 20px}
+#hero .eyebrow{display:block;margin-bottom:22px}
+#hero .mark{height:clamp(54px,7vw,84px);margin:0 auto 22px;filter:drop-shadow(0 6px 24px rgba(0,0,0,.5))}
+.sub-h{font-family:var(--display);font-weight:400;font-size:26px;color:var(--gold-1);margin-top:40px}
+.nav .logo .lockup img{height:28px}.nav .logo .wm b{font-size:14px}.nav .logo .wm small{font-size:9px;color:var(--muted)}
+#hero h1{font-size:clamp(58px,10vw,160px)}
+#hero h1 small{display:block;font-size:.36em;margin-top:.25em;color:var(--ivory);-webkit-text-fill-color:var(--ivory);filter:none}
+#hero .whisper{margin-top:26px;font-family:var(--display);font-size:clamp(22px,2.6vw,34px);color:var(--gold-1);letter-spacing:.02em}
+#hero .since{margin-top:10px;color:var(--muted);font-size:clamp(15px,1.3vw,18px)}
+.cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-family:var(--latin);font-size:10px;letter-spacing:.5em;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:10px}
+.cue i{width:1px;height:46px;background:linear-gradient(var(--gold),transparent);animation:cue 2.2s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* שלוש החטיבות */
+#group{padding:150px 0 60px;text-align:center}
+#group h2{font-size:clamp(34px,4.6vw,66px);max-width:1000px;margin:18px auto 0}
+.doors{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:64px}
+.door{position:relative;height:460px;overflow:hidden;border:1px solid var(--faint);text-align:right;cursor:pointer;background:none;color:inherit;font:inherit;border-radius:4px;transition:border-color .4s}
+.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.75) brightness(.6);transition:transform 1.2s,filter .6s}
+.door::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(10,8,6,.95))}
+.door .t{position:absolute;inset:auto 26px 26px;z-index:1}
+.door .n{font-family:var(--latin);font-size:64px;line-height:1;opacity:.9}
+.door h3{font-family:var(--display);font-weight:400;font-size:clamp(22px,2vw,28px);line-height:1.25;margin-top:10px}
+.door .go{display:inline-flex;gap:8px;margin-top:16px;font-size:14px;color:var(--gold);letter-spacing:.06em}
+.door:hover img,.door[aria-selected=true] img{transform:scale(1.06);filter:saturate(1) brightness(.75)}
+.door[aria-selected=true]{border-color:var(--gold)}
+.door[aria-selected=true] .go::before{content:"● "}
+@media(max-width:900px){.doors{grid-template-columns:1fr}.door{height:240px}}
+
+.panel{padding:70px 0 40px;text-align:right}
+.panel .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:start}
+.panel h3{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.4vw,50px);line-height:1.15}
+.panel p{color:var(--muted);margin-top:18px}
+.panel p strong{color:var(--ivory);font-weight:600}
+.panel .media{position:sticky;top:90px;aspect-ratio:4/5;overflow:hidden;border-radius:4px;border:1px solid var(--faint)}
+.panel .media img,.panel .media video{width:100%;height:100%;object-fit:cover}
+.panel .media .tag{position:absolute;bottom:14px;right:14px;font-size:13px;background:rgba(10,8,6,.7);padding:6px 12px;border-radius:999px;color:var(--gold-1)}
+.steps{list-style:none;counter-reset:s;margin-top:34px;border-right:1px solid var(--w-line)}
+.steps li{counter-increment:s;position:relative;padding:0 34px 22px 0;color:var(--muted)}
+.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;right:-17px;top:0;width:34px;height:34px;border-radius:50%;background:var(--black);border:1px solid var(--gold);color:var(--gold-1);font:13px/32px var(--latin);text-align:center}
+.free{margin-top:30px;padding:22px 24px;border:1px solid var(--gold);background:linear-gradient(135deg,rgba(212,175,110,.12),transparent);font-size:19px}
+.free b{font-family:var(--display);font-weight:400;font-size:24px;display:block;color:var(--gold-1)}
+.panel .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+@media(max-width:900px){.panel .cols{grid-template-columns:1fr;gap:34px}.panel .media{position:relative;top:0;aspect-ratio:16/11}}
+
+/* מספרים */
+#nums{padding:110px 0;border-top:1px solid var(--faint);border-bottom:1px solid var(--faint);background:radial-gradient(ellipse at top,rgba(212,175,110,.10),transparent 60%)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center}
+.stat .n{direction:ltr;font-family:var(--display);font-size:clamp(84px,11vw,170px);line-height:1}
+.stat .n sup{font-size:.4em;vertical-align:top}
+.stat p{color:var(--muted);font-size:clamp(16px,1.3vw,20px)}
+#nums .marquee{margin-top:56px}
+@media(max-width:700px){.stats{grid-template-columns:1fr;gap:40px}}
+
+/* הסיפור שלי */
+#story{padding:150px 0 110px}
+#story .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+#story .ph{position:sticky;top:90px;aspect-ratio:4/5;overflow:hidden;border-radius:4px}
+#story .ph img{width:100%;height:100%;object-fit:cover;object-position:60% 20%;filter:saturate(.9) contrast(1.05)}
+#story .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(10,8,6,.85))}
+#story .ph .sig{position:absolute;bottom:22px;right:24px;z-index:1;font-family:var(--display);font-size:30px}
+#story h2{font-size:clamp(40px,5vw,76px)}
+#story h3{font-family:var(--display);font-weight:400;font-size:28px;color:var(--gold-1);margin-top:48px}
+#story p{color:var(--muted);margin-top:16px;font-size:19px}
+#story .open{font-size:clamp(22px,2vw,28px);color:var(--ivory);font-family:var(--display);line-height:1.5;margin-top:26px}
+#story blockquote{margin-top:48px;padding:34px;border:1px solid var(--w-line);font-family:var(--display);font-size:clamp(24px,2.4vw,34px);line-height:1.4}
+#story blockquote span{display:block;font-family:var(--sans);font-size:17px;color:var(--muted);margin-top:14px;line-height:1.7}
+@media(max-width:900px){#story .grid{grid-template-columns:1fr;gap:40px}#story .ph{position:relative;top:0;aspect-ratio:1}}
+
+/* מדריכים */
+#guides{padding:120px 0;background:var(--black-2)}
+#guides .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+#guides h2{font-size:clamp(38px,4.6vw,66px)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}
+.card{border:1px solid var(--faint);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;background:var(--black);transition:border-color .4s,transform .4s}
+.card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.card .im{aspect-ratio:16/10;overflow:hidden}
+.card .im img{width:100%;height:100%;object-fit:cover;filter:brightness(.8)}
+.card .b{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card .k{font-size:13px;color:var(--gold);letter-spacing:.08em}
+.card h3{font-family:var(--display);font-weight:400;font-size:24px;line-height:1.3}
+.card p{color:var(--muted);font-size:16px;flex:1}
+.card .r{color:var(--gold-1);font-size:15px}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
+
+/* סיום */
+#end{padding:130px 0 60px;text-align:center;overflow:hidden}
+#end h2{font-size:clamp(40px,6vw,96px)}
+#end p{margin-top:16px}
+#end .acts{margin-top:34px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+#end .socials{margin-top:46px}
+footer{padding:30px 0 120px;border-top:1px solid var(--faint);text-align:center;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="ניווט ראשי">
+  <a href="#hero" class="logo"><span class="lockup" role="img" aria-label="MASADA GROUP"><img src="../media/logo-light.svg" alt=""><span class="wm" aria-hidden="true"><b>MΛSΛDΛ</b><small>GROUP · יזמות ושיווק נדל״ן</small></span></span></a>
+  <a class="l" href="#group">הפעילות</a>
+  
+  <a class="l" href="#story">הסיפור שלי</a>
+  <a class="l" href="#guides">מדריכים</a>
+  <a class="btn" style="padding:9px 18px;font-size:14px" data-wa href="#">לשיחה עם רועי</a>
+</nav>
+
+<main>
+<section id="hero">
+  <img class="poster" src="../media/hero-poster.jpg" alt="">
+  <video autoplay muted loop playsinline poster="../media/hero-poster.jpg" aria-label="סרטון תדמית (יוחלף בסרטון של רועי)"><source src="../media/facade-scrub.mp4" type="video/mp4"></video>
+  <div class="veil"></div>
+  <div class="in">
+    <img class="mark" src="../media/logo-light.svg" alt=""><span class="eyebrow">ROEI YEHUDA · MASADA GROUP</span>
+    <h1 class="display metal">רועי יהודה<small>הצל שמאחורי העסקאות</small></h1>
+    <div class="whisper">עסקאות גדולות נסגרות בלחישה</div>
+    <p class="since">מייסד קבוצת מצדה · מאז 2008 בלב הנדל״ן הישראלי</p>
+  </div>
+  <div class="cue">גללו<i></i></div>
+</section>
+
+<section id="group">
+  <div class="wrap">
+    <span class="eyebrow rv">קבוצת מצדה</span>
+    <h2 class="display rv">קבוצת מצדה מאגדת בתוכה פעילות ענפה, <span class="metal">20 שנות פעילות</span> ב־3 חטיבות נפרדות</h2>
+
+    <div class="doors" data-tabs role="tablist" aria-label="שלוש החטיבות">
+      <button class="door rv" role="tab" data-key="brokerage" aria-controls="p1" aria-selected="true"><img src="../media/tlv-night.jpg" alt=""><span class="t"><span class="n metal">01</span><h3>תיווך ושיווק נכסים פרטיים ומסחריים בארץ ובעולם</h3><span class="go">לפרטים ←</span></span></button>
+      <button class="door rv" role="tab" data-key="renewal" aria-controls="p2"><img src="../media/terraces.jpg" alt=""><span class="t"><span class="n metal">02</span><h3>ארגון פרויקטים בהתחדשות עירונית, מגיבוש הדיירים ועד בחירת היזם</h3><span class="go">לפרטים ←</span></span></button>
+      <button class="door rv" role="tab" data-key="m26" aria-controls="p3"><img src="../media/rooftop-moon.jpg" alt=""><span class="t"><span class="n metal">03</span><h3>הפעלת M26, אתר המכרזים והזדמנויות הנדל״ן</h3><span class="go">לפרטים ←</span></span></button>
+
+      <div class="panel" id="p1" role="tabpanel" style="grid-column:1/-1">
+        <div class="cols">
+          <div>
+            <span class="eyebrow">01 · תיווך ושיווק</span>
+            <h3 class="metal">חיבורים שלא עוברים דרך לוחות מודעות</h3>
+            <p>רועי מביא עמו <strong>למעלה מ־20 שנות ניסיון</strong> בתיווך נדל״ן פרטי ומסחרי, לצד חיבורים עסקיים בין בכירים מהמשק הישראלי באמצעות רשת קשרים חובקת עולם, <strong>ובדיסקרטיות מוחלטת</strong>.</p>
+            <div class="acts"><a class="btn" data-wa href="#">שיחה דיסקרטית</a></div>
+          </div>
+          <div class="media"><img src="../media/roei.jpg" alt="רועי יהודה" style="object-position:60% 25%"><span class="tag">כאן ירוץ סרטון התדמית מהתמונות של רועי</span></div>
+        </div>
+        <div data-pstats></div>
+      </div>
+
+      <div class="panel" id="p2" role="tabpanel" hidden style="grid-column:1/-1">
+        <div class="cols">
+          <div>
+            <span class="eyebrow">02 · התחדשות עירונית</span>
+            <h3 class="metal">התחדשות עירונית עושים רק איתנו</h3>
+            <p>מחלקת ההתחדשות העירונית שלנו מהמובילות בישראל בתחום, עם <strong>16 פרויקטים בתהליך, מהם 2 שכבר אוכלסו</strong>. אנו מלווים את התהליך כולו, משלב בחינת כדאיות הפרויקט, דרך הקמת נציגות הדיירים ועד לבחירת היזם המבצע.</p>
+            <p>קבוצת מצדה מתמחה בניהול, גיבוש והובלת פרויקטים של התחדשות עירונית ופינוי בינוי, ומייצגת את בעלי הדירות החל משלב הרעיון ועד למסירת הדירות החדשות.</p>
+            <p>פרויקטים של התחדשות עירונית מורכבים ברובם ודורשים התארגנות וקבלת החלטות משותפות של בעלי הנכסים. חברתנו פועלת מטעם ולמען הדיירים, כדי למקסם את התמורה שתינתן לבעלי הנכסים ולגרום לפרויקט לרקום עור וגידים.</p>
+            <p>אנו מחויבים לכם, בעלי הנכסים. אנו עובדים מטעמכם ולמענכם לאורך כל התהליך, בשקיפות מלאה ובמקצועיות של מעל 20 שנות ניסיון, ולבסוף משיגים עבורכם את התמורה הטובה ביותר מהיזם, <strong>מבלי שאתם משלמים על השירות שלנו!</strong></p>
+<h4 class="sub-h">תפקידה של החברה המנהלת</h4>
+            <p>תהליך התחדשות עירונית הינו תהליך מורכב הדורש ידע וניסיון. כדי להביא להצלחה ולקידום מוצלח של פרויקטים מסוג זה יש להיעזר בשירותיה של חברה מארגנת.</p>
+            <p>הדרך אל עבר הגשמת החלום מצריכה זמן רב והמון בירוקרטיה, מאות שעות עבודה מול דיירים, עורכי דין ויזמים. כדי לצלוח דרך זו בצורה הטובה ביותר, יש צורך בגורם חיצוני מנהל מטעם בעלי הדירות, אשר ינצח על תזמורת בעלי האינטרסים שבפרויקט, ובראשם בעלי הדירות והיזם. <strong>וזהו תפקידנו, ואת השכר שלנו ישלם רק בסוף היזם שייבחר.</strong></p>
+            <p>הזמן של כל אחד מכם יקר. אנחנו רצים עבורכם ומקרבים אתכם אל עבר הדירה החדשה.</p>
+            <div class="free"><b>אתם לא משלמים על השירות שלנו</b>את השכר שלנו משלם בסוף היזם שייבחר. אנחנו עובדים מטעמכם ולמענכם, בשקיפות מלאה.</div>
+            <h3 class="display" style="font-size:28px;margin-top:44px;color:var(--gold-1)">השלבים לפרויקט מוצלח</h3>
+            <ol class="steps">
+              <li>פגישת היכרות עם דיירי הבניין, בדיקת נכונות והסבר על התהליך.</li>
+              <li>בחינת היתכנות ראשונית, תכנונית וכלכלית.</li>
+              <li>מינוי נציגות דיירים ומינוי החברה המארגנת.</li>
+              <li>בדיקת זכויות הבנייה בפן המשפטי והכלכלי.</li>
+              <li>מינוי עו״ד מייצג דיירים, מפקח בנייה ובעלי מקצוע נוספים.</li>
+              <li>כתיבת מכרז יזמים: מפרט, הגנות משפטיות, תמורות לדייר ועוד.</li>
+              <li>יציאה למכרז באישור הנציגות ופנייה ליזמים רלוונטיים.</li>
+              <li>קבלת ההצעות, דירוג ובקשת שיפורים.</li>
+              <li>חתימת הסכם מפורט עם היזם שנבחר, בשקיפות מלאה.</li>
+              <li>פיקוח מטעם הדיירים על התכנון, הבנייה, המסירה ושנת הבדק.</li>
+            </ol>
+            <h4 class="sub-h">דואגים לאינטרס של בעלי הדירות</h4>
+            <p>אנו כאן כדי להשיג עבורכם את המיטב ולהביא לפרויקט מוצלח עם ערך מקסימלי לכל נכס ולפרויקט בכללותו. אנו מתגאים בניהול מכרז יזמים וקבלנים, אשר מעבירים את הכוח אליכם, בעלי הנכסים, ומאפשרים לכם להיות אלה שבוחרים בין מספר תוכניות, מספר יזמים וקבלנים, ולהביא לבחירה המוצלחת ביותר עם הערך המקסימלי והביצוע האיכותי והטוב ביותר לפרויקט שלכם.</p>
+            <div class="acts"><a class="btn" data-wa href="#">בדיקה לבניין שלכם</a><a class="btn ghost" href="../guides/1.html?t=a">מדריך: חברה מארגנת</a></div>
+          </div>
+          <div class="media"><img src="../media/terraces.jpg" alt=""><span class="tag">כאן ירוץ סרטון מהכנסים והפרויקטים</span></div>
+        </div>
+        <div data-pstats></div>
+      </div>
+
+      <div class="panel" id="p3" role="tabpanel" hidden style="grid-column:1/-1">
+        <div class="cols">
+          <div>
+            <span class="eyebrow">03 · M26</span>
+            <h3 class="metal">עסקאות שלא יפורסמו בשום מקום אחר</h3>
+            <p>קבוצת מצדה מפעילה את האתר פורץ הדרך <strong>M26</strong>, המיועד לקהילה סגורה של משקיעים, להזדמנויות נדל״ן אמיתיות שלא מפורסמות ולא יפורסמו בשום מקום אחר.</p>
+            <p>באתר תמצאו עסקאות <strong>PRESALE</strong>, עסקאות <strong>OFF MARKET</strong> ועסקאות בין חברים. כל עסקה שעולה לאתר היא חד פעמית, במלאי מוגבל, ורק לחברי הקבוצה הסגורה שמקבלים סיסמה.</p>
+            <div class="acts"><a class="btn" href="https://m26.co.il" target="_blank" rel="noopener">כניסה ל־M26</a><a class="btn ghost" data-wa href="#">בקשת סיסמה</a></div>
+          </div>
+          <div class="media"><img src="../media/rooftop-moon.jpg" alt=""><span class="tag">FRIENDS &amp; FAMILY ONLY</span></div>
+        </div>
+        <div data-pstats></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nums" hidden>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat rv"><div class="n metal"><span data-count="20">0</span><sup>+</sup></div><p>שנות ניסיון · אלפי עסקאות נדל״ן</p></div>
+      <div class="stat rv"><div class="n metal"><span data-count="16">0</span></div><p>פרויקטים של התחדשות עירונית בליווי</p></div>
+      <div class="stat rv"><div class="n metal"><span data-count="8">0</span></div><p>מדינות עם הזדמנויות נדל״ן</p></div>
+    </div>
+    <div data-flags-run></div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="wrap grid">
+    <div class="ph rv"><img src="../media/roei.jpg" alt="רועי יהודה"><span class="sig metal">רועי יהודה</span></div>
+    <div>
+      <span class="eyebrow rv">MY STORY</span>
+      <h2 class="display metal rv">הסיפור שלי</h2>
+      <p class="open rv">הסיפור שלי לא התחיל מנדל״ן. הוא התחיל מאנשים.</p>
+      <p class="rv">אומרים שזיווגים נעשים בשמיים, אבל מישהו צריך לעזור להם להיפגש. כך שידכתי וחיתנתי זוגות, גישרתי בין קבוצות, וחיברתי בין אנשים שלא ידעו שהם צריכים זה את זה, עד שהפגשתי ביניהם. הבנתי מהר שזה הערך המוסף שלי בעולם: לקרב לבבות ולחבר קצוות. קצוות של אנשים, של עסקים ושל נכסים.</p>
+      <p class="rv">תוך כדי תנועה כתבתי והוצאתי לאור את הספר ״כוח הבחירה״, ספר פילוסופי על בני אדם הדוהרים קדימה בחיים סוערים, בלי לזכור מה המהות והתפקיד האמיתי שלנו בעולם.</p>
+      <h3 class="rv">ניצחון הרוח על הגוף</h3>
+      <p class="rv">בעבר שיחקתי כדורגל בכמה קבוצות בליגות הבכירות בישראל, ובהן קבוצת הבית שלי, מכבי נתניה. שם למדתי חריצות, התמדה, והיכולת לקום על הרגליים ולרוץ קדימה בכל הכוח גם בזמן משבר.</p>
+      <h3 class="rv">האיש שמאחורי העסקאות</h3>
+      <p class="rv">נשוי פלוס ארבע, גר בעיר ימים בנתניה, פעיל חברתי, יזם בנפשי, חובב פילוסופיה, ריצה ושחייה. בשעות הפנאי אני עובד אדמה ומטפח צמחים ועצים. מגשים חלומות, מקרב לבבות, וסוגר את העסקאות בשקט, כי עסקה טובה לא זקוקה לרעש.</p>
+      <p class="rv">האנשים הפועלים סביב קבוצת מצדה נבחרו בקפידה רבה וצועדים לצידי שנים רבות.</p>
+      <blockquote class="rv"><span class="metal">אתם לא מקבלים שירות. אתם מקבלים אותי, באופן אישי, עד שתצאו מרוצים.</span><span>כשאתם פונים אליי אתם מקבלים כמעט שני עשורים של ניסיון, ראייה רחבה על החיים שחורגת מעבר לעסקה, ואדם שמאמין שכל חיבור נכון נולד מהבנה עמוקה של אנשים.</span></blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="guides">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="eyebrow rv">GUIDES</span><h2 class="display metal rv">מדריכים</h2></div>
+      <p class="lead rv" style="max-width:480px">מה שחשוב לדעת לפני שחותמים: התחדשות עירונית, מכרזי יזמים והשקעות שלא מתפרסמות.</p>
+    </div>
+    <div class="cards">
+      <a class="card rv" href="../guides/1.html?t=a"><div class="im"><img src="../media/terraces.jpg" alt=""></div><div class="b"><span class="k">התחדשות עירונית · 6 דק׳ קריאה</span><h3>חברה מארגנת: למה היא לא עולה לכם שקל, ואיך בוחרים אחת</h3><p>מה תפקידה, מי משלם לה, ו־6 שאלות שכדאי לשאול לפני שחותמים.</p><span class="r">לקריאה ←</span></div></a>
+      <a class="card rv" href="../guides/2.html?t=a"><div class="im"><img src="../media/tower-dusk.jpg" alt=""></div><div class="b"><span class="k">פינוי בינוי · 7 דק׳ קריאה</span><h3>מכרז יזמים: 8 סעיפים שחייבים להופיע לפני שבוחרים יזם</h3><p>ערבויות, דיור חלופי, מפרט ולוחות זמנים. הצ׳קליסט של בעלי הדירות.</p><span class="r">לקריאה ←</span></div></a>
+      <a class="card rv" href="../guides/3.html?t=a"><div class="im"><img src="../media/p-limassol.jpg" alt=""></div><div class="b"><span class="k">השקעות · 5 דק׳ קריאה</span><h3>Off-Market ו־Presale: איך נכנסים לעסקה לפני כולם</h3><p>מה ההבדל, איפה היתרון, ומה חובה לבדוק לפני שמעבירים מקדמה.</p><span class="r">לקריאה ←</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="end">
+  <div class="wrap">
+    <span class="eyebrow rv">LET'S TALK</span>
+    <h2 class="display metal rv">עסקה טובה<br>לא זקוקה לרעש</h2>
+    <p class="lead rv">שיחה אחת, בשקט, ונבין יחד מה נכון לכם.</p>
+    <div class="acts rv"><a class="btn" data-wa href="#">פנייה אישית לרועי</a><a class="btn ghost" href="tel:+972544413413">054-4413413</a></div>
+    <div class="socials rv" data-socials></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">קבוצת מצדה · י.ר מצדה בע״מ · <a href="https://m26.co.il" target="_blank" rel="noopener">M26</a> · הצהרת נגישות ומדיניות פרטיות יתווספו בהקמה
+    <p class="credit">הוכן ע״י <a href="https://aura-digital.co.il" target="_blank" rel="noopener">אורה דיגיטל</a></p>
+  </div>
+</footer>
+<script src="../common.js"></script>
+</body>
+</html>
