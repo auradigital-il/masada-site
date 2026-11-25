@@ -61,3 +61,49 @@ html.a-still *,html.a-still *::before,html.a-still *::after{animation:none!impor
 .lockup .wm b{font-family:'Montserrat',sans-serif;font-weight:300;letter-spacing:.3em;font-size:17px;background:linear-gradient(100deg,#B98A4E,#F0D9A8 50%,#9C7038);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lockup .wm small{font-family:'Heebo',sans-serif;font-size:10.5px;letter-spacing:.06em;opacity:.85}
 @media(max-width:700px){.nav .btn,.nav .r,.nav .links .btn{display:none!important}.sketch-tag{top:auto;bottom:86px;left:12px}}
+/* זהות אישית: רועי יהודה */
+.me{display:inline-flex;align-items:center;gap:12px;line-height:1.1;color:inherit;text-decoration:none}
+.me .dm{width:13px;height:13px;flex:none;transform:rotate(45deg);background:linear-gradient(135deg,#B98A4E,#F0D9A8 50%,#9C7038);box-shadow:0 0 14px rgba(217,181,119,.45)}
+.me b{display:block;font-size:19px;font-weight:700;letter-spacing:.01em}
+.me small{display:block;font-family:'Montserrat',sans-serif;font-weight:300;font-size:9.5px;letter-spacing:.34em;opacity:.7;margin-top:3px;direction:ltr;text-align:right}
+.sig{font-family:'Mrs Saint Delafield',cursive;font-weight:400;line-height:1;direction:ltr;display:inline-block}
+.byline{display:inline-flex;align-items:center;gap:10px;font-size:14px;opacity:.75}
+.byline img{height:22px;width:auto}
+/* הנפשת ההתחדשות */
+.renew{position:relative;height:520vh;--ra-line:rgba(241,235,224,.55);--ra-bg:#0B0A09;--ra-fg:#F3ECE0;--ra-mu:rgba(243,236,224,.6);--ra-gold:#D9B577;--ra-card:rgba(255,255,255,.04)}
+.ra-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;grid-template-columns:1fr 1.6fr;grid-template-rows:auto 1fr;gap:0 40px;padding:90px 4vw 40px;color:var(--ra-fg)}
+.ra-head{grid-column:1;grid-row:1}
+.ra-cap{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.45em;color:var(--ra-gold)}
+.ra-head h3{font-size:clamp(30px,3.4vw,54px);line-height:1.1;margin-top:12px;font-weight:300}
+.ra-head h3 b{color:var(--ra-gold);font-weight:700}
+.ra-svg{grid-column:2;grid-row:1/3;display:grid;place-items:center;min-height:0}
+.ra-svg svg{width:100%;height:auto;max-height:76vh;overflow:visible}
+.ra-caps{grid-column:1;grid-row:2;position:relative;align-self:center;min-height:200px}
+.ra-c{position:absolute;inset:0 0 auto 0;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.ra-c.on{opacity:1;transform:none}
+.ra-c span{font-family:'Montserrat',sans-serif;font-weight:200;font-size:54px;line-height:1;color:var(--ra-gold)}
+.ra-c b{display:block;font-size:clamp(24px,2.2vw,34px);margin-top:10px;line-height:1.2}
+.ra-c p{color:var(--ra-mu);margin-top:10px;font-size:18px;line-height:1.7}
+.ra-dots{position:absolute;bottom:34px;right:4vw;display:flex;gap:8px}
+.ra-dots i{width:26px;height:2px;background:var(--ra-line);opacity:.35;transition:.4s}
+.ra-dots i.on{background:var(--ra-gold);opacity:1}
+.ra-line,.ra-thin,.ra-gold,.ra-balc,.ra-crack,.ra-ring,.ra-cardbox,.ra-keyline{fill:none}
+.ra-line{stroke:var(--ra-line);stroke-width:3}
+.ra-thin{stroke:var(--ra-line);stroke-width:1.6;opacity:.85}
+.ra-ground{stroke:var(--ra-line);stroke-width:1.5;opacity:.5}
+.ra-crack{stroke:#b86a4a;stroke-width:2}
+.ra-lit{fill:#E9C98A;opacity:0}
+.ra-lit2{fill:#F3D9A2}
+.ra-dot{fill:#F3D9A2;filter:url(#raGlow)}
+.ra-ring{stroke:var(--ra-gold);stroke-width:1.5;stroke-dasharray:4 6}
+.ra-cardbox{stroke:var(--ra-line);stroke-width:1.5;fill:var(--ra-card)}
+.ra-t{fill:var(--ra-fg);font-size:26px;font-weight:700;text-anchor:start;direction:rtl}
+.ra-ts{fill:var(--ra-mu);font-size:17px;text-anchor:start;direction:rtl}
+.ra-bar0{fill:var(--ra-line);opacity:.25}.ra-bar{fill:var(--ra-line)}.ra-barG{fill:var(--ra-gold)}
+.ra-pick{fill:none;stroke:var(--ra-gold);stroke-width:2.5;filter:url(#raGlow)}
+.ra-gold{stroke:var(--ra-gold);stroke-width:3}
+.ra-balc{stroke:var(--ra-gold);stroke-width:2;opacity:.8}
+.ra-goldfill{fill:url(#raG)}
+.ra-keyline{stroke:#E9C98A;stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:900px){.ra-stage{grid-template-columns:1fr;grid-template-rows:auto 1fr auto;padding:80px 16px 70px}.ra-svg{grid-column:1;grid-row:2}.ra-caps{grid-column:1;grid-row:3;min-height:150px}.ra-c b{font-size:22px}.ra-c span{font-size:36px}.ra-c p{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.renew{height:auto}.ra-stage{position:relative}}

@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>רועי יהודה · MASADA · סקיצה 3 · עולם</title>
+<title>רועי יהודה · תיווך נדל״ן · סקיצה 3 · עולם</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;700;900&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;700;900&family=Montserrat:wght@200;300;400&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../common.css">
 <style>
 :root{
@@ -32,7 +32,7 @@ a{color:inherit;text-decoration:none}
 
 /* שכבת התלת-ממד */
 #gl{position:fixed;inset:0;z-index:0;width:100vw;height:100vh;height:100lvh;display:block}
-#heroVid{position:fixed;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;opacity:.22;filter:grayscale(.3) contrast(1.1)}
+#heroVid{position:fixed;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;opacity:.12;filter:grayscale(.3) contrast(1.1)}
 .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 .vign{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.65))}
 main,footer,.nav{position:relative;z-index:2}
@@ -71,11 +71,26 @@ section{position:relative;min-height:100vh;min-height:100svh}
 #s-hero .hint{position:absolute;top:50%;left:28px;transform:translateY(-50%) rotate(-90deg);transform-origin:left center;font-family:var(--lat);font-size:10px;letter-spacing:.5em;color:var(--mu)}
 @media(max-width:700px){#s-hero .side{text-align:right}}
 
+#s-hero .hface{position:absolute;left:24vw;top:44%;width:min(44vh,30vw);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(217,181,119,.5),0 0 90px rgba(217,181,119,.25)}
+#s-hero .hface img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.05)}
+@media(max-width:700px){#s-hero .hface{left:50%;top:34%;width:56vw}}
 /* לחישה */
 #s-whisper .q{font-size:clamp(54px,10vw,170px);font-weight:200;line-height:1}
 #s-whisper .q b{font-weight:900}
 #s-whisper .q span{display:inline-block;opacity:0;filter:blur(14px);transform:translateY(20px)}
 
+/* נעים להכיר */
+#s-meet{padding:140px 0}
+#s-meet .meet{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+#s-meet h2{font-size:clamp(46px,5.6vw,96px)}
+#s-meet .sig{font-size:clamp(56px,6vw,96px);margin-top:20px}
+#s-meet .ph{border-radius:50%;overflow:hidden;aspect-ratio:1;border:1px solid var(--w-line);box-shadow:0 0 0 14px rgba(217,181,119,.05),0 0 120px rgba(217,181,119,.18)}
+#s-meet .ph img{width:100%;height:100%;object-fit:cover}
+@media(max-width:900px){#s-meet .meet{grid-template-columns:1fr}#s-meet .ph{max-width:300px;margin:0 auto;order:-1}}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+.pillars div{border:1px solid var(--fa);border-radius:14px;padding:16px 18px;background:rgba(7,8,10,.35)}
+.pillars b{display:block;font-size:19px}
+.pillars span{display:block;font-size:14px;color:var(--mu)}
 /* שלוש החטיבות */
 #s-group{padding:140px 0}
 #s-group h2{font-size:clamp(34px,4.4vw,70px);text-align:center;max-width:1050px;margin:20px auto 0}
@@ -181,17 +196,18 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
 <div class="grain"></div><div class="vign"></div>
 
 <header class="nav">
-  <a href="#s-hero" class="lockup" role="img" aria-label="MASADA GROUP"><img src="../../media/logo-light.svg" alt=""><span class="wm" aria-hidden="true"><b>MΛSΛDΛ</b><small>GROUP · יזמות ושיווק נדל״ן</small></span></a>
-  <nav class="menu" aria-label="ניווט ראשי"><a href="#s-group">הפעילות</a><a href="#s-world">8 מדינות</a><a href="#s-story">הסיפור שלי</a><a href="#s-guides">מדריכים</a></nav>
+  <a href="#s-hero" class="me" aria-label="רועי יהודה, תיווך נדל״ן"><span class="dm"></span><span><b>רועי יהודה</b><small>REAL ESTATE · SINCE 2008</small></span></a>
+  <nav class="menu" aria-label="ניווט ראשי"><a href="#s-meet">נעים להכיר</a><a href="#s-group">מה אני עושה</a><a href="#s-world">8 מדינות</a><a href="#s-story">הסיפור שלי</a><a href="#s-guides">מדריכים</a></nav>
   <div class="r"><span class="idx" id="idx">01 — M</span><a class="btn" data-wa href="#">פנייה אישית</a></div>
 </header>
 
 <main>
-<section id="s-hero" data-shape="m">
+<section id="s-hero" data-shape="face">
   <span class="hint">SCROLL</span>
+  <div class="hface" id="hface"><img src="../../media/roei-face.jpg" alt="רועי יהודה"></div>
   <div class="row">
     <h1 class="h fx-h">רועי <b class="gold">יהודה</b><small>הצל שמאחורי העסקאות</small></h1>
-    <div class="side fx-h"><p>עסקאות גדולות<br>נסגרות בלחישה</p><small>מייסד קבוצת מצדה<br>מאז 2008 בלב הנדל״ן הישראלי</small></div>
+    <div class="side fx-h"><p>עסקאות גדולות<br>נסגרות בלחישה</p><small>תיווך נדל״ן פרטי ומסחרי בארץ ובעולם<br>מאז 2008 בלב הנדל״ן הישראלי · מייסד קבוצת מצדה</small></div>
   </div>
 </section>
 
@@ -199,12 +215,28 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
   <p class="q" id="wq"><span>מי</span> <span>שמכיר</span> <span>את</span> <span>כל</span> <span>השחקנים</span><br><span><b class="gold">קובע</b></span> <span><b class="gold">את</b></span> <span><b class="gold">כללי</b></span> <span><b class="gold">המשחק</b></span></p>
 </section>
 
-<section id="s-group" data-shape="towers">
+<section id="s-meet" data-shape="dust">
+  <div class="wrap meet">
+    <div class="panel fx">
+      <span class="cap">NICE TO MEET YOU</span>
+      <h2 class="h" style="margin-top:12px">נעים להכיר<br><b class="gold">אני רועי יהודה</b></h2>
+      <p class="lead" style="margin-top:26px">למעלה מ־20 שנה אני מתווך נדל״ן פרטי ומסחרי, בארץ ובעולם</p>
+      <p>מחבר בין אנשים, עסקים ונכסים<br>בדיסקרטיות מוחלטת</p>
+      <p>מגשים חלומות, מקרב לבבות<br><b class="gold">וסוגר את העסקאות בשקט, כי עסקה טובה לא זקוקה לרעש</b></p>
+      <div class="sig gold">Roei Yehuda</div>
+      <div class="acts"><a class="btn" data-wa href="#">פנייה אישית לרועי</a><a class="btn o" href="#s-story">הסיפור שלי</a></div>
+    </div>
+    <div class="ph fx"><img src="../../media/roei-face.jpg" alt="רועי יהודה"></div>
+  </div>
+</section>
+
+<section id="s-group" data-shape="towers" data-pop>
   <div class="wrap">
-    <div style="text-align:center"><span class="cap">MASADA GROUP · 3 DIVISIONS</span></div>
-    <h2 class="h fx">קבוצת מצדה מאגדת בתוכה פעילות ענפה<br>המביאה עמה <b class="gold">20 שנות פעילות</b><br>ב־3 חטיבות נפרדות</h2>
+    <div style="text-align:center"><span class="cap">WHAT I DO · 3 FIELDS</span></div>
+    <h2 class="h fx"><b class="gold">20 שנות פעילות</b><br>בלב הנדל״ן הישראלי<br>ב־3 תחומים</h2>
+    <p class="byline fx" style="justify-content:center;display:flex;margin-top:18px">את הפעילות אני מוביל דרך קבוצת מצדה, שהקמתי ב־2008 <img src="../../media/logo-light.svg" alt="קבוצת מצדה"></p>
     <div class="tri">
-      <a href="#c1" class="fx"><span class="n gold">01</span><h3>תיווך ושיווק נכסים פרטיים ומסחריים בארץ ובעולם</h3><span class="go">לחטיבה ←</span></a>
+      <a href="#c1" class="fx" style="border-color:var(--w-line)"><span class="n gold">01</span><span class="cap" style="display:block;margin-top:10px">MAIN ACTIVITY</span><h3>תיווך ושיווק נכסים פרטיים ומסחריים בארץ ובעולם</h3><span class="go">לחטיבה ←</span></a>
       <a href="#c2" class="fx"><span class="n gold">02</span><h3>ארגון פרויקטים בהתחדשות עירונית<br>מגיבוש הדיירים ועד לבחירת היזם</h3><span class="go">לחטיבה ←</span></a>
       <a href="#c3" class="fx"><span class="n gold">03</span><h3>הפעלת M26<br>אתר המכרזים והזדמנויות הנדל״ן</h3><span class="go">לחטיבה ←</span></a>
     </div>
@@ -218,9 +250,10 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
       <div>
         <p class="lead">רועי מביא עמו למעלה מ־20 שנות ניסיון בתיווך נדל״ן פרטי ומסחרי</p>
         <p>לצד חיבורים עסקיים בין בכירים מהמשק הישראלי<br>באמצעות רשת קשרים חובקת עולם<br><b>ובדיסקרטיות מוחלטת</b></p>
+        <div class="pillars"><div><b>נכסים פרטיים</b></div><div><b>נכסים מסחריים</b></div><div><b>בארץ ובעולם</b><span>8 מדינות</span></div><div><b>חיבורים בין בכירים</b><span>רשת קשרים חובקת עולם</span></div></div>
         <div class="acts"><a class="btn" data-wa href="#">לשיחה דיסקרטית</a></div>
       </div>
-      <div class="ph"><img src="../../media/roei.jpg" alt="רועי יהודה" style="object-position:60% 20%"><span class="tag">כאן ירוץ סרטון התדמית מהתמונות של רועי</span></div>
+      <div class="ph"><img src="../../media/roei-hands.jpg" alt="רועי יהודה סוגר עסקה" style="object-position:40% 50%"><span class="tag">כאן ירוץ סרטון התדמית מהתמונות של רועי</span></div>
     </div>
     <div data-pstats></div>
   </div></div>
@@ -228,7 +261,7 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
 
 <section class="chap" id="c2" data-shape="towers">
   <div class="wrap"><div class="panel fx">
-    <div class="top"><div><span class="cap">02 · URBAN RENEWAL</span><h2 class="h" style="margin-top:14px">התחדשות עירונית<br><b class="gold">עושים רק איתנו</b></h2></div><span class="num">02</span></div>
+    <div class="top"><div><span class="cap">02 · URBAN RENEWAL · MASADA GROUP</span><h2 class="h" style="margin-top:14px">התחדשות עירונית<br><b class="gold">עושים רק איתנו</b></h2></div><span class="num">02</span></div>
     <div class="grid">
       <div>
         <p class="lead">מחלקת ההתחדשות העירונית שלנו מהמובילות בישראל בתחום<br>עם 16 פרויקטים הנמצאים בתהליך, מהם 2 שכבר אוכלסו</p>
@@ -265,6 +298,8 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
     <div data-pstats></div>
   </div></div>
 </section>
+
+<section class="renew" data-renew data-shape="dust" aria-label="החזון: מהבניין הישן אל הדירה החדשה"></section>
 
 <section class="chap" id="c3" data-shape="towers">
   <div class="wrap"><div class="panel fx" style="background:linear-gradient(160deg,rgba(12,38,28,.85),rgba(7,8,10,.78))">
@@ -331,20 +366,22 @@ footer{padding:30px 0 120px;border-top:1px solid var(--fa);text-align:center;col
 </section>
 
 <section id="s-end" class="center" data-shape="diamond">
+  <div class="sig gold fx" style="font-size:clamp(60px,7vw,110px)">Roei Yehuda</div>
   <h2 class="h fx">עסקה טובה<br><b class="gold">לא זקוקה לרעש</b></h2>
   <p class="s fx">שיחה אחת, בשקט<br>ונבין יחד מה נכון לכם</p>
   <div class="acts fx"><a class="btn" data-wa href="#">פנייה אישית לרועי</a><a class="btn o" href="tel:+972544413413">054-4413413</a></div>
   <div class="socials fx" data-socials></div>
 </section>
 </main>
-<footer><div class="wrap">קבוצת מצדה · י.ר מצדה בע״מ · <a href="https://m26.co.il" target="_blank" rel="noopener">M26</a> · הצהרת נגישות ומדיניות פרטיות יתווספו בהקמה
+<footer><div class="wrap"><p class="byline" style="justify-content:center;display:flex;margin-bottom:10px"><img src="../../media/logo-light.svg" alt="">רועי יהודה · מייסד קבוצת מצדה</p>י.ר מצדה בע״מ · <a href="https://m26.co.il" target="_blank" rel="noopener">M26</a> · הצהרת נגישות ומדיניות פרטיות יתווספו בהקמה
   <p class="credit">הוכן ע״י <a href="https://aura-digital.co.il" target="_blank" rel="noopener">אורה דיגיטל</a></p></div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="../../common.js"></script>
+<script src="../../renew.js"></script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
-<script type="module" src="world.js?v=6"></script>
+<script type="module" src="world.js?v=11"></script>
 </body>
 </html>

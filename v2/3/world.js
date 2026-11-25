@@ -81,11 +81,39 @@ function shapeDiamond(){ const o = new Float32Array(N*3);
     const q = mobile ? .7 : 1; o.set([a*sx*1.45*q, b*sy*1.75*q, c*sz*1.45*q], i*3); } return o; }
 
 const SH = {m:shapeM(), dust:shapeDust(), towers:shapeTowers(), globe:shapeGlobe(), diamond:shapeDiamond()};
-const OFF = {m:[0,mobile?1.3:.62,0], dust:[0,0,0], towers:[0,-.1,0], globe:[mobile?0:-1.9, mobile?.6:0, 0], diamond:[0,.15,0]};
-const ALPHA = {m:1, dust:.55, towers:.7, globe:.42, diamond:1};
+
+
+// צורה 6: טבעת אור סביב התמונה של רועי בפתיחה
+const WPP = () => 2*Math.tan(20*Math.PI/180)*7/innerHeight; // יחידות עולם לפיקסל במישור z=0
+function faceRing(){ const el = document.getElementById('hface'); const r = el ? el.getBoundingClientRect().width/2 : 200;
+  const R0 = (r + (mobile ? 14 : 26))*WPP(), o = new Float32Array(N*3);
+  for (let i = 0; i < N; i++){ const a = Math.random()*Math.PI*2, t = Math.random();
+    const rr = t < .7 ? R0*(1 + (Math.random()+Math.random()-1)*.035) : R0*(1.04 + Math.pow(Math.random(), 2.2)*.55);
+    o.set([Math.cos(a)*rr, Math.sin(a)*rr, rnd(-.12,.12)], i*3); }
+  return o; }
+function faceOff(){ const el = document.getElementById('hface'); if (!el) return [0,0,0]; const b = el.getBoundingClientRect(), k = WPP();
+  facePageY = b.top + b.height/2 + scrollY; return [(b.left + b.width/2 - innerWidth/2)*k, (innerHeight/2 - (facePageY - scrollY))*k, 0]; }
+let facePageY = 0;
+// גלובוס עם יבשות: מפת העולם מצוירת על קנבס, ונשארות רק נקודות על היבשה
+async function loadLand(){ try {
+  const [topo] = await Promise.all([fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/land-110m.json').then(r => r.json())]);
+  const tc = await import('https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/+esm');
+  const land = tc.feature(topo, topo.objects.land), W = 720, H = 360, c = document.createElement('canvas'); c.width = W; c.height = H; const x = c.getContext('2d');
+  x.fillStyle = '#fff';
+  const ring = r => { r.forEach(([lon, lat], j) => { const X = (lon+180)/360*W, Y = (90-lat)/180*H; j ? x.lineTo(X, Y) : x.moveTo(X, Y); }); x.closePath(); };
+  land.features.forEach(f => { const g = f.geometry, polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates; polys.forEach(pl => { x.beginPath(); pl.forEach(ring); x.fill('evenodd'); }); });
+  const d = x.getImageData(0, 0, W, H).data, out = new Float32Array(N*3), F = N*5, gr = Math.PI*(3-Math.sqrt(5)); let i = 0;
+  for (let k = 0; k < F && i < N; k++){ const y = 1 - (k/(F-1))*2, r = Math.sqrt(1-y*y), th = gr*k, vx = Math.cos(th)*r, vz = Math.sin(th)*r;
+    const lat = Math.asin(y)*180/Math.PI, lon = Math.atan2(vx, vz)*180/Math.PI, X = Math.floor((lon+180)/360*W) % W, Y = Math.min(H-1, Math.floor((90-lat)/180*H));
+    if (d[(Y*W+X)*4] > 128) { out.set([vx*R, y*R, vz*R], i*3); i++; } }
+  // מה שנשאר: אטמוספרה דלילה סביב הכדור
+  for (; i < N; i++){ const a = Math.random()*Math.PI*2, b = Math.acos(rnd(-1,1)), rr = R*rnd(1.02,1.12); out.set([Math.sin(b)*Math.sin(a)*rr, Math.cos(b)*rr, Math.sin(b)*Math.cos(a)*rr], i*3); }
+  return out; } catch (e) { return null; } }
+const OFF = {face:[0,0,0], m:[0,mobile?1.3:.62,0], dust:[0,0,0], towers:[0,-.1,0], globe:[mobile?0:-1.9, mobile?.6:0, 0], diamond:[0,.15,0]};
+const ALPHA = {face:1, m:1, dust:.4, towers:.7, globe:.42, diamond:1};
 
 const geo = new THREE.BufferGeometry();
-const pos = new Float32Array(SH.m), from = new Float32Array(N*3), off = new Float32Array(N*3), aR = new Float32Array(N), delay = new Float32Array(N);
+const pos = new Float32Array(SH.dust), from = new Float32Array(N*3), off = new Float32Array(N*3), aR = new Float32Array(N), delay = new Float32Array(N);
 for (let i = 0; i < N; i++){ aR[i] = Math.random(); delay[i] = Math.random()*.4; }
 geo.setAttribute('position', new THREE.BufferAttribute(pos, 3).setUsage(THREE.DynamicDrawUsage));
 geo.setAttribute('aR', new THREE.BufferAttribute(aR, 1));
@@ -125,16 +153,16 @@ const halo = new THREE.Mesh(new THREE.SphereGeometry(R*1.02, 48, 48), new THREE.
 halo.scale.setScalar(1.06); pins.add(halo);
 
 /* ---------- מעבר בין צורות ---------- */
-let shape = 'm', morph = {t:1.5}, glob = {a:0};
-function setShape(s){
-  if (s === shape || !SH[s]) return; shape = s;
+let shape = 'dust', morph = {t:1.5}, glob = {a:0};
+function setShape(s, force){
+  if ((s === shape && !force) || !SH[s]) return; shape = s;
   from.set(pos); morph.t = 0;
   gsap.to(morph, {t:1.4, duration:reduce ? .01 : 2.2, ease:'none', overwrite:true});
   gsap.to(pts.position, {x:OFF[s][0], y:OFF[s][1], z:OFF[s][2], duration:2, ease:'power3.inOut', overwrite:true});
   gsap.to(mat.uniforms.uAlpha, {value:ALPHA[s], duration:1.6});
   gsap.to(glob, {a:s === 'globe' ? 1 : 0, duration:s === 'globe' ? 1.6 : .6, delay:s === 'globe' ? 1.2 : 0, overwrite:true});
   if (s === 'globe') arcs.forEach((l, i) => { l.geometry.setDrawRange(0, 0); gsap.to({n:0}, {n:65, duration:1.4, delay:1.6 + i*.18, ease:'power2.out', onUpdate(){ l.geometry.setDrawRange(0, Math.round(this.targets()[0].n)); }}); });
-  $('#idx').textContent = {m:'01 — M', dust:'02 — WHISPER', towers:'03 — 3 DIVISIONS', globe:'04 — 8 COUNTRIES', diamond:'05 — LET’S TALK'}[s];
+  $('#idx').textContent = {face:'01 — ROEI', m:'M', dust:'02 — WHISPER', towers:'03 — 3 DIVISIONS', globe:'04 — 8 COUNTRIES', diamond:'05 — LET’S TALK'}[s];
 }
 // איזה פרק במרכז המסך
 const secs = $$('[data-shape]');
@@ -165,7 +193,7 @@ function frame(){
   const to = SH[shape], T = morph.t, moving = T < 1.4;
   // נקודת העכבר בעולם
   ray.setFromCamera(mouse, camera); ray.ray.intersectPlane(plane, mw); if (mw) mw.sub(pts.position);
-  const repel = shape === 'm' && !reduce && !mobile;
+  const repel = shape === 'face' && !reduce && !mobile;
   for (let i = 0, j = 0; i < N; i++, j += 3){
     let bx, by, bz;
     if (moving){ let k = (T - delay[i]) / 1; k = k < 0 ? 0 : k > 1 ? 1 : ease(k);
@@ -182,10 +210,17 @@ function frame(){
   else if (shape === 'diamond'){ pts.rotation.y += dt*.35; pts.rotation.x += (.1 - pts.rotation.x)*.04; }
   else if (shape === 'towers'){ pts.rotation.y += ((mx*.25 + Math.sin(time*.15)*.25) - pts.rotation.y)*.03; pts.rotation.x += ((.12 - my*.06) - pts.rotation.x)*.03; }
   else { pts.rotation.y += (mx*.18 - pts.rotation.y)*.04; pts.rotation.x += (-my*.1 - pts.rotation.x)*.04; }
+  if (shape === 'face'){ const fy = (innerHeight/2 - (facePageY - scrollY))*WPP(); if (!gsap.isTweening(pts.position)) pts.position.y += (fy - pts.position.y)*.25; }
+  if (shape === 'face') pts.rotation.z += dt*.06; else { pts.rotation.z %= Math.PI*2; pts.rotation.z += ((pts.rotation.z > Math.PI ? Math.PI*2 : 0) - pts.rotation.z)*.04; }
   pinMat.opacity = glob.a; halo.material.uniforms.uA.value = glob.a*.9; arcs.forEach(l => l.material.opacity = glob.a*.85);
   camera.position.x += (mx*.25 - camera.position.x)*.03; camera.position.y += (my*.15 - camera.position.y)*.03; camera.lookAt(0, 0, 0);
   renderer.render(scene, camera);
 }
 addEventListener('resize', () => { renderer.setSize(innerWidth, innerHeight, false); camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix(); });
-frame(); pick(); done();
+frame(); done();
+// הטבעת נבנית לפי המקום של התמונה בעמוד
+const placeFace = () => { SH.face = faceRing(); OFF.face = faceOff(); };
+placeFace(); setTimeout(() => { shape = ''; pick(); }, 700);
+addEventListener('resize', () => { placeFace(); if (shape === 'face') setShape('face', true); });
+loadLand().then(g => { if (g){ SH.globe = g; if (shape === 'globe') setShape('globe', true); } });
 addEventListener('load', () => ScrollTrigger.refresh());

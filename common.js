@@ -68,8 +68,10 @@
   const open = () => { if (seen) return; seen = true; try { sessionStorage.setItem('roei-pop', 1); } catch (_) {} pop.classList.add('on'); $('.x', pop).focus(); };
   pop.addEventListener('click', e => { if (e.target === pop || e.target.closest('.x')) close(); });
   addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
-  setTimeout(open, 9000);
-  addEventListener('scroll', () => { if (scrollY > innerHeight * 1.6) open(); }, { passive: true });
+  // הבאנר מופיע כשמגיעים לחלק של התחומים (data-pop), ואם אין – אחרי חצי דקה
+  const anchor = document.querySelector('[data-pop]');
+  if (anchor) new IntersectionObserver((es, o) => { if (es[0].isIntersecting){ setTimeout(open, 1200); o.disconnect(); } }, { threshold: .35 }).observe(anchor);
+  else setTimeout(open, 30000);
 
   // נגישות
   const btn = add(`<button class="a11y-btn" aria-expanded="false" aria-controls="a11yP" aria-label="תפריט נגישות">${ico.a11y}</button>`);
