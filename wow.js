@@ -84,7 +84,7 @@
   $$('[data-wow=circle]').forEach(sec => {
     gsap.timeline({scrollTrigger:{trigger:sec, start:'top top', end:'+=150%', scrub:1, pin:true}})
       .fromTo($('.wc', sec), {clipPath:'circle(12% at 50% 50%)'}, {clipPath:'circle(80% at 50% 50%)', duration:.6})
-      .fromTo($('.wc img', sec), {scale:1.4}, {scale:1, duration:1}, 0)
+      .fromTo($('.wc img, .wc .slot', sec), {scale:1.4}, {scale:1, duration:1}, 0)
       .to($('.wcs', sec), {opacity:1, duration:.3}, .4)
       .fromTo($('.wct', sec), {opacity:0, y:40}, {opacity:1, y:0, duration:.3}, .55);
   });

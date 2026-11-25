@@ -172,6 +172,11 @@ a{color:inherit;text-decoration:none}
 #story h2{font-size:clamp(70px,10vw,170px)}
 #story .deck{font-family:var(--serif);font-weight:300;font-size:clamp(26px,2.6vw,40px);line-height:1.35;margin-top:30px}
 #story .deck em{font-style:normal;color:var(--g)}
+.slot{width:100%;height:100%;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px;border:1px dashed var(--g);background:repeating-linear-gradient(135deg,rgba(184,146,90,.07) 0 14px,transparent 14px 28px),#E6DDCE;color:var(--ink)}
+.slot i{font-style:normal;width:64px;height:64px;border-radius:50%;border:1px solid var(--g);display:grid;place-items:center;color:var(--g);font-size:20px;padding-right:3px}
+.slot b{font-family:var(--serif);font-weight:300;font-size:clamp(20px,2vw,26px)}
+.slot small{font-size:13px;letter-spacing:.12em;color:var(--g)}
+.slot.dark{background:repeating-linear-gradient(135deg,rgba(184,146,90,.08) 0 14px,transparent 14px 28px),#1B1917;color:#EFE8DC;border:0}
 #story .ph{aspect-ratio:4/5}
 #story .ph img{object-position:50% 12%;filter:grayscale(.15)}
 #story .cols{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:110px}
@@ -278,7 +283,7 @@ footer{background:var(--ch);color:var(--mu2);font-size:13px;letter-spacing:.03em
         <div class="pillars fx"><div><b>נכסים פרטיים</b></div><div><b>נכסים מסחריים</b></div><div><b>בארץ ובעולם</b><span>8 מדינות</span></div><div><b>חיבורים בין בכירים</b><span>רשת קשרים חובקת עולם</span></div></div>
         <div class="acts fx"><a class="pill" data-wa href="#">לשיחה דיסקרטית</a></div>
       </div>
-      <div class="ph reveal"><img src="../../media/roei-hands.jpg" alt="רועי יהודה" style="object-position:50% 20%"><span class="tag">כאן ירוץ סרטון התדמית מהתמונות של רועי</span></div>
+      <div class="ph reveal"><div class="slot"><i>▶</i><b>כאן תיכנס תמונה או סרטון</b><small>לבחירת רועי</small></div></div>
     </div>
     <div data-pstats></div>
   </div>
@@ -372,7 +377,7 @@ footer{background:var(--ch);color:var(--mu2);font-size:13px;letter-spacing:.03em
 </div>
 
 <section class="wow-circle" data-wow="circle" aria-label="הסיפור שלי">
-  <div class="wc"><img src="../../media/roei.jpg" alt="" style="object-position:50% 12%"></div><div class="wcs"></div>
+  <div class="wc"><div class="slot dark"><i>▶</i><b>כאן תיכנס תמונה או סרטון</b><small>לבחירת רועי</small></div></div><div class="wcs"></div>
   <div class="wct"><span class="cap" style="color:var(--g2)">MY STORY</span><p class="serif" style="font-size:clamp(36px,5.4vw,90px);margin-top:16px">הסיפור שלי לא התחיל מנדל״ן<br><em style="font-style:normal;color:var(--g2)">הוא התחיל מאנשים</em></p></div>
 </section>
 
@@ -384,7 +389,7 @@ footer{background:var(--ch);color:var(--mu2);font-size:13px;letter-spacing:.03em
         <h2 class="serif fx" style="margin-top:20px">הסיפור שלי</h2>
         <p class="deck fx">הסיפור שלי לא התחיל מנדל״ן<br><em>הוא התחיל מאנשים</em></p>
       </div>
-      <div class="ph reveal"><img src="../../media/roei.jpg" alt="רועי יהודה"></div>
+      <div class="ph reveal"><div class="slot"><i>▶</i><b>כאן תיכנס תמונה או סרטון</b><small>לבחירת רועי</small></div></div>
     </div>
     <div class="cols">
       <div>
