@@ -243,3 +243,14 @@ html.a-still .waf.blink{transform:none}
 @media(max-width:700px){.dock{gap:6px;padding:6px}.dock a{border-radius:12px}}
 @media(prefers-reduced-motion:reduce){.dock a::after{animation:none}}
 html.a-still .dock a::after{animation:none}
+
+/* מפת העולם המונפשת (תיווך בארץ ובעולם) */
+.wmap{position:absolute;inset:0;background:radial-gradient(ellipse at 62% 40%,color-mix(in srgb,var(--acc) 14%,transparent),transparent 65%),var(--panel)}
+.wmap canvas{display:block}
+.wm-lbl{position:absolute;z-index:2;display:flex;align-items:center;gap:7px;padding:6px 12px 6px 10px;border-radius:999px;background:rgba(0,0,0,.72);border:1px solid color-mix(in srgb,var(--acc) 60%,transparent);color:var(--acc2);font-size:13px;font-weight:700;white-space:nowrap;transform:translate(-50%,calc(-100% - 14px)) scale(.85);opacity:0;transition:opacity .35s,transform .35s;pointer-events:none}
+.wm-lbl.below{transform:translate(-50%,14px) scale(.85)}
+.wm-lbl.on{opacity:1;transform:translate(-50%,calc(-100% - 14px)) scale(1)}
+.wm-lbl.below.on{transform:translate(-50%,14px) scale(1)}
+.wm-lbl img{width:20px;height:14px;object-fit:cover;border-radius:2px}
+.wm-count{position:absolute;z-index:2;bottom:14px;left:16px;display:flex;align-items:center;gap:10px;color:var(--mu);font-size:12px;line-height:1.3}
+.wm-count b{font:200 44px/1 'Montserrat',sans-serif;background:linear-gradient(170deg,var(--acc2),var(--acc) 55%,var(--acc3,#a8823f));-webkit-background-clip:text;background-clip:text;color:transparent}
