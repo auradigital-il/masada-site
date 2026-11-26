@@ -9,10 +9,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;800&family=Assistant:wght@300;400;600&family=Suez+One&family=Frank+Ruhl+Libre:wght@700;900&family=Rubik:wght@300;400;500&family=Montserrat:wght@300&family=Noto+Serif+Hebrew:wght@200;300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../common.css">
-<link rel="stylesheet" href="guide.css">
+<link rel="stylesheet" href="guide.css?v=2">
 <script>document.documentElement.dataset.t=(new URLSearchParams(location.search).get('t')||'b').replace(/[^ablw]/g,'')||'l'</script>
 </head>
-<body>
+<body data-nopop>
 <script>document.body.className='t-'+document.documentElement.dataset.t</script>
 <div class="bar">
   <span class="lockup" role="img" aria-label="MASADA GROUP"><img data-logo src="../media/logo-dark.svg" alt=""><span class="wm" aria-hidden="true"><b>MΛSΛDΛ</b><small>GROUP · יזמות ושיווק נדל״ן</small></span></span>
@@ -56,18 +56,21 @@
 <p>קבוצת מצדה מפעילה את <b>M26</b>, אתר סגור לקהילה של משקיעים, עם עסקאות Presale, Off-Market ועסקאות בין חברים, בישראל ובעוד 7 מדינות<br>כל עסקה חד פעמית, במלאי מוגבל, והכניסה בסיסמה בלבד</p>
 <p><a href="https://m26.co.il" target="_blank" rel="noopener">לאתר M26 ←</a></p>
 </article>
-  <div class="cta"><h2>רוצים לדבר על זה עם רועי?</h2><p>שיחה אחת, בשקט<br>ונבין יחד מה נכון לכם</p><a class="btn" data-wa href="#">פנייה אישית לרועי</a></div>
+  <div class="cta"><h2>רוצים לדבר על זה?</h2><p>שיחה אחת, בשקט<br>ונבין יחד מה נכון לכם<br>אני חוזר אישית תוך 24 שעות</p><a class="btn" data-wa href="#">וואטסאפ אליי</a></div>
   <p class="note">המידע במדריך כללי ואינו מהווה ייעוץ משפטי, מיסויי או ייעוץ השקעות<br>לפני כל החלטה מומלץ להתייעץ עם עורך דין ואנשי מקצוע</p>
   <section class="more"><h2>מדריכים נוספים</h2><div class="g"><a href="1.html"><span>התחדשות עירונית</span>חברה מארגנת בהתחדשות עירונית: למה היא לא עולה לכם שקל, ואיך בוחרים אחת</a><a href="2.html"><span>פינוי בינוי</span>מכרז יזמים: 8 סעיפים שחייבים להופיע לפני שבוחרים יזם</a><a href="4.html"><span>התחדשות עירונית</span>תמ״א 38 או פינוי בינוי: מה מתאים לבניין שלכם</a><a href="5.html"><span>נדל״ן בעולם</span>השקעה בנדל״ן בחו״ל: 5 דברים לבדוק לפני שמעבירים כסף</a></div></section>
 </main>
 <footer>קבוצת מצדה · י.ר מצדה בע״מ<p class="credit">הוכן ע״י <a href="https://aura-digital.co.il" target="_blank" rel="noopener">אורה דיגיטל</a></p></footer>
-<script src="../common.js"></script>
+<script src="../common.js?v=2"></script>
 <script>
 (() => { const t = document.documentElement.dataset.t;
   document.querySelector('[data-back]').href = ({a:'../v2/1/',l:'../v2/2/',w:'../v2/3/'})[t] ? ({a:'../v2/1/',l:'../v2/2/',w:'../v2/3/'})[t] + '#guides' : '../' + t + '/#guides';
   document.querySelector('[data-logo]').src = '../media/logo-' + ({a:'light',b:'dark',c:'ink',l:'ink',w:'light'})[t] + '.svg';
   document.querySelectorAll('.more a').forEach(a => a.href += '?t=' + t);
   const tag = document.querySelector('.sketch-tag'); if (tag) tag.href = '../';
+  // וואטסאפ בזהב: מהבהב בזמן גלילה
+  const wf = document.querySelector('.wa-float'); if (wf){ wf.querySelector('span').textContent = 'וואטסאפ לרועי'; let bt;
+    addEventListener('scroll', () => { wf.classList.add('blink'); clearTimeout(bt); bt = setTimeout(() => wf.classList.remove('blink'), 900); }, {passive:true}); }
   const bk = new URLSearchParams(location.search).get('back');
   if (bk === 'v3a' || bk === 'v3b'){ document.querySelector('[data-back]').href = '../v3/' + bk.slice(2) + '/#articles'; document.querySelectorAll('.more a').forEach(a => a.href += '&back=' + bk); }
 })();

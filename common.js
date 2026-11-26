@@ -57,7 +57,8 @@
     show(pick || btns.find(b => b.getAttribute('aria-selected') === 'true') || btns[0]);
   });
 
-  // באנר קופץ (פעם אחת בביקור)
+  // באנר קופץ (פעם אחת בביקור). בעמודים עם data-nopop על body (המדריכים) אין באנר
+  if (document.body.hasAttribute('data-nopop')) {} else {
   const pop = add(`<div class="pop" role="dialog" aria-modal="true" aria-label="הודעה מרועי"><div class="card">
     <button class="x" aria-label="סגירה">✕</button>
     <div class="q">״מי שמכיר את כל השחקנים<br>קובע את כללי המשחק״</div>
@@ -72,6 +73,7 @@
   const anchor = document.querySelector('[data-pop]');
   if (anchor) new IntersectionObserver((es, o) => { if (es[0].isIntersecting){ setTimeout(open, 1200); o.disconnect(); } }, { threshold: .35 }).observe(anchor);
   else setTimeout(open, 30000);
+  }
 
   // נגישות
   const btn = add(`<button class="a11y-btn" aria-expanded="false" aria-controls="a11yP" aria-label="תפריט נגישות">${ico.a11y}</button>`);

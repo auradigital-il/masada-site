@@ -167,7 +167,7 @@ G = [
   tldr=['השקעה בחו״ל יכולה להיות הזדמנות מצוינת, אבל הכללים שונים מישראל.','בודקים את היזם, את הבעלות, את המס בשתי המדינות, את המטבע ואת הדרך החוצה.','עובדים עם עורך דין מקומי ועם רואה חשבון ישראלי, לפני ולא אחרי.'],
   body='''
 <h2 id="s1">למה ישראלים קונים בחו״ל?</h2>
-<p>מחירי כניסה נמוכים יותר, תשואה משכירות, פיזור סיכונים, ולפעמים גם חלום על בית נופש. אנחנו פועלים ב־8 מדינות, ורואים את אותה שאלה שוב ושוב: <b>איך עושים את זה נכון?</b></p>
+<p>מחירי כניסה נמוכים יותר, תשואה משכירות, פיזור סיכונים, ולפעמים גם חלום על בית נופש. אני פועל ב־8 מדינות, ורואה את אותה שאלה שוב ושוב: <b>איך עושים את זה נכון?</b></p>
 <p>התשובה מתחילה בבדיקות. אלה חמש הבדיקות שלא מוותרים עליהן.</p>
 
 <h2 id="s2">1 · מי היזם, ומה הוא כבר מסר?</h2>
@@ -220,10 +220,10 @@ for g in G:
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{FONTS}" rel="stylesheet">
 <link rel="stylesheet" href="../common.css">
-<link rel="stylesheet" href="guide.css">
+<link rel="stylesheet" href="guide.css?v=2">
 <script>document.documentElement.dataset.t=(new URLSearchParams(location.search).get('t')||'b').replace(/[^ablw]/g,'')||'l'</script>
 </head>
-<body>
+<body data-nopop>
 <script>document.body.className='t-'+document.documentElement.dataset.t</script>
 <div class="bar">
   <span class="lockup" role="img" aria-label="MASADA GROUP"><img data-logo src="../media/logo-dark.svg" alt=""><span class="wm" aria-hidden="true"><b>MΛSΛDΛ</b><small>GROUP · יזמות ושיווק נדל״ן</small></span></span>
@@ -239,18 +239,21 @@ for g in G:
   <div class="tldr"><b>בקצרה</b><ul>{''.join(f'<li>{t}</li>' for t in g['tldr'])}</ul></div>
   <nav class="toc" aria-label="תוכן המדריך"><b>במדריך הזה</b><ol>{toc}</ol></nav>
   <article>{g['body']}</article>
-  <div class="cta"><h2>רוצים לדבר על זה עם רועי?</h2><p>שיחה אחת, בשקט<br>ונבין יחד מה נכון לכם</p><a class="btn" data-wa href="#">פנייה אישית לרועי</a></div>
+  <div class="cta"><h2>רוצים לדבר על זה?</h2><p>שיחה אחת, בשקט<br>ונבין יחד מה נכון לכם<br>אני חוזר אישית תוך 24 שעות</p><a class="btn" data-wa href="#">וואטסאפ אליי</a></div>
   <p class="note">המידע במדריך כללי ואינו מהווה ייעוץ משפטי, מיסויי או ייעוץ השקעות<br>לפני כל החלטה מומלץ להתייעץ עם עורך דין ואנשי מקצוע</p>
   <section class="more"><h2>מדריכים נוספים</h2><div class="g">{more}</div></section>
 </main>
 <footer>קבוצת מצדה · י.ר מצדה בע״מ<p class="credit">הוכן ע״י <a href="https://aura-digital.co.il" target="_blank" rel="noopener">אורה דיגיטל</a></p></footer>
-<script src="../common.js"></script>
+<script src="../common.js?v=2"></script>
 <script>
 (() => {{ const t = document.documentElement.dataset.t;
   document.querySelector('[data-back]').href = ({{a:'../v2/1/',l:'../v2/2/',w:'../v2/3/'}})[t] ? ({{a:'../v2/1/',l:'../v2/2/',w:'../v2/3/'}})[t] + '#guides' : '../' + t + '/#guides';
   document.querySelector('[data-logo]').src = '../media/logo-' + ({{a:'light',b:'dark',c:'ink',l:'ink',w:'light'}})[t] + '.svg';
   document.querySelectorAll('.more a').forEach(a => a.href += '?t=' + t);
   const tag = document.querySelector('.sketch-tag'); if (tag) tag.href = '../';
+  // וואטסאפ בזהב: מהבהב בזמן גלילה
+  const wf = document.querySelector('.wa-float'); if (wf){{ wf.querySelector('span').textContent = 'וואטסאפ לרועי'; let bt;
+    addEventListener('scroll', () => {{ wf.classList.add('blink'); clearTimeout(bt); bt = setTimeout(() => wf.classList.remove('blink'), 900); }}, {{passive:true}}); }}
   const bk = new URLSearchParams(location.search).get('back');
   if (bk === 'v3a' || bk === 'v3b'){{ document.querySelector('[data-back]').href = '../v3/' + bk.slice(2) + '/#articles'; document.querySelectorAll('.more a').forEach(a => a.href += '&back=' + bk); }}
 }})();
