@@ -153,7 +153,7 @@ function setShape(s, force){
   if (s === 'globe') arcs.forEach((l, i) => { l.geometry.setDrawRange(0, 0); gsap.to({n:0}, {n:65, duration:1.4, delay:1.6 + i*.18, ease:'power2.out', onUpdate(){ l.geometry.setDrawRange(0, Math.round(this.targets()[0].n)); }}); });
 }
 // הצורה לפי העמוד שפתוח
-const PAGE_SHAPE = {home:'face', broker:'globe', renew:'towers', m26:'diamond', articles:'dust', press:'dust', privacy:'dust', access:'dust'};
+const PAGE_SHAPE = {home:'face', broker:'globe', renew:'towers', m26:'diamond', story:'dust', articles:'dust', press:'dust', privacy:'dust', access:'dust'};
 let curPage = location.hash.slice(1) || 'home';
 addEventListener('roei:page', e => { curPage = e.detail; });
 // בעמוד הראשי: הטבעת סביב רועי למעלה, ואבק כשגוללים לתחומים

@@ -19,6 +19,19 @@ he: {
   s_k1: '01 · BROKERAGE', s_h1: 'תיווך נדל״ן<br><b>בארץ ובעולם</b>', s_p1: 'נכסים פרטיים ומסחריים, וחיבורים בין בכירים<br>למעלה מ־20 שנה, בדיסקרטיות מוחלטת', s_b1: 'לעמוד התיווך',
   s_k2: '02 · URBAN RENEWAL', s_h2: 'התחדשות עירונית<br><b>ופינוי בינוי</b>', s_p2: '16 פרויקטים בתהליך, 2 כבר אוכלסו<br>מגיבוש הדיירים ועד המפתח, ואתם לא משלמים על השירות', s_b2: 'לכל המידע ובדיקת הבניין',
   s_k3: '03 · M26', s_h3: 'M26<br><b>עסקאות Off-Market</b>', s_p3: 'אתר סגור לקהילת משקיעים<br>עסקאות שלא יפורסמו בשום מקום אחר', s_b3: 'ל־M26 ולקבלת סיסמה',
+  st_k: '04 · MY STORY', st_h: 'הסיפור <b>שלי</b>', st_p: 'הסיפור שלי לא התחיל מנדל״ן<br>הוא התחיל מאנשים<br>כדורגל, ספר, משפחה, ומה זה אומר עבורכם', st_b: 'לסיפור המלא', m_story: 'הסיפור שלי',
+  story: '<p class="lead">הסיפור שלי לא התחיל מנדל״ן<br><b class="gold">הוא התחיל מאנשים</b></p>'
+    + '<p>אומרים שזיווגים נעשים בשמיים, אבל מישהו צריך לעזור להם להיפגש<br>כך שידכתי וחיתנתי זוגות, גישרתי בין קבוצות, וחיברתי בין אנשים שלא ידעו שהם צריכים זה את זה, עד שהפגשתי ביניהם</p>'
+    + '<p>הבנתי מהר שזה הערך המוסף שלי בעולם: לקרב לבבות ולחבר קצוות<br>קצוות של אנשים, של עסקים ושל נכסים<br>את זה מרגישים בבטן, באינטואיציה ובלב, ואז מצליבים מידע עד שהחיבור שלם</p>'
+    + '<p>תוך כדי תנועה כתבתי והוצאתי לאור את הספר ״כוח הבחירה״<br>ספר פילוסופי על בני אדם הדוהרים קדימה בחיים סוערים, בלי לזכור מה המהות והתפקיד האמיתי שלנו בעולם</p>'
+    + '<h3>ניצחון הרוח על הגוף</h3>'
+    + '<p>בעבר שיחקתי כדורגל בכמה קבוצות בליגות הבכירות בישראל, ובהן קבוצת הבית שלי, מכבי נתניה<br>שם למדתי חריצות, התמדה, והיכולת לקום על הרגליים ולרוץ קדימה בכל הכוח גם בזמן משבר<br>הספורט לימד אותי את המושג שמלווה אותי עד היום: ניצחון הרוח על הגוף</p>'
+    + '<h3>האיש שמאחורי העסקאות</h3>'
+    + '<p>אני נשוי פלוס ארבע, גר בעיר ימים בנתניה, פעיל חברתי, יזם בנפשי, חובב פילוסופיה, ריצה ושחייה<br>בשעות הפנאי אני עובד אדמה ומטפח צמחים ועצים<br>מגשים חלומות, מקרב לבבות, וסוגר את העסקאות בשקט כי עסקה טובה לא זקוקה לרעש</p>'
+    + '<p>האנשים הפועלים סביב קבוצת מצדה נבחרו בקפידה רבה וצועדים לצידי שנים רבות</p>'
+    + '<h3>ומה זה אומר עבורכם?</h3>'
+    + '<p>כשאתם פונים אליי אתם מקבלים כמעט שני עשורים של ניסיון<br>ראייה רחבה על החיים שחורגת מעבר לעסקה<br>ואדם שמאמין שכל חיבור נכון נולד מהבנה עמוקה של אנשים</p>'
+    + '<p class="q2">אתם לא מקבלים שירות<br><b>אתם מקבלים אותי</b><br>באופן אישי, עד שתצאו מרוצים</p>',
   s_p4: 'מה שחשוב לדעת לפני שחותמים<br>התחדשות עירונית, מכרזים והשקעות', s_b4: 'לכל המאמרים ←',
   s_p5: 'הכתבות על רועי<br>במקום אחד', s_b5: 'לכתבות ←',
   f_ok2: 'קראתי ואני מאשר/ת את <a href="#privacy">מדיניות הפרטיות</a>, ומסכים/ה שרועי יחזור אליי', f_mk: 'אשמח לקבל עדכונים על הזדמנויות חדשות <span class="opt">(לא חובה)</span>',
@@ -125,6 +138,19 @@ en: {
   s_k1: '01 · BROKERAGE', s_h1: 'Real estate<br><b>in Israel & worldwide</b>', s_p1: 'Private and commercial properties, and senior-level connections<br>Over 20 years, with complete discretion', s_b1: 'Brokerage page',
   s_k2: '02 · URBAN RENEWAL', s_h2: 'Urban renewal<br><b>& Pinui Binui</b>', s_p2: '16 projects in progress, 2 already occupied<br>From uniting the tenants to the keys, and you pay nothing for our service', s_b2: 'Full info & building check',
   s_k3: '03 · M26', s_h3: 'M26<br><b>Off-market deals</b>', s_p3: 'A closed site for a community of investors<br>Deals that won’t be published anywhere else', s_b3: 'M26 & password',
+  st_k: '04 · MY STORY', st_h: 'My <b>story</b>', st_p: 'My story didn’t start with real estate<br>It started with people<br>Football, a book, family, and what it means for you', st_b: 'The full story', m_story: 'My story',
+  story: '<p class="lead">My story didn’t start with real estate<br><b class="gold">It started with people</b></p>'
+    + '<p>They say matches are made in heaven, but someone has to help them meet<br>So I matched and married couples, bridged between groups, and connected people who didn’t know they needed each other, until I brought them together</p>'
+    + '<p>I quickly understood that this is my added value in the world: bringing hearts closer and connecting ends<br>Ends of people, of businesses and of properties<br>You feel it in your gut, in your intuition and in your heart, and then you cross-check the facts until the connection is complete</p>'
+    + '<p>Along the way I wrote and published the book “The Power of Choice”<br>A philosophical book about people racing forward through stormy lives, forgetting what our true essence and role in the world is</p>'
+    + '<h3>Spirit over body</h3>'
+    + '<p>I used to play football for several clubs in Israel’s top leagues, including my home club, Maccabi Netanya<br>There I learned diligence, perseverance, and the ability to get back on my feet and run forward with all my strength, even in a crisis<br>Sport taught me the idea that guides me to this day: the victory of spirit over body</p>'
+    + '<h3>The man behind the deals</h3>'
+    + '<p>I’m married with four children and live in the seaside city of Netanya<br>Socially active, an entrepreneur at heart, a lover of philosophy, running and swimming<br>In my free time I work the land and grow plants and trees<br>I make dreams come true, bring hearts closer, and close deals quietly, because a good deal doesn’t need noise</p>'
+    + '<p>The people around Masada Group were chosen with great care and have walked beside me for many years</p>'
+    + '<h3>What does it mean for you?</h3>'
+    + '<p>When you reach out to me, you get almost two decades of experience<br>A wide view of life that goes beyond the deal<br>And a person who believes every right connection is born from a deep understanding of people</p>'
+    + '<p class="q2">You don’t get a service<br><b>You get me</b><br>Personally, until you’re satisfied</p>',
   s_p4: 'What you should know before you sign<br>Urban renewal, tenders and investing', s_b4: 'All articles →',
   s_p5: 'Articles about Roei<br>all in one place', s_b5: 'Read →',
   f_ok2: 'I have read and agree to the <a href="#privacy">privacy policy</a>, and agree that Roei may contact me', f_mk: 'I’d like to receive updates on new opportunities <span class="opt">(optional)</span>',

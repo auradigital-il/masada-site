@@ -132,6 +132,7 @@
     <a class="it big" href="#broker" data-mgo="broker"><span data-t="dock_broker"></span><small data-t="dock_broker_s"></small></a>
     <a class="it big" href="#renew" data-mgo="renew"><span data-t="dock_renew"></span><small data-t="dock_renew_s"></small></a>
     <a class="it big" href="#m26" data-mgo="m26"><span data-t="dock_m26"></span><small data-t="dock_m26_s"></small></a>
+    <a class="it" href="#story" data-mgo="story"><span data-t="m_story"></span></a>
     <a class="it" href="#articles" data-mgo="articles"><span data-t="h_more_art"></span></a>
     <a class="it" href="#press" data-mgo="press"><span data-t="h_more_press"></span></a>
     <a class="it" href="#renew" data-mgo="renew" data-mto="renew-form"><span data-t="m_contact"></span></a>
