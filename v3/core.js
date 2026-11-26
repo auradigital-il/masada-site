@@ -102,6 +102,7 @@
       <label class="full">${t('f_msg')}<textarea name="msg" rows="3"></textarea></label>`}
       <label class="full consent"><input type="checkbox" name="ok" required aria-required="true"><span>${t('f_ok2')}</span></label>
       <label class="full consent"><input type="checkbox" name="mk"><span>${t('f_mk')}</span></label>
+      <p class="trust full">${t('trust')}</p>
       <button class="send full" type="submit">${t('f_send')}</button>
       <p class="err full" role="alert" hidden>${t('f_err')}</p><p class="done full" role="status" hidden>${t('f_sent')}</p></form>`;
     const f = $('form', box);
@@ -155,6 +156,22 @@
   /* ---------- הוואטסאפ מהבהב בזמן גלילה (גם בעמודים הפנימיים) ---------- */
   let blinkT;
   addEventListener('scroll', () => { waf.classList.add('blink'); clearTimeout(blinkT); blinkT = setTimeout(() => waf.classList.remove('blink'), 900); }, {passive:true, capture:true});
+  // בטלפון, בעמודים הפנימיים: הכפתור קטן כשגוללים למטה וחוזר כשגוללים למעלה
+  const lastY = new WeakMap();
+  addEventListener('scroll', e => { const el = e.target === document ? document.scrollingElement : e.target; if (!el || !el.classList) return;
+    const y = el.scrollTop, p = lastY.get(el) || 0; lastY.set(el, y);
+    if (!root.classList.contains('paged') || innerWidth > 700) return waf.classList.remove('mini');
+    if (y > p + 4 && y > 80) waf.classList.add('mini'); else if (y < p - 4) waf.classList.remove('mini'); }, {passive:true, capture:true});
+  addEventListener('roei:page', () => waf.classList.remove('mini'));
+
+  /* ---------- המספרים בדף הבית רצים כשמגיעים אליהם ---------- */
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cntIO = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; cntIO.unobserve(e.target);
+    const b = e.target, m = b.textContent.match(/^(\d+)(.*)$/); if (!m || still) return;
+    const n = +m[1], suf = m[2], t0 = performance.now(), D = 1600;
+    const step = now => { const k = Math.min(1, (now - t0)/D); b.textContent = Math.round(n*(1 - Math.pow(1 - k, 3))) + suf; if (k < 1) requestAnimationFrame(step); };
+    b.textContent = '0' + suf; requestAnimationFrame(step); }), {threshold:.6});
+  $$('.hstats b').forEach(b => cntIO.observe(b));
 
   /* ---------- סרטונים בעמוד: נטענים ורצים רק כשרואים אותם ---------- */
   const lazyIO = new IntersectionObserver(es => es.forEach(e => { const v = e.target;

@@ -3,6 +3,7 @@ import * as THREE from 'three';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const mobile = innerWidth < 760;
+const weak = mobile && ((navigator.deviceMemory || 8) <= 3 || (navigator.hardwareConcurrency || 8) <= 3 || !!(navigator.connection && navigator.connection.saveData));
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 
 /* ---------- טעינה ---------- */
@@ -16,13 +17,14 @@ const done = () => { loadAnim.then(() => { ld.classList.add('done'); setTimeout(
 let renderer;
 try { renderer = new THREE.WebGLRenderer({canvas:$('#gl'), antialias:false, alpha:true, powerPreference:'high-performance'}); }
 catch (e) { document.documentElement.classList.add('nogl'); done(); throw e; }
-renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+renderer.setPixelRatio(weak ? 1 : Math.min(devicePixelRatio, 1.5));
 renderer.setSize(innerWidth, innerHeight, false);
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(40, innerWidth/innerHeight, .1, 100);
 camera.position.set(0, 0, 7);
 
-const N = reduce ? 5000 : mobile ? 6500 : 14000;
+const N = reduce ? 5000 : weak ? 3500 : mobile ? 6500 : 14000;
+let NN = N; // כמה נקודות מציירים בפועל (יורד אם המכשיר מתקשה)
 const rnd = (a, b) => a + Math.random()*(b-a);
 
 // צורה 1: ה-M של הלוגו
@@ -171,18 +173,20 @@ addEventListener('pointerleave', () => mouse.set(9, 9));
 /* ---------- לולאה ---------- */
 const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
 const clock = new THREE.Clock();
-let rotY = 0, visible = true;
+let rotY = 0, visible = true; const perf = {n:0, s:0};
 document.addEventListener('visibilitychange', () => visible = !document.hidden);
 function frame(){
   requestAnimationFrame(frame);
   if (!visible) return;
   const dt = Math.min(clock.getDelta(), .05), time = clock.elapsedTime;
+  // בדיקת קצב: אם המכשיר מתקשה בשניות הראשונות, מציירים חצי מהנקודות ובחדות רגילה
+  if (perf.n < 120){ perf.n++; perf.s += dt; if (perf.n === 120 && perf.s/120 > 1/38){ NN = Math.floor(N*.5); geo.setDrawRange(0, NN); renderer.setPixelRatio(1); renderer.setSize(innerWidth, innerHeight, false); } }
   mat.uniforms.uTime.value = time;
   const to = SH[shape], T = morph.t, moving = T < 1.4;
   // נקודת העכבר בעולם
   ray.setFromCamera(mouse, camera); ray.ray.intersectPlane(plane, mw); if (mw) mw.sub(pts.position);
   const repel = shape === 'face' && !reduce && !mobile;
-  for (let i = 0, j = 0; i < N; i++, j += 3){
+  for (let i = 0, j = 0; i < NN; i++, j += 3){
     let bx, by, bz;
     if (moving){ let k = (T - delay[i]) / 1; k = k < 0 ? 0 : k > 1 ? 1 : ease(k);
       bx = from[j] + (to[j]-from[j])*k; by = from[j+1] + (to[j+1]-from[j+1])*k; bz = from[j+2] + (to[j+2]-from[j+2])*k; }

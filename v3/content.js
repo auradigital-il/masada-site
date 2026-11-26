@@ -57,6 +57,7 @@ he: {
   b_pill: '<li>נכסים פרטיים</li><li>נכסים מסחריים</li><li>8 מדינות</li><li>חיבורים בין בכירים</li>',
   b_q: 'אתם לא מקבלים שירות<br><b>אתם מקבלים אותי</b>',
   b_cta: 'לשיחה דיסקרטית',
+  cta_k: 'LET’S TALK', cta_h: 'בואו נדבר<br><b>בדיסקרטיות מלאה</b>', cta_p: 'בלי התחייבות<br>אני חוזר אישית תוך 24 שעות', cta_wa: 'וואטסאפ', trust: 'אני חוזר אישית תוך 24 שעות',
 
   /* התחדשות עירונית */
   r_k: '02 · URBAN RENEWAL · MASADA GROUP',
@@ -82,7 +83,7 @@ he: {
   m_pass_h: 'בקשת סיסמה ל־M26', m_pass_p: 'רועי יחזור אליכם ויעביר את הסיסמה אישית',
 
   /* טופס */
-  f_k: 'CONTACT', f_h: 'השאירו פרטים<br><b>ורועי יחזור אליכם</b>', f_p: 'בדיסקרטיות מלאה',
+  f_k: 'CONTACT', f_h: 'השאירו פרטים<br><b>ונדבר</b>', f_p: 'בדיסקרטיות מלאה',
   f_name: 'שם מלא', f_phone: 'טלפון', f_city: 'כתובת הבניין (לא חובה)', f_msg: 'כמה מילים (לא חובה)',
   f_ok: 'אני מאשר/ת שרועי יחזור אליי בנוגע לפנייה', f_send: 'שליחה לרועי',
   f_err: 'נא למלא שם, טלפון ולאשר', f_sent: 'תודה! הפנייה נפתחה בוואטסאפ של רועי',
@@ -153,6 +154,7 @@ en: {
   b_pill: '<li>Private properties</li><li>Commercial properties</li><li>8 countries</li><li>Senior-level connections</li>',
   b_q: 'You don’t get a service<br><b>You get me</b>',
   b_cta: 'A discreet conversation',
+  cta_k: 'LET’S TALK', cta_h: 'Let’s talk<br><b>fully discreet</b>', cta_p: 'No commitment<br>I personally get back to you within 24 hours', cta_wa: 'WhatsApp', trust: 'I personally get back to you within 24 hours',
 
   r_k: '02 · URBAN RENEWAL · MASADA GROUP',
   r_h: 'Urban renewal<br><b>& Pinui Binui</b>',
@@ -175,7 +177,7 @@ en: {
   m_enter: 'Enter M26', m_pass: 'Get a password',
   m_pass_h: 'Request an M26 password', m_pass_p: 'Roei will get back to you with the password personally',
 
-  f_k: 'CONTACT', f_h: 'Leave your details<br><b>and Roei will call you</b>', f_p: 'Fully discreet',
+  f_k: 'CONTACT', f_h: 'Leave your details<br><b>and let’s talk</b>', f_p: 'Fully discreet',
   f_name: 'Full name', f_phone: 'Phone', f_city: 'Building address (optional)', f_msg: 'A few words (optional)',
   f_ok: 'I agree that Roei may contact me about this inquiry', f_send: 'Send to Roei',
   f_err: 'Please fill in name, phone and approve', f_sent: 'Thank you! The message opened in Roei’s WhatsApp',

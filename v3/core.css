@@ -265,3 +265,16 @@ html.a-still .dock a::after{animation:none}
 .mlogo img{height:38px;width:auto}
 .mlogo span{font:500 12px/1 'Montserrat',sans-serif;letter-spacing:.32em;color:var(--acc2)}
 @media(max-width:600px){.fsig .sig{font-size:min(17vw,80px)}.fbrand{gap:12px}.fbrand b{font-size:17px}.mlogo img{height:32px}.mlogo span{font-size:10.5px;letter-spacing:.26em}}
+
+/* פעולה אחת בסוף עמוד */
+.endcta .acts{margin-top:0;justify-content:flex-start}
+.endcta .btn{justify-content:center;min-width:150px}
+/* משפט אמון בטופס */
+.cform .trust{display:flex;align-items:center;gap:8px;margin:2px 0 -4px;font-size:14px;color:var(--acc2)}
+.cform .trust::before{content:"✓";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid var(--acc);font-size:11px;flex:none}
+/* מספרים רצים */
+.hstats b{font-variant-numeric:tabular-nums}
+/* וואטסאפ קטן בגלילה בעמודים הפנימיים בטלפון */
+.waf{transition:opacity .3s,width .3s,height .3s}
+@media(max-width:700px){html.paged .waf.mini{width:40px;height:40px;opacity:.88}html.paged .waf.mini svg{width:20px;height:20px}}
+@media(max-width:700px){.endcta .acts{display:grid;grid-template-columns:1fr 1fr;gap:10px}.endcta .btn{min-width:0;padding-inline:12px}}
