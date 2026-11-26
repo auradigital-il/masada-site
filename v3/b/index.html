@@ -7,8 +7,8 @@
 <title>רועי יהודה · תיווך נדל״ן</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&family=Cormorant+Garamond:wght@500;700&family=Montserrat:wght@200;300;500&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="../../media/roei-ai-poster.jpg">
-<link rel="stylesheet" href="../core.css?v=14">
+<link rel="preload" as="image" href="../../media/roei-ai-poster.jpg" fetchpriority="high">
+<link rel="stylesheet" href="../core.css?v=15">
 <style>
 :root{--r:6px;--hw1:700;--hf:var(--serif);--bg:#08100d;--panel:#0e1813;--ink3:#15221b;--fg:#efe9dc;--mu:rgba(239,233,220,.68);--ln:rgba(212,176,106,.28);--acc:#d4b06a;--acc2:#f0dca6;--acc3:#a8823f;--acc-fg:#1a1306;
   --serif:'Frank Ruhl Libre',Georgia,serif}
@@ -129,7 +129,7 @@ footer .credit{margin-top:10px}
 <main class="home">
   <section class="hero">
     <img class="poster" src="../../media/roei-ai-poster.jpg" alt="">
-    <video id="walk" src="../../media/roei-ai.mp4" muted playsinline preload="auto" aria-label="רועי יהודה, קטע שנוצר בבינה מלאכותית"></video>
+    <video id="walk" muted playsinline preload="auto" aria-label="רועי יהודה, קטע שנוצר בבינה מלאכותית"></video>
     <div class="shade"></div>
     <div class="ai-note" data-t="ai_note"></div>
     <div class="txt">
@@ -154,7 +154,7 @@ footer .credit{margin-top:10px}
   </article>
 
   <article class="hrow rv">
-    <a class="hi" href="#renew" data-go="renew" tabindex="-1" aria-hidden="true" style="aspect-ratio:16/9"><video src="../../media/renewal-ai.mp4" poster="../../media/renewal-ai.jpg" muted loop playsinline autoplay preload="metadata"></video><span class="ai-tag" data-t="ai_tag"></span></a>
+    <a class="hi" href="#renew" data-go="renew" tabindex="-1" aria-hidden="true" style="aspect-ratio:16/9"><video src="../../media/renewal-ai-s.mp4" poster="../../media/t/renewal-ai.jpg" muted loop playsinline preload="none" data-lazyplay></video><span class="ai-tag" data-t="ai_tag"></span></a>
     <div class="ht"><span class="cap" data-t="s_k2"></span><h2 data-t="s_h2"></h2><p data-t="s_p2"></p><a class="btn" href="#renew" data-go="renew"><span data-t="s_b2"></span></a></div>
   </article>
 
@@ -185,7 +185,7 @@ footer .credit{margin-top:10px}
     <button class="close rv" type="button" data-close data-t="back"></button>
     <header class="pg-head rv"><span class="cap" data-t="b_k"></span><h2 id="hb" tabindex="-1" data-t="b_h"></h2><span class="badge" data-t="b_name"></span></header>
     <div class="grid2">
-      <div class="media rv" data-vctl><video src="../../media/roei-ai.mp4" poster="../../media/roei-ai-poster.jpg" muted loop playsinline preload="none" data-auto></video><span class="tag" data-t="b_vid"></span></div>
+      <div class="media rv" data-vctl><video src="../../media/roei-ai-d.mp4" data-poster="../../media/roei-ai-poster.jpg" muted loop playsinline preload="none" data-auto></video><span class="tag" data-t="b_vid"></span></div>
       <div class="body rv">
         <p class="lead" data-t="b_lead"></p>
         <p data-t="b_p"></p>
@@ -203,14 +203,14 @@ footer .credit{margin-top:10px}
   <div class="in-wrap">
     <button class="close rv" type="button" data-close data-t="back"></button>
     <header class="pg-head rv"><span class="cap" data-t="r_k"></span><h2 id="hr" tabindex="-1" data-t="r_h"></h2></header>
-    <div class="rfilm rv"><video src="../../media/renewal-ai.mp4" poster="../../media/renewal-ai.jpg" muted loop playsinline preload="none" data-auto></video><span class="ai-tag" data-t="ai_tag"></span><p class="rfilm-cap" data-t="r_film"></p></div>
+    <div class="rfilm rv"><video src="../../media/renewal-ai-s.mp4" data-poster="../../media/renewal-ai.jpg" muted loop playsinline preload="none" data-auto></video><span class="ai-tag" data-t="ai_tag"></span><p class="rfilm-cap" data-t="r_film"></p></div>
     <div class="grid2">
       <div class="body rv">
         <p class="lead" data-t="r_lead"></p>
         <div data-t="r_p"></div>
         <div class="zero"><span class="z gold">0 ₪</span><div><b data-t="r_zero_b"></b><span data-t="r_zero_s"></span></div></div>
       </div>
-      <div class="media rv" data-vctl><video src="../../media/renewal-film.mp4" poster="../../media/renewal-poster.jpg" muted loop playsinline preload="none" data-auto></video></div>
+      <div class="media rv" data-vctl><video src="../../media/renewal-film-s.mp4" data-poster="../../media/renewal-poster.jpg" muted loop playsinline preload="none" data-auto></video></div>
     </div>
     <div class="grid2 rv">
       <div class="body"><h3 data-t="r_role_h"></h3><div data-t="r_role"></div><h3 data-t="r_int_h"></h3><p data-t="r_int"></p>
@@ -232,7 +232,7 @@ footer .credit{margin-top:10px}
         <div class="acts"><a class="btn" href="https://m26.co.il" target="_blank" rel="noopener" data-t="m_enter"></a><button class="btn gh" type="button" data-toggle="m26-pass" aria-expanded="false" data-t="m_pass"></button></div>
         <div class="formbox small" id="m26-pass" hidden><div><h3 class="fh" data-t="m_pass_h"></h3><p data-t="m_pass_p"></p></div><div data-form="t_m26"></div></div>
       </div>
-      <div class="media rv m26img"><img src="../../media/m26-logo.jpg" alt="M26 Off-Market Pre-Sale"></div>
+      <div class="media rv m26img"><img loading="lazy" src="../../media/m26-logo.jpg" alt="M26 Off-Market Pre-Sale"></div>
     </div>
   </div>
 </section>
@@ -242,11 +242,11 @@ footer .credit{margin-top:10px}
     <button class="close rv" type="button" data-close data-t="back"></button>
     <header class="pg-head rv"><span class="cap" data-t="art_k"></span><h2 id="ha" tabindex="-1" data-t="art_h"></h2><p class="sub" data-t="art_p"></p></header>
     <div class="cards">
-      <a class="card rv" href="../../guides/1.html?t=w&back=v3b"><img src="../../media/terraces.jpg" alt="" loading="lazy"><span class="k" data-t="a1_k"></span><h3 data-t="a1_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
-      <a class="card rv" href="../../guides/2.html?t=w&back=v3b"><img src="../../media/tower-dusk.jpg" alt="" loading="lazy"><span class="k" data-t="a2_k"></span><h3 data-t="a2_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
-      <a class="card rv" href="../../guides/3.html?t=w&back=v3b"><img src="../../media/p-limassol.jpg" alt="" loading="lazy"><span class="k" data-t="a3_k"></span><h3 data-t="a3_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
-      <a class="card rv" href="../../guides/4.html?t=w&back=v3b"><img src="../../media/pool.jpg" alt="" loading="lazy"><span class="k" data-t="a4_k"></span><h3 data-t="a4_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
-      <a class="card rv" href="../../guides/5.html?t=w&back=v3b"><img src="../../media/tlv-night.jpg" alt="" loading="lazy"><span class="k" data-t="a5_k"></span><h3 data-t="a5_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
+      <a class="card rv" href="../../guides/1.html?t=w&back=v3b"><img src="../../media/t/terraces.jpg" alt="" loading="lazy"><span class="k" data-t="a1_k"></span><h3 data-t="a1_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
+      <a class="card rv" href="../../guides/2.html?t=w&back=v3b"><img src="../../media/t/tower-dusk.jpg" alt="" loading="lazy"><span class="k" data-t="a2_k"></span><h3 data-t="a2_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
+      <a class="card rv" href="../../guides/3.html?t=w&back=v3b"><img src="../../media/t/p-limassol.jpg" alt="" loading="lazy"><span class="k" data-t="a3_k"></span><h3 data-t="a3_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
+      <a class="card rv" href="../../guides/4.html?t=w&back=v3b"><img src="../../media/t/pool.jpg" alt="" loading="lazy"><span class="k" data-t="a4_k"></span><h3 data-t="a4_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
+      <a class="card rv" href="../../guides/5.html?t=w&back=v3b"><img src="../../media/t/tlv-night.jpg" alt="" loading="lazy"><span class="k" data-t="a5_k"></span><h3 data-t="a5_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
     </div>
   </div>
 </section>
@@ -288,12 +288,13 @@ footer .credit{margin-top:10px}
 
 <script src="../content.js?v=10"></script>
 <script src="../legal.js?v=1"></script>
-<script src="../core.js?v=10"></script>
+<script src="../core.js?v=12"></script>
 <script src="../worldmap.js?v=3"></script>
 <script>
 // רועי הולך אל הגולש פעם אחת, ונעצר קרוב. בטלפון המסגרת זזה איתו
 (() => {
   const v = document.getElementById('walk'), narrow = () => innerWidth/innerHeight < .9;
+  v.src = '../../media/' + (innerWidth < 760 ? 'roei-ai-m.mp4' : 'roei-ai-d.mp4');
   const ready = () => document.body.classList.add('ready');
   if (matchMedia('(prefers-reduced-motion: reduce)').matches){ ready(); return; }
   const tick = () => { if (narrow() && v.duration) v.style.objectPosition = (3 + 33*Math.min(1, v.currentTime/v.duration)).toFixed(1) + '% 30%'; if (!v.paused) requestAnimationFrame(tick); };

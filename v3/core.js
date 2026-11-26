@@ -58,6 +58,7 @@
     if (next === current) return;
     pages.forEach(p => { const on = p === pg;
       if (on){ p.style.setProperty('--ox', ox + 'px'); p.style.setProperty('--oy', oy + 'px'); p.scrollTop = 0;
+        $$('video[data-poster]', p).forEach(v => { v.poster = v.dataset.poster; v.removeAttribute('data-poster'); });
         p.hidden = false; requestAnimationFrame(() => requestAnimationFrame(() => p.classList.add('on')));
         $$('.rv', p).forEach((el, i) => el.style.setProperty('--d', (.25 + Math.min(i, 8)*.07).toFixed(2) + 's'));
       } else if (p.classList.contains('on')){ p.classList.remove('on'); $$('video', p).forEach(v => { v.pause(); v.__muteAway && v.__muteAway(); });
@@ -154,6 +155,11 @@
   /* ---------- הוואטסאפ מהבהב בזמן גלילה (גם בעמודים הפנימיים) ---------- */
   let blinkT;
   addEventListener('scroll', () => { waf.classList.add('blink'); clearTimeout(blinkT); blinkT = setTimeout(() => waf.classList.remove('blink'), 900); }, {passive:true, capture:true});
+
+  /* ---------- סרטונים בעמוד: נטענים ורצים רק כשרואים אותם ---------- */
+  const lazyIO = new IntersectionObserver(es => es.forEach(e => { const v = e.target;
+    if (e.isIntersecting){ v.preload = 'auto'; v.play().catch(() => {}); } else v.pause(); }), {threshold:.2});
+  $$('video[data-lazyplay]').forEach(v => lazyIO.observe(v));
 
   /* ---------- גלילה מהפתיחה לתחומים ---------- */
   $$('[data-scroll]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); const t = $('.hs'); t && t.scrollIntoView({behavior:'smooth'}); }));

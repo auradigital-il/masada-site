@@ -7,8 +7,8 @@
 <title>רועי יהודה · תיווך נדל״ן</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&family=Cormorant+Garamond:wght@500;700&family=Montserrat:wght@200;300;500&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="../../media/roei-ai-poster.jpg">
-<link rel="stylesheet" href="../core.css?v=14">
+<link rel="preload" as="image" href="../../media/roei-ai-poster.jpg" fetchpriority="high">
+<link rel="stylesheet" href="../core.css?v=15">
 <style>
 :root{--r:6px;--hw1:700;--hf:var(--serif);--bg:#08100d;--panel:#0e1813;--ink3:#15221b;--fg:#efe9dc;--mu:rgba(239,233,220,.68);--ln:rgba(212,176,106,.28);--acc:#d4b06a;--acc2:#f0dca6;--acc3:#a8823f;--acc-fg:#1a1306;
   --serif:'Frank Ruhl Libre',Georgia,serif}
@@ -129,7 +129,7 @@ footer .credit{margin-top:10px}
 <main class="home">
   <section class="hero">
     <img class="poster" src="../../media/roei-ai-poster.jpg" alt="">
-    <video id="walk" src="../../media/roei-ai.mp4" muted playsinline preload="auto" aria-label="רועי יהודה, קטע שנוצר בבינה מלאכותית"></video>
+    <video id="walk" muted playsinline preload="auto" aria-label="רועי יהודה, קטע שנוצר בבינה מלאכותית"></video>
     <div class="shade"></div>
     <div class="ai-note" data-t="ai_note"></div>
     <div class="txt">
@@ -155,12 +155,13 @@ footer .credit{margin-top:10px}
 
 <script src="../content.js?v=10"></script>
 <script src="../legal.js?v=1"></script>
-<script src="../core.js?v=10"></script>
+<script src="../core.js?v=12"></script>
 <script src="../worldmap.js?v=3"></script>
 <script>
 // רועי הולך אל הגולש פעם אחת, ונעצר קרוב. בטלפון המסגרת זזה איתו
 (() => {
   const v = document.getElementById('walk'), narrow = () => innerWidth/innerHeight < .9;
+  v.src = '../../media/' + (innerWidth < 760 ? 'roei-ai-m.mp4' : 'roei-ai-d.mp4');
   const ready = () => document.body.classList.add('ready');
   if (matchMedia('(prefers-reduced-motion: reduce)').matches){ ready(); return; }
   const tick = () => { if (narrow() && v.duration) v.style.objectPosition = (3 + 33*Math.min(1, v.currentTime/v.duration)).toFixed(1) + '% 30%'; if (!v.paused) requestAnimationFrame(tick); };
