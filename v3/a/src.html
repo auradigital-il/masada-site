@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>רועי יהודה · תיווך נדל״ן</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;700;900&family=Montserrat:wght@200;300;400&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../../media/roei.jpg">
+<link rel="stylesheet" href="../core.css?v=7">
+<style>
+:root{--bg:#07080A;--panel:#0E1013;--fg:#F1EBE0;--mu:rgba(241,235,224,.62);--ln:rgba(217,181,119,.3);--acc:#D9B577;--acc2:#F6E3B6;--acc3:#A57A3C;--acc-fg:#14100a;--fa:rgba(241,235,224,.1)}
+body{font-family:'Heebo',system-ui,sans-serif;font-weight:300;background:var(--bg);color:var(--fg);line-height:1.75;font-size:18px;-webkit-font-smoothing:antialiased;overflow-x:clip}
+html[lang=en] body{font-family:'Montserrat','Heebo',sans-serif}
+.cap{font:300 11px/1.4 'Montserrat',sans-serif;letter-spacing:.45em;color:var(--acc);direction:ltr;unicode-bidi:isolate;display:inline-block}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;background:linear-gradient(180deg,var(--acc2),var(--acc) 55%,var(--acc3));color:var(--acc-fg);font-weight:700;font-size:16px;border:0;cursor:pointer;transition:transform .3s,box-shadow .3s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 40px -6px rgba(217,181,119,.7)}
+.btn.gh{background:rgba(7,8,10,.4);color:var(--acc2);border:1px solid var(--ln)}
+
+/* רקע תלת-ממד */
+#gl{position:fixed;inset:0;z-index:0;width:100vw;height:100vh;height:100lvh}
+.vign{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.7))}
+.home{position:relative;z-index:2}
+#load{position:fixed;inset:0;z-index:300;background:var(--bg);display:grid;place-items:center;transition:opacity 1s}
+#load svg{width:80px;margin:0 auto;display:block}
+#load .st{fill:none;stroke:var(--fa);stroke-width:6;stroke-linejoin:round}
+#load .st2{fill:none;stroke:var(--acc);stroke-width:6;stroke-linejoin:round;stroke-dasharray:310;stroke-dashoffset:310;animation:ldr 1.6s cubic-bezier(.6,0,.3,1) forwards}
+@keyframes ldr{to{stroke-dashoffset:0}}
+#load .p{font:200 12px 'Montserrat',sans-serif;letter-spacing:.5em;color:var(--mu);margin-top:22px;text-align:center}
+#load.done{opacity:0;pointer-events:none}
+
+/* עמוד ראשי: מסך אחד */
+.hero{min-height:100vh;min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:4vw;padding:100px 7vw 130px}
+.hero .txt{display:flex;flex-direction:column;align-items:flex-start}
+.hero h1 b{font-weight:900;background:linear-gradient(160deg,var(--acc2),var(--acc) 45%,var(--acc3) 75%,var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .role{font-size:clamp(20px,1.9vw,28px);line-height:1.35;margin-top:22px}
+.hero .line{color:var(--mu);font-size:clamp(16px,1.3vw,19px);margin-top:12px}
+.hero h1{line-height:1;margin-top:4px}
+.hero .sig{font-size:clamp(84px,8vw,150px);margin-inline-start:-.25em;font-weight:400}
+.more{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.more a{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:1px solid var(--fa);background:rgba(7,8,10,.45);backdrop-filter:blur(8px);font-size:15px;transition:border-color .3s,color .3s}
+.more a:hover{border-color:var(--ln);color:var(--acc2)}
+.more a::after{content:"←";color:var(--acc)}html[dir=ltr] .more a::after{content:"→"}
+.hface{justify-self:center;width:min(58vh,36vw);aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(217,181,119,.5),0 0 100px rgba(217,181,119,.22)}
+.hface img{width:100%;height:100%;object-fit:cover;object-position:50% 8%;transform:scale(1.02)}
+.pick{position:absolute;bottom:96px;left:50%;transform:translateX(-50%);font-size:13px;color:var(--mu);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.pick::after{content:"↓";color:var(--acc);animation:bob 1.6s infinite}
+@keyframes bob{50%{transform:translateY(4px)}}
+.hero{position:relative}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:0;padding:78px 22px 150px;text-align:center;align-content:center}
+  .hero .txt{align-items:center;order:2}
+  .hface{width:min(50vw,30vh);order:1;margin-bottom:40px}
+  .hero .role{font-size:19px;margin-top:12px}.hero .line{font-size:15px;margin-top:6px}
+  .hero .sig{font-size:min(17vw,92px);margin:0}
+  .more{justify-content:center}.more a{font-size:14px;padding:9px 14px}
+  .pick{display:none}
+}
+@media(max-width:900px) and (max-height:700px){.hero .line{display:none}.hface{width:28vh}}
+footer{position:relative;z-index:2;border-top:1px solid var(--fa);padding:34px 20px 130px;text-align:center;font-size:13px;color:var(--mu);background:rgba(7,8,10,.85)}
+footer .socials{margin-bottom:18px}
+footer .credit{margin-top:10px}
+
+/* עמודים */
+.page{background:rgba(7,8,10,.8)}
+.page::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(217,181,119,.08),transparent 60%);pointer-events:none}
+.page .in-wrap{position:relative;transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .6s;opacity:0;transform:translateY(40px)}
+.page.on .in-wrap{opacity:1;transform:none}
+.pg-head{margin-top:26px}
+.pg-head h2{font-weight:200;font-size:clamp(40px,5.6vw,92px);line-height:1.02;letter-spacing:-.02em;margin-top:14px;outline:none}
+.pg-head h2 b{font-weight:900;background:linear-gradient(160deg,var(--acc2),var(--acc) 45%,var(--acc3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.pg-head .sub{color:var(--mu);margin-top:14px}
+.badge{display:inline-block;margin-top:16px;font-size:13px;padding:6px 14px;border-radius:999px;border:1px dashed var(--ln);color:var(--acc2)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,70px);margin-top:50px;align-items:start}
+.body p{color:var(--mu);margin-top:14px}
+.body p b{color:var(--fg);font-weight:700}
+.body .lead{font-size:clamp(22px,2vw,30px);color:var(--fg);line-height:1.4;margin-top:0}
+.body h3{font-size:26px;font-weight:700;color:var(--acc2);margin-top:40px}
+.body h3:first-child{margin-top:0}
+.body .q{font-size:clamp(24px,2.4vw,34px);font-weight:200;color:var(--fg);line-height:1.3;margin-top:34px}
+.body .q b,.body .q2 b{font-weight:900;color:var(--acc2)}
+.body .q2{font-size:20px;color:var(--fg);margin-top:16px}
+.pills{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:26px 0 18px}
+.pills li{padding:12px 16px;border:1px solid var(--fa);border-radius:12px;background:rgba(7,8,10,.4);font-weight:400}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.media{border-radius:22px;overflow:hidden;border:1px solid var(--ln);box-shadow:0 0 0 10px rgba(217,181,119,.04),0 30px 90px rgba(0,0,0,.5);position:relative}
+.media video,.media img{width:100%;height:100%;object-fit:cover}
+#p-broker .media{aspect-ratio:16/10}
+#p-renew .media{aspect-ratio:16/10;position:sticky;top:100px}
+.m26img{aspect-ratio:1408/768}
+.media .tag{position:absolute;top:14px;right:14px;z-index:2;font-size:12px;padding:7px 12px;border-radius:999px;background:rgba(7,8,10,.75);color:var(--acc2)}
+html[dir=ltr] .media .tag{right:auto;left:14px}
+.zero{margin-top:30px;display:flex;gap:22px;align-items:center;padding:22px 26px;border-radius:18px;background:rgba(217,181,119,.08);border:1px solid var(--ln)}
+.zero .z{font:200 clamp(56px,5vw,84px)/1 'Montserrat',sans-serif;white-space:nowrap}
+.zero b{display:block;font-size:20px;color:var(--fg)}
+.zero span:not(.z){display:block;color:var(--mu);font-size:15px;margin-top:4px}
+.steps{list-style:none;counter-reset:s;margin-top:16px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:48px 1fr;padding:12px 0;border-top:1px solid var(--fa)}
+.steps li::before{content:counter(s,decimal-leading-zero);font:200 24px/1.2 'Montserrat',sans-serif;color:var(--acc)}
+.formbox{margin-top:60px;display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center;padding:clamp(24px,4vw,48px);border:1px solid var(--ln);border-radius:24px;background:linear-gradient(160deg,rgba(14,16,19,.9),rgba(7,8,10,.8))}
+.formbox .fh{font-weight:200;font-size:clamp(30px,3vw,46px);line-height:1.1;margin-top:10px}
+.formbox .fh b{font-weight:900;color:var(--acc2)}
+.formbox p{color:var(--mu);margin-top:8px}
+.formbox.small{grid-template-columns:1fr;gap:16px;margin-top:24px}
+.formbox.small .fh{font-size:26px;font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.card{display:flex;flex-direction:column;gap:8px;border:1px solid var(--fa);border-radius:20px;overflow:hidden;background:rgba(14,16,19,.8);padding-bottom:22px;transition:border-color .3s,transform .3s;position:relative}
+.card:hover{border-color:var(--ln);transform:translateY(-4px)}
+.card img{aspect-ratio:16/10;object-fit:cover;width:100%;filter:brightness(.85);margin-bottom:10px}
+.card .k,.card h3,.card .go{padding-inline:22px}
+.card .k{font-size:13px;color:var(--acc)}
+.card h3{font-size:21px;font-weight:700;line-height:1.3}
+.card .go{color:var(--acc2);font-size:14px;margin-top:auto}
+.card.soon{opacity:.6}.card.soon:hover{transform:none}
+.cards.press .card{padding-top:24px;min-height:220px}
+.tagx{position:absolute;top:14px;left:14px;font-size:11px;padding:4px 10px;border-radius:999px;border:1px dashed var(--ln);color:var(--mu)}
+html[dir=ltr] .tagx{left:auto;right:14px}
+@media(max-width:900px){
+  .grid2,.formbox{grid-template-columns:1fr}
+  #p-renew .media{position:relative;top:0}
+  .cards{grid-template-columns:1fr}
+  .zero{flex-direction:column;align-items:flex-start;gap:8px}
+  .pills{grid-template-columns:1fr 1fr}
+}
+.nogl #gl{display:none}
+.nogl body{background:radial-gradient(ellipse at 50% 30%,#1a1712,var(--bg) 70%)}
+</style>
+</head>
+<body data-sketch="סקיצה א׳">
+<div id="load" aria-hidden="true"><div><svg viewBox="0 0 120 120"><path class="st" d="M60 6 L114 60 L60 114 L6 60 Z"/><path class="st2" id="ldp" d="M60 6 L114 60 L60 114 L6 60 Z"/><rect id="ldd" x="44" y="44" width="32" height="32" rx="3" transform="rotate(45 60 60)" fill="#D9B577" opacity="0"/></svg><div class="p" id="ldt"></div></div></div>
+<script>setTimeout(() => document.getElementById('load').classList.add('done'), 2000)</script>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="vign"></div>
+
+<header class="top">
+  <a href="#" class="me" data-close><b data-t="brand"></b><small data-t="brand_sub"></small></a>
+  <button class="lang" type="button" data-lang></button>
+</header>
+
+<main class="home">
+  <section class="hero">
+    <div class="txt">
+      <span class="cap fx-h" data-t="h_kicker"></span>
+      <h1 class="fx-h"><span class="sr" data-t="brand"></span><span class="sig gold" aria-hidden="true">Roei Yehuda</span></h1>
+      <p class="role fx-h" data-t="h_role"></p>
+      <p class="line fx-h" data-t="h_line"></p>
+      <div class="more fx-h"><a href="#articles" data-go="articles" data-t="h_more_art"></a><a href="#press" data-go="press" data-t="h_more_press"></a></div>
+    </div>
+    <div class="hface" id="hface"><img src="../../media/roei.jpg" alt="רועי יהודה"></div>
+    <span class="pick" data-t="h_pick"></span>
+  </section>
+</main>
+<footer>
+  <div class="socials" data-socials></div>
+  <p data-t="foot"></p>
+  <p class="credit" data-t="credit"></p>
+</footer>
+
+<!--PAGES-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../content.js?v=7"></script>
+<script src="../core.js?v=7"></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+<script type="module" src="world.js?v=1"></script>
+</body>
+</html>

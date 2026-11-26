@@ -1,0 +1,149 @@
+/* בסיס משותף לסקיצות החדשות. כל סקיצה קובעת את הצבעים: --bg --fg --mu --ln --acc --acc2 --acc-fg --panel */
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden}
+html.paged{overflow:hidden}
+img,video,canvas{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+[hidden]{display:none!important}
+.sig{font-family:'Mrs Saint Delafield',cursive;font-weight:400;white-space:nowrap;direction:ltr;unicode-bidi:isolate;line-height:1.35;padding:.32em .3em .18em;display:inline-block}
+.gold{background:linear-gradient(170deg,var(--acc2) 0%,var(--acc) 55%,var(--acc3,#a8823f) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* כותרת עליונה: שם מצד אחד, שפה בצד השני (משמאל נשאר מקום לכפתור הנגישות) */
+.top{position:fixed;z-index:65;top:0;inset-inline:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 22px 14px 70px;pointer-events:none}
+html[dir=ltr] .top{padding:14px 22px 14px 70px}
+.top>*{pointer-events:auto}
+.top .me{display:flex;flex-direction:column;line-height:1.1}
+.top .me b{font-size:17px;font-weight:700;letter-spacing:.02em}
+.top .me small{font:300 9.5px/1.4 'Montserrat',sans-serif;letter-spacing:.3em;color:var(--mu);direction:ltr}
+.lang{height:40px;min-width:52px;padding:0 14px;border-radius:999px;border:1px solid var(--ln);background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--fg);font-weight:700;font-size:14px;cursor:pointer;letter-spacing:.06em}
+.lang:hover{border-color:var(--acc)}
+
+/* 3 הכפתורים הצפים */
+.dock{position:fixed;z-index:70;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;gap:6px;padding:6px;border-radius:999px;border:1px solid var(--ln);background:color-mix(in srgb,var(--panel) 78%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.dock a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:150px;padding:11px 20px;border-radius:999px;color:var(--fg);text-align:center;transition:background .35s,color .35s;position:relative}
+.dock a b{font-size:16px;font-weight:700;line-height:1.1;white-space:nowrap}
+.dock a small{font-size:11.5px;color:var(--mu);line-height:1.2;white-space:nowrap}
+.dock a:hover{background:color-mix(in srgb,var(--acc) 16%,transparent)}
+.dock a[aria-current=page]{background:linear-gradient(180deg,var(--acc2),var(--acc));color:var(--acc-fg)}
+.dock a[aria-current=page] small{color:color-mix(in srgb,var(--acc-fg) 70%,transparent)}
+.dock a:focus-visible{outline:2px solid var(--acc2);outline-offset:2px}
+@media(max-width:700px){
+  .dock{left:8px;right:8px;transform:none;border-radius:18px;padding:5px;gap:4px;bottom:max(8px,env(safe-area-inset-bottom))}
+  .dock a{min-width:0;flex:1;padding:10px 4px;border-radius:14px}
+  .dock a b{font-size:14px}.dock a small{font-size:10.5px}
+}
+
+/* וואטסאפ צף */
+.waf{position:fixed;z-index:72;right:20px;bottom:max(22px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:9px;height:54px;padding:0 18px 0 15px;border-radius:999px;background:#25D366;color:#fff;font-weight:700;font-size:15px;box-shadow:0 12px 30px rgba(0,0,0,.35);animation:waP 2.6s infinite}
+.waf svg{width:25px;height:25px;flex:none}
+@keyframes waP{0%{box-shadow:0 12px 30px rgba(0,0,0,.35),0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 12px 30px rgba(0,0,0,.35),0 0 0 15px rgba(37,211,102,0)}100%{box-shadow:0 12px 30px rgba(0,0,0,.35),0 0 0 0 rgba(37,211,102,0)}}
+@media(max-width:1100px){.waf span{display:none}.waf{width:54px;padding:0;justify-content:center}}
+@media(max-width:700px){.waf{right:12px;bottom:calc(max(8px,env(safe-area-inset-bottom)) + 76px);width:52px;height:52px}}
+
+/* עמוד שנפתח מכפתור */
+.page{position:fixed;inset:0;z-index:60;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;visibility:hidden}
+.page.on{visibility:visible}
+.page .in-wrap{width:min(1180px,100% - 48px);margin-inline:auto;padding:110px 0 150px}
+@media(max-width:700px){.page .in-wrap{width:calc(100% - 32px);padding:84px 0 170px}}
+.close{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--ln);background:transparent;color:var(--fg);cursor:pointer;font-size:14px}
+.close:hover{border-color:var(--acc)}
+html[dir=rtl] .close::before{content:"→"}html[dir=ltr] .close::before{content:"←"}
+.page .rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:0s}
+.page.on .rv{opacity:1;transform:none;transition-delay:var(--d,.2s)}
+.home .rv{opacity:0;transform:translateY(26px);transition:opacity 1s,transform 1s cubic-bezier(.2,.8,.2,1)}
+.home .rv.in{opacity:1;transform:none}
+
+/* סרגל שליטה לסרטון */
+[data-vctl]{position:relative;overflow:hidden}
+.vctl{direction:ltr;position:absolute;bottom:12px;right:12px;left:12px;z-index:3;display:flex;align-items:center;gap:6px;flex-wrap:wrap;pointer-events:none}
+.vctl button{pointer-events:auto;font:600 13px/1 'Heebo',sans-serif;height:38px;padding:0 14px;border-radius:999px;border:0;background:rgba(0,0,0,.65);color:#fff;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);white-space:nowrap}
+.vctl .vc{min-width:38px;padding:0 11px}
+.vctl .snd{margin-left:auto}
+.vctl button:hover{background:rgba(0,0,0,.85)}
+.vctl button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+@media(max-width:600px){.vctl button{height:34px;font-size:12px}.vctl .vc{padding:0 9px}}
+
+/* טופס */
+.cform form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cform label{display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--mu)}
+.cform .full{grid-column:1/-1}
+.cform input:not([type=checkbox]),.cform textarea{font:inherit;font-size:16px;color:var(--fg);background:transparent;border:1px solid var(--ln);border-radius:10px;padding:13px 14px;outline:none;transition:border-color .2s}
+.cform input:focus,.cform textarea:focus{border-color:var(--acc)}
+.cform .ok{flex-direction:row;align-items:center;gap:10px;font-size:13px}
+.cform .ok input{width:18px;height:18px;accent-color:var(--acc);flex:none}
+.cform .send{font-weight:700;font-size:17px;padding:16px;border:0;border-radius:999px;background:linear-gradient(180deg,var(--acc2),var(--acc));color:var(--acc-fg);cursor:pointer}
+.cform .err{color:#e2736a;font-size:14px}
+.cform .done{color:var(--acc2);font-size:17px;text-align:center}
+@media(max-width:600px){.cform form{grid-template-columns:1fr}}
+
+/* דגלים */
+[data-flags]{display:flex;flex-wrap:wrap;gap:8px}
+[data-flags] span{display:inline-flex;align-items:center;gap:7px;font-size:14px;padding:6px 12px 6px 10px;border:1px solid var(--ln);border-radius:999px}
+[data-flags] img{width:22px;height:15px;object-fit:cover;border-radius:2px}
+
+/* נגישות */
+.a11y-btn{position:fixed;top:14px;left:14px;z-index:85;width:42px;height:42px;border-radius:50%;border:1px solid var(--ln);background:var(--bg);color:var(--fg);display:grid;place-items:center;cursor:pointer}
+.a11y-btn svg{width:22px;height:22px}
+.a11y-panel{position:fixed;top:64px;left:14px;z-index:85;width:min(280px,calc(100vw - 28px));background:var(--bg);color:var(--fg);border:1px solid var(--ln);padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 20px 50px rgba(0,0,0,.4);border-radius:12px}
+.a11y-panel b{font-size:18px}
+.a11y-panel button{font-size:15px;text-align:start;padding:10px 12px;background:none;color:inherit;border:1px solid var(--ln);border-radius:8px;cursor:pointer}
+.a11y-panel button[aria-pressed=true]{border-color:var(--acc)}
+.a11y-panel button[aria-pressed=true]::after{content:" ✓"}
+html.a-big body{zoom:1.12}
+html.a-contrast body{filter:contrast(1.35)}
+html.a-links a{outline:2px dashed currentColor;outline-offset:2px;text-decoration:underline!important}
+html.a-still *,html.a-still *::before,html.a-still *::after{animation:none!important;transition:none!important}
+
+.sketch-tag{position:fixed;bottom:22px;left:14px;z-index:66;font:600 12px/1 system-ui;padding:8px 12px;border-radius:999px;background:rgba(0,0,0,.65);color:#fff}
+@media(max-width:1100px){.sketch-tag{bottom:96px;left:12px;opacity:.85}}
+@media(max-width:700px){.sketch-tag{bottom:calc(max(8px,env(safe-area-inset-bottom)) + 84px)}}
+@media(max-width:700px){.top .me small{display:none}}
+.credit a{font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media(prefers-reduced-motion:reduce){.waf{animation:none}.page .rv,.home .rv{opacity:1;transform:none;transition:none}}
+
+/* רשתות */
+.socials{display:flex;gap:10px;justify-content:center}
+.socials a{width:46px;height:46px;border-radius:50%;border:1px solid var(--ln);display:grid;place-items:center;color:var(--fg);transition:border-color .3s,color .3s}
+.socials a:hover{border-color:var(--acc);color:var(--acc2)}
+.socials svg{width:20px;height:20px}
+/* כשעמוד פתוח, העמוד הראשי נעלם מאחור */
+.home,body>footer{transition:opacity .6s,filter .6s}
+html.paged .home,html.paged body>footer{opacity:0;filter:blur(8px);pointer-events:none}
+/* בעמוד פתוח: הכותרת העליונה מקבלת רקע, ותווית הסקיצה מוסתרת */
+html.paged .top{background:linear-gradient(var(--bg) 70%,transparent)}
+html.paged .sketch-tag{display:none}
+@media(max-width:700px){.page .in-wrap{padding-top:96px}}
+
+/* תפריט מלא: כפתור מימין למעלה, נפתח למסך מלא */
+.mnav-btn{position:fixed;top:12px;right:12px;z-index:97;width:46px;height:46px;border-radius:50%;border:1px solid var(--ln);background:color-mix(in srgb,var(--bg) 75%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--fg);display:grid;place-items:center;cursor:pointer;padding:0}
+.mnav-btn i,.mnav-btn i::before,.mnav-btn i::after{display:block;width:18px;height:1.5px;background:currentColor;position:relative;transition:transform .35s,background .35s}
+.mnav-btn i::before,.mnav-btn i::after{content:"";position:absolute;left:0}
+.mnav-btn i::before{top:-6px}.mnav-btn i::after{top:6px}
+.mnav-btn[aria-expanded=true] i{background:transparent}
+.mnav-btn[aria-expanded=true] i::before{transform:translateY(6px) rotate(45deg)}
+.mnav-btn[aria-expanded=true] i::after{transform:translateY(-6px) rotate(-45deg)}
+.top{padding-right:70px!important}
+.mnav{position:fixed;inset:0;z-index:96;background:var(--bg);color:var(--fg);overflow-y:auto;clip-path:circle(0 at calc(100% - 35px) 35px);transition:clip-path .6s cubic-bezier(.7,0,.2,1)}
+.mnav.on{clip-path:circle(150% at calc(100% - 35px) 35px)}
+.mnav .mn-in{width:min(560px,100% - 40px);margin:0 auto;padding:84px 0 40px;display:flex;flex-direction:column}
+.mnav .it{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--ln);font-size:20px;opacity:0;transform:translateY(16px);transition:opacity .45s,transform .45s}
+.mnav .it.big{font-size:clamp(26px,7vw,34px);font-weight:700}
+.mnav .it small{font-size:13px;color:var(--mu);font-weight:300}
+.mnav .it.cur span{color:var(--acc2)}
+.mnav .it:hover span{color:var(--acc2)}
+.mnav.on .it{opacity:1;transform:none}
+.mnav.on .it:nth-child(2){transition-delay:.05s}.mnav.on .it:nth-child(3){transition-delay:.1s}.mnav.on .it:nth-child(4){transition-delay:.15s}.mnav.on .it:nth-child(5){transition-delay:.2s}.mnav.on .it:nth-child(6){transition-delay:.25s}.mnav.on .it:nth-child(7){transition-delay:.3s}
+.mn-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.mn-wa,.mn-tel{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;border-radius:999px;font-weight:700;font-size:15px}
+.mn-wa{background:#25D366;color:#fff}.mn-wa svg{width:22px;height:22px}
+.mn-tel{border:1px solid var(--ln);direction:ltr}
+html[dir=rtl] .mn-tel{direction:rtl}
+.mn-foot{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:28px;color:var(--mu);font-size:14px}
+.mn-lang{margin-top:6px;height:42px;padding:0 22px;border-radius:999px;border:1px solid var(--ln);background:none;color:var(--fg);cursor:pointer;font-weight:700}
+html.menu-on{overflow:hidden}
+html.menu-on .waf,html.menu-on .dock,html.menu-on .sketch-tag{opacity:0;pointer-events:none}
+.waf,.dock,.sketch-tag{transition:opacity .3s}
+
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.formbox{scroll-margin-top:90px}

@@ -20,7 +20,7 @@
 
   // רשתות
   $$('[data-socials]').forEach(el => el.innerHTML =
-    `<a href="#" aria-label="אינסטגרם (הקישור יתווסף בהקמה)">${ico.ig}</a><a href="#" aria-label="פייסבוק (הקישור יתווסף בהקמה)">${ico.fb}</a><a href="mailto:Roeiyehuda1@gmail.com" aria-label="מייל">${ico.mail}</a><a href="${WA}" target="_blank" rel="noopener" aria-label="וואטסאפ">${ico.wa}</a>`);
+    `<a href="https://www.instagram.com/roei_yehuda/" target="_blank" rel="noopener" aria-label="אינסטגרם">${ico.ig}</a><a href="https://www.facebook.com/roy.yehuda" target="_blank" rel="noopener" aria-label="פייסבוק">${ico.fb}</a><a href="mailto:Roeiyehuda1@gmail.com" aria-label="מייל">${ico.mail}</a><a href="${WA}" target="_blank" rel="noopener" aria-label="וואטסאפ">${ico.wa}</a>`);
 
   // דגלים
   const FL = [['il','ישראל'],['gr','יוון'],['it','איטליה'],['ae','איחוד האמירויות'],['us','ארצות הברית'],['gb','אנגליה'],['pt','פורטוגל'],['cy','קפריסין']];
