@@ -91,7 +91,8 @@
     sync();
   });
 
-  /* ---------- טפסים: בסקיצה הפנייה נפתחת בוואטסאפ של רועי ---------- */
+  /* ---------- טפסים: נשמרים בגיליון (לשונית "האתר הראשי") ורועי מקבל מייל, הגולש רואה מסך תודה ---------- */
+  const LEADS = 'https://script.google.com/macros/s/AKfycbz0BhmsSxY6iSYb34SEtAxtaSNpzjFE2R8ngMZ4rz8JXwDtC6QGxA0cTG7zojMjSPrj/exec';
   function renderForm(box){
     const topic = box.dataset.form, small = topic === 't_m26', broker = topic === 't_broker';
     box.classList.add('cform');
@@ -104,14 +105,23 @@
       <label class="full consent"><input type="checkbox" name="ok" required aria-required="true"><span>${t('f_ok2')}</span></label>
       <label class="full consent"><input type="checkbox" name="mk"><span>${t('f_mk')}</span></label>
       <p class="trust full">${t('trust')}</p>
+      <input class="hp" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button class="send full" type="submit">${t('f_send')}</button>
       <p class="err full" role="alert" hidden>${t('f_err')}</p><p class="done full" role="status" hidden>${t('f_sent')}</p></form>`;
     const f = $('form', box);
     f.addEventListener('submit', e => { e.preventDefault(); const d = new FormData(f), err = $('.err', f);
       if (!d.get('name') || !d.get('phone') || !d.get('ok')) { err.hidden = false; return; } err.hidden = true;
-      const msg = `${t('f_hello')}\n${t('f_name')}: ${d.get('name')}\n${t('f_phone')}: ${d.get('phone')}\n${t('f_topic')}: ${t(topic)}${d.get('mk') ? (lang === 'he' ? '\nמאשר/ת עדכונים' : '\nOK with updates') : ''}${d.getAll('int').length ? '\n' + t('f_int') + ' ' + d.getAll('int').join(', ') : ''}${d.get('addr') ? '\n' + d.get('addr') : ''}${d.get('msg') ? '\n' + d.get('msg') : ''}`;
-      window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
-      $('.done', f).hidden = false; });
+      const btn = $('.send', f); btn.disabled = true; btn.textContent = t('f_sending');
+      const data = {type:'site', topic:t(topic), name:d.get('name'), phone:d.get('phone'), ints:d.getAll('int').join(', '), addr:d.get('addr') || '', msg:d.get('msg') || '',
+        mk:!!d.get('mk'), hp:d.get('hp') || '', page:(document.body.dataset.sketch || '') + ' #' + (location.hash.slice(1) || 'home') + ' · ' + lang};
+      fetch(LEADS, {method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body:JSON.stringify(data)}).catch(() => {});
+      setTimeout(() => thanks(box, d.get('name')), 450); });
+  }
+  function thanks(box, name){
+    const fb = box.closest('.formbox') || box; fb.classList.add('sent');
+    fb.innerHTML = `<div class="thx" role="status" tabindex="-1"><span class="thx-ic" aria-hidden="true">✓</span><h3 class="fh">${t('thx_h').replace('{n}', String(name || '').split(' ')[0].replace(/[<>&"]/g, ''))}</h3><p>${t('thx_p')}</p><a class="btn gh" href="#" data-thx-home>${t('thx_home')}</a></div>`;
+    const th = $('.thx', fb); th.focus({preventScroll:true}); fb.scrollIntoView({behavior:'smooth', block:'center'});
+    $('[data-thx-home]', fb).addEventListener('click', e => { e.preventDefault(); goHome(); });
   }
 
   /* ---------- נגישות ---------- */

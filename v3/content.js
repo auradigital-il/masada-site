@@ -102,6 +102,7 @@ he: {
   f_err: 'נא למלא שם, טלפון ולאשר', f_sent: 'תודה! הפנייה נפתחה בוואטסאפ של רועי',
   f_hello: 'שלום רועי, הגעתי דרך האתר שלך', f_topic: 'נושא',
   t_renew: 'התחדשות עירונית לבניין שלי', t_m26: 'בקשת סיסמה ל־M26',
+  f_sending: 'שולח...', thx_h: 'תודה {n}<br><b>קיבלתי את הפרטים</b>', thx_p: 'אחזור אליך אישית תוך 24 שעות<br>בדיסקרטיות מלאה', thx_home: 'חזרה לעמוד הבית',
   t_broker: 'תיווך נדל״ן', f_int: 'מה מעניין אותך?', f_ints: ['קנייה','מכירה','השקעה בחו״ל','נכס מסחרי'],
   bf_k: 'LET’S TALK', bf_h: 'ספרו לי מה אתם מחפשים<br><b>ונדבר</b>', bf_p: 'בדיסקרטיות מלאה', bf_or: 'או ישר בוואטסאפ ובטלפון',
 
@@ -211,6 +212,7 @@ en: {
   f_err: 'Please fill in name, phone and approve', f_sent: 'Thank you! The message opened in Roei’s WhatsApp',
   f_hello: 'Hi Roei, I found you through your website', f_topic: 'Topic',
   t_renew: 'Urban renewal for my building', t_m26: 'M26 password request',
+  f_sending: 'Sending...', thx_h: 'Thank you {n}<br><b>I got your details</b>', thx_p: 'I’ll get back to you personally within 24 hours<br>Fully discreet', thx_home: 'Back to home',
   t_broker: 'Real estate brokerage', f_int: 'What interests you?', f_ints: ['Buying','Selling','Investing abroad','Commercial property'],
   bf_k: 'LET’S TALK', bf_h: 'Tell me what you’re looking for<br><b>and let’s talk</b>', bf_p: 'Fully discreet', bf_or: 'Or straight to WhatsApp or phone',
 
