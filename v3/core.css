@@ -219,3 +219,13 @@ footer .flinks a{text-decoration:underline;text-underline-offset:3px}
 .mn-wa{background:linear-gradient(160deg,var(--acc2),var(--acc) 55%,var(--acc3,#a8823f));color:var(--acc-fg)}
 @media(prefers-reduced-motion:reduce){.waf.blink,.waf.blink::after{animation:none}}
 html.a-still .waf.blink{transform:none}
+
+/* סרטון ההתחדשות (הדמיה בבינה מלאכותית) */
+.hi video{width:100%;height:100%;object-fit:cover}
+.hi{position:relative}
+.ai-tag{position:absolute;top:12px;inset-inline-start:12px;z-index:2;font-size:12px;padding:6px 12px;border-radius:999px;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--acc2)}
+.rfilm{position:relative;margin-top:40px;aspect-ratio:16/9;border-radius:var(--r,20px);overflow:hidden;border:1px solid var(--ln);box-shadow:0 40px 120px rgba(0,0,0,.5)}
+.rfilm video{width:100%;height:100%;object-fit:cover}
+.rfilm::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.75));pointer-events:none}
+.rfilm-cap{position:absolute;inset:auto 0 0;z-index:2;padding:clamp(16px,3vw,34px);font-size:clamp(22px,2.6vw,40px);font-weight:300;color:#fff;line-height:1.2}
+.rfilm-cap b{font-weight:800;color:var(--acc2)}

@@ -14,6 +14,7 @@ he: {
   dock_m26: 'M26', dock_m26_s: 'עסקאות Off-Market',
 
   /* עמוד ראשי: קצר */
+  ai_tag: '✦ הדמיה בבינה מלאכותית', r_film: 'מהבניין הישן <b>אל הבית החדש</b>',
   st1: 'שנות ניסיון<br>אלפי עסקאות', st2: 'פרויקטים של<br>התחדשות עירונית', st3: 'מדינות עם<br>הזדמנויות נדל״ן',
   s_k1: '01 · BROKERAGE', s_h1: 'תיווך נדל״ן<br><b>בארץ ובעולם</b>', s_p1: 'נכסים פרטיים ומסחריים, וחיבורים בין בכירים<br>למעלה מ־20 שנה, בדיסקרטיות מוחלטת', s_b1: 'לעמוד התיווך',
   s_k2: '02 · URBAN RENEWAL', s_h2: 'התחדשות עירונית<br><b>ופינוי בינוי</b>', s_p2: '16 פרויקטים בתהליך, 2 כבר אוכלסו<br>מגיבוש הדיירים ועד המפתח, ואתם לא משלמים על השירות', s_b2: 'לכל המידע ובדיקת הבניין',
@@ -126,6 +127,7 @@ en: {
   s_p4: 'What you should know before you sign<br>Urban renewal, tenders and investing', s_b4: 'All articles →',
   s_p5: 'Articles about Roei<br>all in one place', s_b5: 'Read →',
   f_ok2: 'I have read and agree to the <a href="#privacy">privacy policy</a>, and agree that Roei may contact me', f_mk: 'I’d like to receive updates on new opportunities <span class="opt">(optional)</span>',
+  ai_tag: '✦ AI visualization', r_film: 'From the old building <b>to the new home</b>',
   ai_note: '<b>✦ A taste of AI</b>The whole site can be animated like this',
 
   art_k: 'ARTICLES & GUIDES', art_h: 'Articles <b>& useful info</b>',
