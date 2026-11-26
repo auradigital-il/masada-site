@@ -75,3 +75,9 @@ footer{border-top:1px solid var(--line);padding:24px 0 110px;text-align:center;f
 @media(max-width:1100px){.wa-float span{display:none}.wa-float{width:54px;height:54px;padding:0;justify-content:center}}
 @media(max-width:600px){.wa-float{left:12px;right:auto;width:52px;height:52px}}
 @media(prefers-reduced-motion:reduce){.wa-float,.wa-float.blink,.wa-float.blink::after{animation:none}}
+
+/* החתימה בזהב של רועי בראש המדריך */
+.gsig{display:inline-flex;align-items:center;line-height:1}
+.gsig .sig{font-family:'Mrs Saint Delafield',cursive;font-weight:400;font-size:44px;line-height:1.25;padding:.2em .3em .05em;white-space:nowrap;direction:ltr;unicode-bidi:isolate;display:inline-block;background:linear-gradient(170deg,#F6E3B6 0%,#D9B577 55%,#a8823f 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+body.t-l .gsig .sig{background:linear-gradient(170deg,#c9a25e 0%,#a8823f 55%,#7d5e2a 100%);-webkit-background-clip:text;background-clip:text}
+@media(max-width:600px){.gsig .sig{font-size:36px}}
