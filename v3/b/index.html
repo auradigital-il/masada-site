@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&family=Cormorant+Garamond:wght@500;700&family=Montserrat:wght@200;300;500&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="../../media/roei-ai-poster.jpg">
-<link rel="stylesheet" href="../core.css?v=7">
+<link rel="stylesheet" href="../core.css?v=8">
 <style>
-:root{--bg:#08100d;--panel:#0e1813;--ink3:#15221b;--fg:#efe9dc;--mu:rgba(239,233,220,.68);--ln:rgba(212,176,106,.28);--acc:#d4b06a;--acc2:#f0dca6;--acc3:#a8823f;--acc-fg:#1a1306;
+:root{--r:6px;--hw1:700;--hf:var(--serif);--bg:#08100d;--panel:#0e1813;--ink3:#15221b;--fg:#efe9dc;--mu:rgba(239,233,220,.68);--ln:rgba(212,176,106,.28);--acc:#d4b06a;--acc2:#f0dca6;--acc3:#a8823f;--acc-fg:#1a1306;
   --serif:'Frank Ruhl Libre',Georgia,serif}
 html[lang=en]{--serif:'Cormorant Garamond',Georgia,serif}
 body{font-family:'Heebo',system-ui,sans-serif;font-weight:300;background:var(--bg);color:var(--fg);line-height:1.7;font-size:18px;-webkit-font-smoothing:antialiased;overflow-x:clip}
@@ -114,6 +114,9 @@ footer .credit{margin-top:10px}
   .cards{grid-template-columns:1fr}
   .zero{padding:14px 16px}
 }
+.hs .hstats b{font-family:var(--serif);font-weight:900}
+.hs{padding-top:70px}
+.hs .ht h2 b{font-weight:900}
 </style>
 </head>
 <body data-sketch="סקיצה ב׳">
@@ -136,10 +139,40 @@ footer .credit{margin-top:10px}
       <div class="more"><a href="#articles" data-go="articles" data-t="h_more_art"></a><a href="#press" data-go="press" data-t="h_more_press"></a></div>
     </div>
   </section>
+<!-- המשך העמוד הראשי: קטע קצר על כל תחום + כפתור לעמוד המלא (build.py מכניס לכל סקיצה) -->
+<section class="hs" aria-label="תחומים">
+  <div class="hstats rv">
+    <div><b class="gold">20+</b><span data-t="st1"></span></div>
+    <div><b class="gold">16</b><span data-t="st2"></span></div>
+    <div><b class="gold">8</b><span data-t="st3"></span></div>
+  </div>
+
+  <article class="hrow rv">
+    <a class="hi" href="#broker" data-go="broker" tabindex="-1" aria-hidden="true"><img src="../../media/roei-hands.jpg" alt="" loading="lazy" style="object-position:50% 30%"></a>
+    <div class="ht"><span class="cap" data-t="s_k1"></span><h2 data-t="s_h1"></h2><p data-t="s_p1"></p><a class="btn" href="#broker" data-go="broker"><span data-t="s_b1"></span></a></div>
+  </article>
+
+  <article class="hrow rv">
+    <a class="hi" href="#renew" data-go="renew" tabindex="-1" aria-hidden="true"><img src="../../media/renewal-poster.jpg" alt="" loading="lazy"></a>
+    <div class="ht"><span class="cap" data-t="s_k2"></span><h2 data-t="s_h2"></h2><p data-t="s_p2"></p><a class="btn" href="#renew" data-go="renew"><span data-t="s_b2"></span></a></div>
+  </article>
+
+  <article class="hrow rv">
+    <a class="hi" href="#m26" data-go="m26" tabindex="-1" aria-hidden="true"><img src="../../media/rooftop-moon.jpg" alt="" loading="lazy"></a>
+    <div class="ht"><span class="cap" data-t="s_k3"></span><h2 data-t="s_h3"></h2><p data-t="s_p3"></p><a class="btn" href="#m26" data-go="m26"><span data-t="s_b3"></span></a></div>
+  </article>
+
+  <div class="hduo">
+    <a class="hcard rv" href="#articles" data-go="articles"><span class="cap" data-t="art_k"></span><h3 data-t="art_h"></h3><p data-t="s_p4"></p><span class="go" data-t="s_b4"></span></a>
+    <a class="hcard rv" href="#press" data-go="press"><span class="cap" data-t="press_k"></span><h3 data-t="press_h"></h3><p data-t="s_p5"></p><span class="go" data-t="s_b5"></span></a>
+  </div>
+</section>
+
 </main>
 <footer>
   <div class="socials" data-socials></div>
   <p data-t="foot"></p>
+  <p class="flinks" data-t="foot_links"></p>
   <p class="credit" data-t="credit"></p>
 </footer>
 
@@ -177,7 +210,7 @@ footer .credit{margin-top:10px}
     </div>
     <div class="grid2 rv">
       <div class="body"><h3 data-t="r_role_h"></h3><div data-t="r_role"></div><h3 data-t="r_int_h"></h3><p data-t="r_int"></p>
-        <div class="acts"><a class="btn gh" href="../../guides/1.html?t=w" data-t="r_guide"></a></div></div>
+        <div class="acts"><a class="btn gh" href="../../guides/1.html?t=w&back=v3b" data-t="r_guide"></a></div></div>
       <div class="body"><h3 data-t="r_steps_h"></h3><ol class="steps" data-t="r_steps"></ol></div>
     </div>
     <div class="formbox rv" id="renew-form"><div><span class="cap" data-t="f_k"></span><h3 class="fh" data-t="f_h"></h3><p data-t="f_p"></p></div><div data-form="t_renew"></div></div>
@@ -205,11 +238,11 @@ footer .credit{margin-top:10px}
     <button class="close rv" type="button" data-close data-t="back"></button>
     <header class="pg-head rv"><span class="cap" data-t="art_k"></span><h2 id="ha" tabindex="-1" data-t="art_h"></h2><p class="sub" data-t="art_p"></p></header>
     <div class="cards">
-      <a class="card rv" href="../../guides/1.html?t=w"><img src="../../media/terraces.jpg" alt="" loading="lazy"><span class="k" data-t="a1_k"></span><h3 data-t="a1_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
-      <a class="card rv" href="../../guides/2.html?t=w"><img src="../../media/tower-dusk.jpg" alt="" loading="lazy"><span class="k" data-t="a2_k"></span><h3 data-t="a2_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
-      <a class="card rv" href="../../guides/3.html?t=w"><img src="../../media/p-limassol.jpg" alt="" loading="lazy"><span class="k" data-t="a3_k"></span><h3 data-t="a3_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
-      <div class="card soon rv"><img src="../../media/pool.jpg" alt="" loading="lazy"><span class="k" data-t="a4_k"></span><h3 data-t="a4_h"></h3><span class="go" data-t="soon"></span></div>
-      <div class="card soon rv"><img src="../../media/tlv-night.jpg" alt="" loading="lazy"><span class="k" data-t="a5_k"></span><h3 data-t="a5_h"></h3><span class="go" data-t="soon"></span></div>
+      <a class="card rv" href="../../guides/1.html?t=w&back=v3b"><img src="../../media/terraces.jpg" alt="" loading="lazy"><span class="k" data-t="a1_k"></span><h3 data-t="a1_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
+      <a class="card rv" href="../../guides/2.html?t=w&back=v3b"><img src="../../media/tower-dusk.jpg" alt="" loading="lazy"><span class="k" data-t="a2_k"></span><h3 data-t="a2_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
+      <a class="card rv" href="../../guides/3.html?t=w&back=v3b"><img src="../../media/p-limassol.jpg" alt="" loading="lazy"><span class="k" data-t="a3_k"></span><h3 data-t="a3_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
+      <a class="card rv" href="../../guides/4.html?t=w&back=v3b"><img src="../../media/pool.jpg" alt="" loading="lazy"><span class="k" data-t="a4_k"></span><h3 data-t="a4_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
+      <a class="card rv" href="../../guides/5.html?t=w&back=v3b"><img src="../../media/tlv-night.jpg" alt="" loading="lazy"><span class="k" data-t="a5_k"></span><h3 data-t="a5_h"></h3><span class="go"><span data-t="read"></span><span data-t="he_only"></span></span></a>
     </div>
   </div>
 </section>
@@ -226,6 +259,22 @@ footer .credit{margin-top:10px}
   </div>
 </section>
 
+<section class="page" id="p-privacy" aria-labelledby="hpv">
+  <div class="in-wrap legal">
+    <button class="close rv" type="button" data-close data-t="back"></button>
+    <header class="pg-head rv"><span class="cap" data-t="lg_k"></span><h2 id="hpv" tabindex="-1" data-t="priv_h"></h2></header>
+    <div class="lg-body rv" data-t="priv"></div>
+  </div>
+</section>
+
+<section class="page" id="p-access" aria-labelledby="hac">
+  <div class="in-wrap legal">
+    <button class="close rv" type="button" data-close data-t="back"></button>
+    <header class="pg-head rv"><span class="cap" data-t="lg_k"></span><h2 id="hac" tabindex="-1" data-t="acc_h"></h2></header>
+    <div class="lg-body rv" data-t="acc"></div>
+  </div>
+</section>
+
 <nav class="dock" data-t-aria="dock_aria">
   <a href="#broker" data-go="broker"><b data-t="dock_broker"></b><small data-t="dock_broker_s"></small></a>
   <a href="#renew" data-go="renew"><b data-t="dock_renew"></b><small data-t="dock_renew_s"></small></a>
@@ -233,8 +282,9 @@ footer .credit{margin-top:10px}
 </nav>
 
 
-<script src="../content.js?v=7"></script>
-<script src="../core.js?v=7"></script>
+<script src="../content.js?v=8"></script>
+<script src="../legal.js?v=1"></script>
+<script src="../core.js?v=8"></script>
 <script>
 // רועי הולך אל הגולש פעם אחת, ונעצר קרוב. בטלפון המסגרת זזה איתו
 (() => {

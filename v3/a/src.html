@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;700;900&family=Montserrat:wght@200;300;400&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="../../media/roei.jpg">
-<link rel="stylesheet" href="../core.css?v=7">
+<link rel="stylesheet" href="../core.css?v=8">
 <style>
-:root{--bg:#07080A;--panel:#0E1013;--fg:#F1EBE0;--mu:rgba(241,235,224,.62);--ln:rgba(217,181,119,.3);--acc:#D9B577;--acc2:#F6E3B6;--acc3:#A57A3C;--acc-fg:#14100a;--fa:rgba(241,235,224,.1)}
+:root{--r:22px;--hw1:200;--bg:#07080A;--panel:#0E1013;--fg:#F1EBE0;--mu:rgba(241,235,224,.62);--ln:rgba(217,181,119,.3);--acc:#D9B577;--acc2:#F6E3B6;--acc3:#A57A3C;--acc-fg:#14100a;--fa:rgba(241,235,224,.1)}
 body{font-family:'Heebo',system-ui,sans-serif;font-weight:300;background:var(--bg);color:var(--fg);line-height:1.75;font-size:18px;-webkit-font-smoothing:antialiased;overflow-x:clip}
 html[lang=en] body{font-family:'Montserrat','Heebo',sans-serif}
 .cap{font:300 11px/1.4 'Montserrat',sans-serif;letter-spacing:.45em;color:var(--acc);direction:ltr;unicode-bidi:isolate;display:inline-block}
@@ -125,6 +125,7 @@ html[dir=ltr] .tagx{left:auto;right:14px}
 }
 .nogl #gl{display:none}
 .nogl body{background:radial-gradient(ellipse at 50% 30%,#1a1712,var(--bg) 70%)}
+.hs .hcard{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 </style>
 </head>
 <body data-sketch="סקיצה א׳">
@@ -148,21 +149,24 @@ html[dir=ltr] .tagx{left:auto;right:14px}
       <div class="more fx-h"><a href="#articles" data-go="articles" data-t="h_more_art"></a><a href="#press" data-go="press" data-t="h_more_press"></a></div>
     </div>
     <div class="hface" id="hface"><img src="../../media/roei.jpg" alt="רועי יהודה"></div>
-    <span class="pick" data-t="h_pick"></span>
+    <a class="pick" href="#" data-scroll data-t="h_pick"></a>
   </section>
+<!--HOME-->
 </main>
 <footer>
   <div class="socials" data-socials></div>
   <p data-t="foot"></p>
+  <p class="flinks" data-t="foot_links"></p>
   <p class="credit" data-t="credit"></p>
 </footer>
 
 <!--PAGES-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="../content.js?v=7"></script>
-<script src="../core.js?v=7"></script>
+<script src="../content.js?v=8"></script>
+<script src="../legal.js?v=1"></script>
+<script src="../core.js?v=8"></script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
-<script type="module" src="world.js?v=1"></script>
+<script type="module" src="world.js?v=2"></script>
 </body>
 </html>

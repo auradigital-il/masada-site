@@ -14,18 +14,25 @@ he: {
   dock_m26: 'M26', dock_m26_s: 'עסקאות Off-Market',
 
   /* עמוד ראשי: קצר */
+  st1: 'שנות ניסיון<br>אלפי עסקאות', st2: 'פרויקטים של<br>התחדשות עירונית', st3: 'מדינות עם<br>הזדמנויות נדל״ן',
+  s_k1: '01 · BROKERAGE', s_h1: 'תיווך נדל״ן<br><b>בארץ ובעולם</b>', s_p1: 'נכסים פרטיים ומסחריים, וחיבורים בין בכירים<br>למעלה מ־20 שנה, בדיסקרטיות מוחלטת', s_b1: 'לעמוד התיווך',
+  s_k2: '02 · URBAN RENEWAL', s_h2: 'התחדשות עירונית<br><b>ופינוי בינוי</b>', s_p2: '16 פרויקטים בתהליך, 2 כבר אוכלסו<br>מגיבוש הדיירים ועד המפתח, ואתם לא משלמים על השירות', s_b2: 'לכל המידע ובדיקת הבניין',
+  s_k3: '03 · M26', s_h3: 'M26<br><b>עסקאות Off-Market</b>', s_p3: 'אתר סגור לקהילת משקיעים<br>עסקאות שלא יפורסמו בשום מקום אחר', s_b3: 'ל־M26 ולקבלת סיסמה',
+  s_p4: 'מה שחשוב לדעת לפני שחותמים<br>התחדשות עירונית, מכרזים והשקעות', s_b4: 'לכל המאמרים ←',
+  s_p5: 'הכתבות על רועי<br>במקום אחד', s_b5: 'לכתבות ←',
+  f_ok2: 'קראתי ואני מאשר/ת את <a href="#privacy">מדיניות הפרטיות</a>, ומסכים/ה שרועי יחזור אליי', f_mk: 'אשמח לקבל עדכונים על הזדמנויות חדשות <span class="opt">(לא חובה)</span>',
   h_kicker: 'REAL ESTATE · SINCE 2008',
   h_name: 'רועי <b>יהודה</b>',
   h_role: 'תיווך נדל״ן פרטי ומסחרי<br>בארץ ובעולם',
   h_line: 'מחבר בין אנשים, עסקים ונכסים<br>בדיסקרטיות מוחלטת',
   h_quote: 'עסקה טובה לא זקוקה לרעש',
-  h_pick: 'בחרו תחום בכפתורים למטה',
+  h_pick: 'גללו או בחרו תחום בכפתורים',
   h_more_art: 'מאמרים ומידע שימושי', h_more_press: 'כתבו עלינו',
   ai_note: '<b>✦ טעימה מבינה מלאכותית</b>אפשר להנפיש כך את כל האתר',
 
   /* מאמרים */
   art_k: 'ARTICLES & GUIDES', art_h: 'מאמרים <b>ומידע שימושי</b>',
-  art_p: 'מה שחשוב לדעת לפני שחותמים<br>5 מאמרים שיחזקו את האתר בגוגל',
+  art_p: 'מה שחשוב לדעת לפני שחותמים<br>התחדשות עירונית, מכרזים והשקעות בארץ ובעולם',
   read: 'לקריאה ←', soon: 'בכתיבה', he_only: '',
   a1_k: 'התחדשות עירונית · 6 דק׳', a1_h: 'חברה מארגנת<br>למה היא לא עולה לכם שקל',
   a2_k: 'פינוי בינוי · 7 דק׳', a2_h: 'מכרז יזמים<br>8 סעיפים שחייבים להופיע',
@@ -87,7 +94,7 @@ he: {
 
   /* נגישות ותחתית */
   a_btn: 'תפריט נגישות', a_t: 'נגישות', a_big: 'הגדלת טקסט', a_con: 'ניגודיות גבוהה', a_links: 'הדגשת קישורים', a_still: 'עצירת אנימציות', a_reset: 'איפוס',
-  foot: 'רועי יהודה · מייסד קבוצת מצדה · י.ר מצדה בע״מ<br>הצהרת נגישות ומדיניות פרטיות יתווספו בהקמה',
+  foot: 'רועי יהודה · מייסד קבוצת מצדה · י.ר מצדה בע״מ',
   credit: 'הוכן ע״י <a href="https://aura-digital.co.il" target="_blank" rel="noopener">אורה דיגיטל</a>',
   flags: ['ישראל','יוון','איטליה','איחוד האמירויות','ארצות הברית','אנגליה','פורטוגל','קפריסין']
 },
@@ -110,12 +117,19 @@ en: {
   h_role: 'Private & commercial real estate<br>in Israel and worldwide',
   h_line: 'Connecting people, businesses and properties<br>with complete discretion',
   h_quote: 'A good deal doesn’t need noise',
-  h_pick: 'Choose a field below',
+  h_pick: 'Scroll or choose a field',
   h_more_art: 'Articles & useful info', h_more_press: 'In the press',
+  st1: 'years of experience<br>thousands of deals', st2: 'urban renewal<br>projects', st3: 'countries with<br>opportunities',
+  s_k1: '01 · BROKERAGE', s_h1: 'Real estate<br><b>in Israel & worldwide</b>', s_p1: 'Private and commercial properties, and senior-level connections<br>Over 20 years, with complete discretion', s_b1: 'Brokerage page',
+  s_k2: '02 · URBAN RENEWAL', s_h2: 'Urban renewal<br><b>& Pinui Binui</b>', s_p2: '16 projects in progress, 2 already occupied<br>From uniting the tenants to the keys, and you pay nothing for our service', s_b2: 'Full info & building check',
+  s_k3: '03 · M26', s_h3: 'M26<br><b>Off-market deals</b>', s_p3: 'A closed site for a community of investors<br>Deals that won’t be published anywhere else', s_b3: 'M26 & password',
+  s_p4: 'What you should know before you sign<br>Urban renewal, tenders and investing', s_b4: 'All articles →',
+  s_p5: 'Articles about Roei<br>all in one place', s_b5: 'Read →',
+  f_ok2: 'I have read and agree to the <a href="#privacy">privacy policy</a>, and agree that Roei may contact me', f_mk: 'I’d like to receive updates on new opportunities <span class="opt">(optional)</span>',
   ai_note: '<b>✦ A taste of AI</b>The whole site can be animated like this',
 
   art_k: 'ARTICLES & GUIDES', art_h: 'Articles <b>& useful info</b>',
-  art_p: 'What you should know before you sign<br>Five articles that build the site’s presence on Google',
+  art_p: 'What you should know before you sign<br>Urban renewal, tenders and investing in Israel and abroad',
   read: 'Read →', soon: 'Coming soon', he_only: ' · in Hebrew',
   a1_k: 'Urban renewal · 6 min', a1_h: 'The organizing company<br>why it costs you nothing',
   a2_k: 'Pinui Binui · 7 min', a2_h: 'Developer tender<br>8 clauses you must have',
@@ -170,7 +184,7 @@ en: {
   v_on: '🔈 Play with sound', v_off: '🔊 Mute',
 
   a_btn: 'Accessibility menu', a_t: 'Accessibility', a_big: 'Larger text', a_con: 'High contrast', a_links: 'Highlight links', a_still: 'Stop animations', a_reset: 'Reset',
-  foot: 'Roei Yehuda · Founder of Masada Group · Y.R Masada Ltd<br>Accessibility statement and privacy policy will be added at launch',
+  foot: 'Roei Yehuda · Founder of Masada Group · Y.R Masada Ltd',
   credit: 'Made by <a href="https://aura-digital.co.il" target="_blank" rel="noopener">AURA Digital</a>',
   flags: ['Israel','Greece','Italy','UAE','USA','England','Portugal','Cyprus']
 }

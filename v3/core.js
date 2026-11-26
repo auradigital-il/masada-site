@@ -99,13 +99,14 @@
       <label>${t('f_phone')}<input name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required></label>
       ${small ? '' : `<label class="full">${t('f_city')}<input name="addr" autocomplete="street-address"></label>
       <label class="full">${t('f_msg')}<textarea name="msg" rows="3"></textarea></label>`}
-      <label class="full ok"><input type="checkbox" name="ok" required><span>${t('f_ok')}</span></label>
+      <label class="full consent"><input type="checkbox" name="ok" required aria-required="true"><span>${t('f_ok2')}</span></label>
+      <label class="full consent"><input type="checkbox" name="mk"><span>${t('f_mk')}</span></label>
       <button class="send full" type="submit">${t('f_send')}</button>
       <p class="err full" role="alert" hidden>${t('f_err')}</p><p class="done full" role="status" hidden>${t('f_sent')}</p></form>`;
     const f = $('form', box);
     f.addEventListener('submit', e => { e.preventDefault(); const d = new FormData(f), err = $('.err', f);
       if (!d.get('name') || !d.get('phone') || !d.get('ok')) { err.hidden = false; return; } err.hidden = true;
-      const msg = `${t('f_hello')}\n${t('f_name')}: ${d.get('name')}\n${t('f_phone')}: ${d.get('phone')}\n${t('f_topic')}: ${t(topic)}${d.get('addr') ? '\n' + d.get('addr') : ''}${d.get('msg') ? '\n' + d.get('msg') : ''}`;
+      const msg = `${t('f_hello')}\n${t('f_name')}: ${d.get('name')}\n${t('f_phone')}: ${d.get('phone')}\n${t('f_topic')}: ${t(topic)}${d.get('mk') ? (lang === 'he' ? '\nמאשר/ת עדכונים' : '\nOK with updates') : ''}${d.get('addr') ? '\n' + d.get('addr') : ''}${d.get('msg') ? '\n' + d.get('msg') : ''}`;
       window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
       $('.done', f).hidden = false; });
   }
@@ -149,6 +150,9 @@
 
   /* ---------- כפתור שפותח/סוגר חלק (בקשת סיסמה) ---------- */
   $$('[data-toggle]').forEach(b => b.addEventListener('click', () => { const el = document.getElementById(b.dataset.toggle); el.hidden = !el.hidden; b.setAttribute('aria-expanded', !el.hidden); if (!el.hidden) setTimeout(() => { const i = $('input', el); i && i.focus(); }, 50); }));
+
+  /* ---------- גלילה מהפתיחה לתחומים ---------- */
+  $$('[data-scroll]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); const t = $('.hs'); t && t.scrollIntoView({behavior:'smooth'}); }));
 
   /* ---------- רשתות בתחתית ---------- */
   const IG = 'https://www.instagram.com/roei_yehuda/';
