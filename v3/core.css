@@ -202,3 +202,20 @@ html[dir=rtl] .ht .btn::after{content:"←"}html[dir=ltr] .ht .btn::after{conten
 .legal .lg-body .upd{margin-top:30px;font-size:14px;opacity:.8}
 footer .flinks{margin-top:8px}
 footer .flinks a{text-decoration:underline;text-underline-offset:3px}
+
+/* וואטסאפ בזהב, בצד שמאל, מהבהב כשגוללים */
+.waf{right:auto;left:20px;background:linear-gradient(160deg,var(--acc2),var(--acc) 55%,var(--acc3,#a8823f));color:var(--acc-fg);border:1px solid color-mix(in srgb,var(--acc2) 70%,transparent);animation:wafG 2.8s infinite}
+.waf:hover{filter:brightness(1.08)}
+@keyframes wafG{0%{box-shadow:0 12px 30px rgba(0,0,0,.4),0 0 0 0 color-mix(in srgb,var(--acc) 55%,transparent)}70%{box-shadow:0 12px 30px rgba(0,0,0,.4),0 0 0 16px transparent}100%{box-shadow:0 12px 30px rgba(0,0,0,.4),0 0 0 0 transparent}}
+.waf::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);background-size:250% 100%;background-position:120% 0;opacity:0;pointer-events:none}
+.waf{overflow:hidden;position:fixed}
+.waf.blink{animation:wafB .5s ease-in-out infinite alternate}
+.waf.blink::after{opacity:1;animation:wafS 1.1s linear infinite}
+@keyframes wafB{from{transform:scale(1);box-shadow:0 12px 30px rgba(0,0,0,.4),0 0 0 0 color-mix(in srgb,var(--acc) 70%,transparent)}to{transform:scale(1.08);box-shadow:0 12px 30px rgba(0,0,0,.4),0 0 26px 8px color-mix(in srgb,var(--acc2) 55%,transparent)}}
+@keyframes wafS{from{background-position:120% 0}to{background-position:-120% 0}}
+@media(max-width:700px){.waf{right:auto;left:12px}}
+.sketch-tag{left:auto;right:14px}
+@media(max-width:1100px){.sketch-tag{left:auto;right:12px}}
+.mn-wa{background:linear-gradient(160deg,var(--acc2),var(--acc) 55%,var(--acc3,#a8823f));color:var(--acc-fg)}
+@media(prefers-reduced-motion:reduce){.waf.blink,.waf.blink::after{animation:none}}
+html.a-still .waf.blink{transform:none}

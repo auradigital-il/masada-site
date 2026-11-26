@@ -151,6 +151,10 @@
   /* ---------- כפתור שפותח/סוגר חלק (בקשת סיסמה) ---------- */
   $$('[data-toggle]').forEach(b => b.addEventListener('click', () => { const el = document.getElementById(b.dataset.toggle); el.hidden = !el.hidden; b.setAttribute('aria-expanded', !el.hidden); if (!el.hidden) setTimeout(() => { const i = $('input', el); i && i.focus(); }, 50); }));
 
+  /* ---------- הוואטסאפ מהבהב בזמן גלילה (גם בעמודים הפנימיים) ---------- */
+  let blinkT;
+  addEventListener('scroll', () => { waf.classList.add('blink'); clearTimeout(blinkT); blinkT = setTimeout(() => waf.classList.remove('blink'), 900); }, {passive:true, capture:true});
+
   /* ---------- גלילה מהפתיחה לתחומים ---------- */
   $$('[data-scroll]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); const t = $('.hs'); t && t.scrollIntoView({behavior:'smooth'}); }));
 
