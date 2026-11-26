@@ -254,3 +254,14 @@ html.a-still .dock a::after{animation:none}
 .wm-lbl img{width:20px;height:14px;object-fit:cover;border-radius:2px}
 .wm-count{position:absolute;z-index:2;bottom:14px;left:16px;display:flex;align-items:center;gap:10px;color:var(--mu);font-size:12px;line-height:1.3}
 .wm-count b{font:200 44px/1 'Montserrat',sans-serif;background:linear-gradient(170deg,var(--acc2),var(--acc) 55%,var(--acc3,#a8823f));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* חתימה בתחתית: Roei Yehuda בזהב, השם והלוגו של מצדה */
+.fsig{display:flex;flex-direction:column;align-items:center;margin-bottom:26px}
+.fsig .sig{font-size:clamp(64px,8vw,110px);line-height:1.2}
+.fbrand{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:2px;flex-wrap:wrap}
+.fbrand b{font-size:20px;font-weight:700;color:var(--fg);letter-spacing:.02em}
+.fbrand i{width:1px;height:34px;background:var(--ln)}
+.mlogo{display:flex;align-items:center;gap:10px;direction:ltr}
+.mlogo img{height:38px;width:auto}
+.mlogo span{font:500 12px/1 'Montserrat',sans-serif;letter-spacing:.32em;color:var(--acc2)}
+@media(max-width:600px){.fsig .sig{font-size:min(17vw,80px)}.fbrand{gap:12px}.fbrand b{font-size:17px}.mlogo img{height:32px}.mlogo span{font-size:10.5px;letter-spacing:.26em}}
