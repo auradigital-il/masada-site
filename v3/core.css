@@ -288,3 +288,4 @@ html.a-still .dock a::after{animation:none}
 .story .lead{margin-top:0}
 .story .q2{margin-top:34px}
 @media(max-width:900px){.story-ph{aspect-ratio:4/4.4}.page .grid2.story-grid{margin-top:16px}#p-story .pg-head{padding-bottom:12px}}
+@media(max-width:700px){.top .me{visibility:hidden}}
