@@ -282,9 +282,9 @@ html.a-still .dock a::after{animation:none}
 /* הסיפור שלי */
 .story-hi img{object-position:50% 18%}
 .story-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
-.story-ph{aspect-ratio:4/5;align-self:start;position:sticky;top:100px}
+.story-ph{aspect-ratio:4/5;align-self:start}
 .story h3{margin-top:34px}
 .story p{margin-top:14px}
 .story .lead{margin-top:0}
 .story .q2{margin-top:34px}
-@media(max-width:900px){.story-ph{position:static;aspect-ratio:4/4.4}}
+@media(max-width:900px){.story-ph{aspect-ratio:4/4.4}.page .grid2.story-grid{margin-top:16px}#p-story .pg-head{padding-bottom:12px}}
