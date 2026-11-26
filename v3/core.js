@@ -135,7 +135,6 @@
     <a class="it" href="#story" data-mgo="story"><span data-t="m_story"></span></a>
     <a class="it" href="#articles" data-mgo="articles"><span data-t="h_more_art"></span></a>
     <a class="it" href="#press" data-mgo="press"><span data-t="h_more_press"></span></a>
-    <a class="it" href="#renew" data-mgo="renew" data-mto="renew-form"><span data-t="m_contact"></span></a>
     <div class="mn-row"><a class="mn-wa" data-wa>${waIco}<span data-t="wa"></span></a><a class="mn-tel" href="tel:+972544413413"><span data-t="m_call"></span> 054-4413413</a></div>
     <div class="mn-foot"><span data-t="m_follow"></span><div class="socials" data-socials></div><button class="mn-lang" type="button" data-t="m_lang"></button></div>
   </div></nav>`);
