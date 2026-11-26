@@ -102,6 +102,8 @@ he: {
   f_err: 'נא למלא שם, טלפון ולאשר', f_sent: 'תודה! הפנייה נפתחה בוואטסאפ של רועי',
   f_hello: 'שלום רועי, הגעתי דרך האתר שלך', f_topic: 'נושא',
   t_renew: 'התחדשות עירונית לבניין שלי', t_m26: 'בקשת סיסמה ל־M26',
+  t_broker: 'תיווך נדל״ן', f_int: 'מה מעניין אותך?', f_ints: ['קנייה','מכירה','השקעה בחו״ל','נכס מסחרי'],
+  bf_k: 'LET’S TALK', bf_h: 'ספרו לי מה אתם מחפשים<br><b>ונדבר</b>', bf_p: 'בדיסקרטיות מלאה', bf_or: 'או ישר בוואטסאפ ובטלפון',
 
   /* סרטון */
   v_back: '10 שניות אחורה', v_fwd: '10 שניות קדימה', v_pause: 'עצירה', v_play: 'המשך',
@@ -209,6 +211,8 @@ en: {
   f_err: 'Please fill in name, phone and approve', f_sent: 'Thank you! The message opened in Roei’s WhatsApp',
   f_hello: 'Hi Roei, I found you through your website', f_topic: 'Topic',
   t_renew: 'Urban renewal for my building', t_m26: 'M26 password request',
+  t_broker: 'Real estate brokerage', f_int: 'What interests you?', f_ints: ['Buying','Selling','Investing abroad','Commercial property'],
+  bf_k: 'LET’S TALK', bf_h: 'Tell me what you’re looking for<br><b>and let’s talk</b>', bf_p: 'Fully discreet', bf_or: 'Or straight to WhatsApp or phone',
 
   v_back: 'Back 10 seconds', v_fwd: 'Forward 10 seconds', v_pause: 'Pause', v_play: 'Play',
   v_on: '🔈 Play with sound', v_off: '🔊 Mute',

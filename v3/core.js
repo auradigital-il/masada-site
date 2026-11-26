@@ -93,12 +93,13 @@
 
   /* ---------- טפסים: בסקיצה הפנייה נפתחת בוואטסאפ של רועי ---------- */
   function renderForm(box){
-    const topic = box.dataset.form, small = topic === 't_m26';
+    const topic = box.dataset.form, small = topic === 't_m26', broker = topic === 't_broker';
     box.classList.add('cform');
     box.innerHTML = `<form novalidate>
       <label>${t('f_name')}<input name="name" autocomplete="name" required></label>
       <label>${t('f_phone')}<input name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required></label>
-      ${small ? '' : `<label class="full">${t('f_city')}<input name="addr" autocomplete="street-address"></label>
+      ${broker ? `<fieldset class="full ints"><legend>${t('f_int')}</legend>${t('f_ints').map(x => `<label><input type="checkbox" name="int" value="${x}"><span>${x}</span></label>`).join('')}</fieldset>` : ''}
+      ${small || broker ? '' : `<label class="full">${t('f_city')}<input name="addr" autocomplete="street-address"></label>
       <label class="full">${t('f_msg')}<textarea name="msg" rows="3"></textarea></label>`}
       <label class="full consent"><input type="checkbox" name="ok" required aria-required="true"><span>${t('f_ok2')}</span></label>
       <label class="full consent"><input type="checkbox" name="mk"><span>${t('f_mk')}</span></label>
@@ -108,7 +109,7 @@
     const f = $('form', box);
     f.addEventListener('submit', e => { e.preventDefault(); const d = new FormData(f), err = $('.err', f);
       if (!d.get('name') || !d.get('phone') || !d.get('ok')) { err.hidden = false; return; } err.hidden = true;
-      const msg = `${t('f_hello')}\n${t('f_name')}: ${d.get('name')}\n${t('f_phone')}: ${d.get('phone')}\n${t('f_topic')}: ${t(topic)}${d.get('mk') ? (lang === 'he' ? '\nמאשר/ת עדכונים' : '\nOK with updates') : ''}${d.get('addr') ? '\n' + d.get('addr') : ''}${d.get('msg') ? '\n' + d.get('msg') : ''}`;
+      const msg = `${t('f_hello')}\n${t('f_name')}: ${d.get('name')}\n${t('f_phone')}: ${d.get('phone')}\n${t('f_topic')}: ${t(topic)}${d.get('mk') ? (lang === 'he' ? '\nמאשר/ת עדכונים' : '\nOK with updates') : ''}${d.getAll('int').length ? '\n' + t('f_int') + ' ' + d.getAll('int').join(', ') : ''}${d.get('addr') ? '\n' + d.get('addr') : ''}${d.get('msg') ? '\n' + d.get('msg') : ''}`;
       window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
       $('.done', f).hidden = false; });
   }

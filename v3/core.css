@@ -289,3 +289,16 @@ html.a-still .dock a::after{animation:none}
 .story .q2{margin-top:34px}
 @media(max-width:900px){.story-ph{aspect-ratio:4/4.4}.page .grid2.story-grid{margin-top:16px}#p-story .pg-head{padding-bottom:12px}}
 @media(max-width:700px){.top .me{visibility:hidden}}
+
+/* טופס התיווך: בחירה מהירה במה מעניין */
+.cform .ints{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.cform .ints legend{font-size:14px;color:var(--mu);margin-bottom:8px;padding:0}
+.cform .ints label{flex-direction:row;cursor:pointer}
+.cform .ints input{position:absolute;opacity:0;width:1px;height:1px}
+.cform .ints span{display:inline-block;padding:10px 16px;border:1px solid var(--ln);border-radius:999px;font-size:14px;color:var(--fg);transition:background .2s,border-color .2s,color .2s}
+.cform .ints input:checked+span{background:linear-gradient(180deg,var(--acc2),var(--acc));border-color:var(--acc);color:var(--acc-fg);font-weight:700}
+.cform .ints input:focus-visible+span{outline:2px solid var(--acc2);outline-offset:2px}
+.bf-or{margin-top:22px;font-size:14px;color:var(--mu)}
+.bf-or .acts{margin-top:10px;gap:8px}
+.btn.sm{padding:10px 18px;font-size:14px}
+@media(max-width:700px){.bf-or .acts{display:grid;grid-template-columns:1fr 1fr}.btn.sm{justify-content:center;padding-inline:10px}}
